@@ -1,0 +1,54 @@
+created:
+    - database/factories/TableBannerFactory.php
+    - database/factories/TablePrduceFactory.php
+    - database/factories/TableAuthorDetailFactory.php
+    - database/factories/TableOrderFactory.php
+    - database/factories/TableCategoryFactory.php
+    - database/factories/TableProductFactory.php
+    - database/factories/TableProductImportDetailFactory.php
+    - database/factories/TableGaleryFactory.php
+    - database/factories/TableAuthorFactory.php
+    - database/factories/TableOrdersDetailFactory.php
+    - database/factories/TableProductImportFactory.php
+    - database/factories/TableUserFactory.php
+    - database/factories/TableVoucherFactory.php
+    - database/migrations/2023_05_04_134811_create_table_banners_table.php
+    - database/migrations/2023_05_04_134812_create_table_prduces_table.php
+    - database/migrations/2023_05_04_134813_create_table_author_details_table.php
+    - database/migrations/2023_05_04_134814_create_table_orders_table.php
+    - database/migrations/2023_05_04_134815_create_table_categories_table.php
+    - database/migrations/2023_05_04_134816_create_table_products_table.php
+    - database/migrations/2023_05_04_134817_create_table_product_import_details_table.php
+    - database/migrations/2023_05_04_134818_create_table_galeries_table.php
+    - database/migrations/2023_05_04_134819_create_table_authors_table.php
+    - database/migrations/2023_05_04_134820_create_table_orders_details_table.php
+    - database/migrations/2023_05_04_134821_create_table_product_imports_table.php
+    - database/migrations/2023_05_04_134822_create_table_users_table.php
+    - database/migrations/2023_05_04_134823_create_table_vouchers_table.php
+    - app/Models/TableBanner.php
+    - app/Models/TablePrduce.php
+    - app/Models/TableAuthorDetail.php
+    - app/Models/TableOrder.php
+    - app/Models/TableCategory.php
+    - app/Models/TableProduct.php
+    - app/Models/TableProductImportDetail.php
+    - app/Models/TableGalery.php
+    - app/Models/TableAuthor.php
+    - app/Models/TableOrdersDetail.php
+    - app/Models/TableProductImport.php
+    - app/Models/TableUser.php
+    - app/Models/TableVoucher.php
+models:
+    TableBanner: { id: increments, stt: integer, photo: string, link: string, type: string, status: string }
+    TablePrduce: { id: increments, name: string, desc: mediumText, status: string }
+    TableAuthorDetail: { id: 'integer primary', authour_id: 'integer foreign:table_author.id', product_id: 'integer foreign:table_product.id' }
+    TableOrder: { id: increments, order_date: dateTime, total_money: integer, status: string, order_code: string }
+    TableCategory: { id: increments, name: string, status: string }
+    TableProduct: { id: increments, id_category: 'integer foreign:table_category.id', id_priduce: 'integer foreign:table_prduce.id', photo: string, name: string, regular_price: integer, sale_price: integer, discount: integer, code: string, stt: 'integer autoIncrement', desc: mediumText, content: longText, stock: integer, created_at: dateTime, updated_at: dateTime, status: string, slug: string }
+    TableProductImportDetail: { id: increments, id_product: 'integer foreign:table_product.id', id_product_import: 'integer foreign:table_product_import.id', quantity: integer, price: float }
+    TableGalery: { id: increments, product_id: 'integer foreign:table_product.id', thumbnail: string, status: string }
+    TableAuthor: { id: increments, name: string, desc: mediumText, status: bigInteger }
+    TableOrdersDetail: { id: increments, id_orders: 'integer foreign:table_orders.id', id_product: 'integer foreign:table_product.id', price: integer, stt: integer, total_money: integer, quantity: integer, id_user: 'integer foreign:table_user.id' }
+    TableProductImport: { id: increments, import_date: dateTime, total_money: integer, import_code: string }
+    TableUser: { id: increments, fullname: string, email: string, phone: string, address: string, password: string, created_at: dateTime, updated_at: dateTime, status: string }
+    TableVoucher: { id: increments, id_product: 'integer foreign:table_product.id', name: string, code: string, status: string }
