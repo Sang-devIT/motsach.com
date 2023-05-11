@@ -1,20 +1,9 @@
 models:
-    TableBanner:
-        id: increments
-        stt: integer
-        photo: string
-        link: string
-        type: string
-        status: string
-    TablePrduce:
+    TableProduce:
         id: increments
         name: string
         desc: mediumText
         status: string
-    TableAuthorDetail:
-        id: integer primary
-        authour_id: integer foreign:table_author.id
-        product_id: integer foreign:table_product.id
     TableOrder:
         id: increments
         order_date: dateTime
@@ -28,46 +17,19 @@ models:
     TableProduct:
         id: increments
         id_category: integer foreign:table_category.id
-        id_priduce: integer foreign:table_prduce.id
+        id_produce: integer foreign:table_produce.id
         photo: string
         name: string
         regular_price: integer
         sale_price: integer
         discount: integer
         code: string
-        stt: integer autoIncrement
+        stt: integer
         desc: mediumText
         content: longText
         stock: integer
-        created_at: dateTime
-        updated_at: dateTime
         status: string
         slug: string
-    TableProductImportDetail:
-        id: increments
-        id_product: integer foreign:table_product.id
-        id_product_import: integer foreign:table_product_import.id
-        quantity: integer
-        price: float
-    TableGalery:
-        id: increments
-        product_id: integer foreign:table_product.id
-        thumbnail: string
-        status: string
-    TableAuthor:
-        id: increments
-        name: string
-        desc: mediumText
-        status: bigInteger
-    TableOrdersDetail:
-        id: increments
-        id_orders: integer foreign:table_orders.id
-        id_product: integer foreign:table_product.id
-        price: integer
-        stt: integer
-        total_money: integer
-        quantity: integer
-        id_user: integer foreign:table_user.id
     TableProductImport:
         id: increments
         import_date: dateTime
@@ -80,12 +42,47 @@ models:
         phone: string
         address: string
         password: string
-        created_at: dateTime
-        updated_at: dateTime
         status: string
+    TableAuthor:
+        id: increments
+        name: string
+        desc: mediumText
+        status: bigInteger
+    TableAuthorDetail:
+        id: integer primary
+        authour_id: integer foreign:table_author.id
+        product_id: integer foreign:table_product.id
+    TableProductImportDetail:
+        id: increments
+        id_product: integer foreign:table_product.id
+        id_product_import: integer foreign:table_product_import.id
+        quantity: integer
+        price: float
+    TableGalery:
+        id: increments
+        product_id: integer foreign:table_product.id
+        thumbnail: string
+        status: string
+    TableOrdersDetail:
+        id: increments
+        id_orders: integer foreign:table_order.id
+        id_product: integer foreign:table_product.id
+        price: integer
+        stt: integer
+        total_money: integer
+        quantity: integer
+        id_user: integer foreign:table_user.id
     TableVoucher:
         id: increments
         id_product: integer foreign:table_product.id
         name: string
         code: string
         status: string
+    TableBanner:
+        id: increments
+        stt: integer
+        photo: string
+        link: string
+        type: string
+        status: string
+        

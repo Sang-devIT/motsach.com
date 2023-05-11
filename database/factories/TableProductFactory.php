@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\TableCategory;
-use App\Models\TablePrduce;
+use App\Models\TableProduce;
 use App\Models\TableProduct;
 
 class TableProductFactory extends Factory
@@ -26,7 +26,7 @@ class TableProductFactory extends Factory
     {
         return [
             'id_category' => TableCategory::factory(),
-            'id_priduce' => TablePrduce::factory(),
+            'id_produce' => TableProduce::factory(),
             'photo' => $this->faker->word,
             'name' => $this->faker->name,
             'regular_price' => $this->faker->numberBetween(-10000, 10000),
@@ -37,8 +37,6 @@ class TableProductFactory extends Factory
             'desc' => $this->faker->text,
             'content' => $this->faker->paragraphs(3, true),
             'stock' => $this->faker->numberBetween(-10000, 10000),
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
             'status' => $this->faker->word,
             'slug' => $this->faker->slug,
         ];

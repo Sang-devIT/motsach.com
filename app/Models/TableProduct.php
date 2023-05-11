@@ -16,7 +16,7 @@ class TableProduct extends Model
      */
     protected $fillable = [
         'id_category',
-        'id_priduce',
+        'id_produce',
         'photo',
         'name',
         'regular_price',
@@ -31,23 +31,13 @@ class TableProduct extends Model
         'slug',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
-
     public function idCategory()
     {
         return $this->belongsTo(TableCategory::class);
     }
 
-    public function idPriduce()
+    public function idProduce()
     {
-        return $this->belongsTo(TablePrduce::class);
+        return $this->belongsTo(TableProduce::class);
     }
 }
