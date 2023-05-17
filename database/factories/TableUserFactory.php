@@ -28,8 +28,6 @@ class TableUserFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'address' => $this->faker->word,
             'password' => $this->faker->password,
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
             'status' => $this->faker->word,
         ];
     }

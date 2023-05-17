@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class TableUser extends Model
+class TableUser extends Authenticate
 {
-    use HasFactory;
+    use HasFactory, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -29,16 +32,10 @@ class TableUser extends Model
      * @var array
      */
     protected $hidden = [
-        'password',
-    ];
+        'password','remember_token',
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+    ];
+    protected $casts=[
+        'email_verified_at' => 'datetime',   
     ];
 }
