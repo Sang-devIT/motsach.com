@@ -7,8 +7,8 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="tg-sectionhead">
-						<h2><span>People’s Choice</span>Bestselling Books</h2>
-						<a class="tg-btn" href="javascript:void(0);">View All</a>
+						<h2><span>Sự lựa chọn của mọi người</span>Sách bán chạy</h2>
+						<a class="tg-btn" href="javascript:void(0);">Xem tất cả</a>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -414,7 +414,7 @@
 								<i class="icon-bubble"></i>
 							</div>
 							<div class="tg-titlepluscounter">
-								<h2>Drama</h2>
+								<h2>Kịch</h2>
 								<h3 data-from="0" data-to="6179213" data-speed="8000" data-refresh-interval="50">6,179,213</h3>
 							</div>
 						</div>
@@ -423,7 +423,7 @@
 								<i class="icon-heart-pulse"></i>
 							</div>
 							<div class="tg-titlepluscounter">
-								<h2>Horror</h2>
+								<h2>Kinh dị</h2>
 								<h3 data-from="0" data-to="3121242" data-speed="8000" data-refresh-interval="50">3,121,242</h3>
 							</div>
 						</div>
@@ -432,7 +432,7 @@
 								<i class="icon-heart"></i>
 							</div>
 							<div class="tg-titlepluscounter">
-								<h2>Romance</h2>
+								<h2>Lãng mạn</h2>
 								<h3 data-from="0" data-to="2101012" data-speed="8000" data-refresh-interval="50">2,101,012</h3>
 							</div>
 						</div>
@@ -441,7 +441,7 @@
 								<i class="icon-star"></i>
 							</div>
 							<div class="tg-titlepluscounter">
-								<h2>Fashion</h2>
+								<h2>Thời trang</h2>
 								<h3 data-from="0" data-to="1158245" data-speed="8000" data-refresh-interval="50">1,158,245</h3>
 							</div>
 						</div>
@@ -461,8 +461,8 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="tg-sectionhead">
-						<h2><span>Some Great Books</span>Picked By Authors</h2>
-						<a class="tg-btn" href="javascript:void(0);">View All</a>
+						<h2><span>Một số cuốn sách hay</span>Được viết bởi các tác giả</h2>
+						<a class="tg-btn" href="javascript:void(0);">Xem tất cả</a>
 					</div>
 				</div>
 				<div id="tg-pickedbyauthorslider" class="tg-pickedbyauthor tg-pickedbyauthorslider owl-carousel">
@@ -685,8 +685,8 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="tg-sectionhead">
-						<h2><span>Latest News &amp; Articles</span>What's Hot in The News</h2>
-						<a class="tg-btn" href="javascript:void(0);">View All</a>
+						<h2><span>Tin tức &amp; Bài báo mới nhất</span>tin tức hot nhất </h2>
+						<a class="tg-btn" href="javascript:void(0);">Xem tất cả</a>
 					</div>
 				</div>
 				<div id="tg-postslider" class="tg-postslider tg-blogpost owl-carousel">

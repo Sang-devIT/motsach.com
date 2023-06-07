@@ -7,29 +7,29 @@
                         <li class="tg-devlivery">
                             <span class="tg-clientserviceicon"><i class="icon-rocket"></i></span>
                             <div class="tg-titlesubtitle">
-                                <h3>Fast Delivery</h3>
-                                <p>Shipping Worldwide</p>
+                                <h3>Chuyển phát nhanh</h3>
+                                <p>Vận chuyển trên toàn quốc</p>
                             </div>
                         </li>
                         <li class="tg-discount">
                             <span class="tg-clientserviceicon"><i class="icon-tag"></i></span>
                             <div class="tg-titlesubtitle">
-                                <h3>Open Discount</h3>
-                                <p>Offering Open Discount</p>
+                                <h3>Mã giảm giá</h3>
+                                <p>Cung cấp giảm giá mở</p>
                             </div>
                         </li>
                         <li class="tg-quality">
                             <span class="tg-clientserviceicon"><i class="icon-leaf"></i></span>
                             <div class="tg-titlesubtitle">
-                                <h3>Eyes On Quality</h3>
-                                <p>Publishing Quality Work</p>
+                                <h3>Chú ý đến chất lượng</h3>
+                                <p>Công việc chất lượng xuất bản</p>
                             </div>
                         </li>
                         <li class="tg-support">
                             <span class="tg-clientserviceicon"><i class="icon-heart"></i></span>
                             <div class="tg-titlesubtitle">
-                                <h3>24/7 Support</h3>
-                                <p>Serving Every Moments</p>
+                                <h3>Hỗ trợ 24/7 </h3>
+                                <p>Phục vụ mọi khoảnh khắc</p>
                             </div>
                         </li>
                     </ul>
@@ -137,8 +137,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <h4>Signup Newsletter!</h4>
-                    <h5>Consectetur adipisicing elit sed do eiusmod tempor incididunt.</h5>
+                    <h4>Bản tin đăng ký!</h4>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <form class="tg-formtheme tg-formnewsletter">

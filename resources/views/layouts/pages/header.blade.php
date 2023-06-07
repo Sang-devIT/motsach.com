@@ -7,17 +7,12 @@
                         <li>
                             <a href="javascript:void(0);">
                                 <i class="icon-envelope"></i>
-                                <em>Contact</em>
+                                <em>Liên hệ</em>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <i class="icon-question-circle"></i>
-                                <em>Help</em>
-                            </a>
-                        </li>
+                       
                     </ul>
-                    <div class="dropdown tg-themedropdown tg-currencydropdown">
+                    <!-- <div class="dropdown tg-themedropdown tg-currencydropdown">
                         <a href="javascript:void(0);" id="tg-currenty" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="icon-earth"></i>
                             <span>Currency</span>
@@ -42,7 +37,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="tg-userlogin">
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -87,13 +82,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <strong class="tg-logo"><a href="index-2.html"><img src="{{asset('frontend/images/logo.png')}}" alt="company name here"></a></strong>
+                    <strong class="tg-logo"><a href="{{route('index')}}"><img src="{{asset('frontend/images/logo.png')}}" alt="company name here"></a></strong>
                     <div class="tg-wishlistandcart">
                         <div class="dropdown tg-themedropdown tg-wishlistdropdown">
                             <a href="javascript:void(0);" id="tg-wishlisst" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="tg-themebadge">3</span>
                                 <i class="icon-heart"></i>
-                                <span>Wishlist</span>
+                                <span>Yêu thích</span>
                             </a>
                             <div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-wishlisst">
                                 <div class="tg-description"><p>No products were added to the wishlist!</p></div>
@@ -155,10 +150,10 @@
                     <div class="tg-searchbox">
                         <form class="tg-formtheme tg-formsearch">
                             <fieldset>
-                                <input type="text" name="search" class="typeahead form-control" placeholder="Search by title, author, keyword, ISBN...">
+                                <input type="text" name="search" class="typeahead form-control" placeholder="Tìm kiếm Sách, tác giả, từ khóa,...">
                                 <button type="submit"><i class="icon-magnifier"></i></button>
                             </fieldset>
-                            <a href="javascript:void(0);">+  Advanced Search</a>
+                            <!-- <a href="javascript:void(0);">+  Advanced Search</a> -->
                         </form>
                     </div>
                 </div>
