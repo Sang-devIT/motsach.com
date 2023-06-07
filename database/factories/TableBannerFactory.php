@@ -23,7 +23,7 @@ class TableBannerFactory extends Factory
     public function definition()
     {
         return [
-            'stt' => $this->faker->numberBetween(-10000, 10000),
+            'name' => $this->faker->name,
             'photo' => $this->faker->word,
             'link' => $this->faker->word,
             'type' => $this->faker->word,

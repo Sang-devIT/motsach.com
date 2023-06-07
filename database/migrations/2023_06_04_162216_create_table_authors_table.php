@@ -13,8 +13,6 @@ class CreateTableAuthorsTable extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
-
         Schema::create('table_authors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -22,8 +20,6 @@ class CreateTableAuthorsTable extends Migration
             $table->bigInteger('status');
             $table->timestamps();
         });
-
-        Schema::enableForeignKeyConstraints();
     }
 
     /**

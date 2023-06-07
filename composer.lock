@@ -2642,6 +2642,8 @@
             },
             "dist": {
                 "type": "zip",
+                //"url": "https://api.github.com/repos/bobthecow/psysh/zipball/3dc5d4018dabd80bceb8fe1e3191ba8460569f0a",
+                //"reference": "3dc5d4018dabd80bceb8fe1e3191ba8460569f0a",
                 "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4f00ee9e236fa6a48f4560d1300b9c961a70a7ec",
                 "reference": "4f00ee9e236fa6a48f4560d1300b9c961a70a7ec",
                 "shasum": ""
@@ -2705,7 +2707,8 @@
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
                 "source": "https://github.com/bobthecow/psysh/tree/v0.11.18"
-            },
+            },]
+            //"time": "2023-05-05T20:02:42+00:00"
             "time": "2023-05-23T02:31:11+00:00"
         },
         {

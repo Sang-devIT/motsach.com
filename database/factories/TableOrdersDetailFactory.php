@@ -29,7 +29,6 @@ class TableOrdersDetailFactory extends Factory
             'id_orders' => TableOrder::factory(),
             'id_product' => TableProduct::factory(),
             'price' => $this->faker->numberBetween(-10000, 10000),
-            'stt' => $this->faker->numberBetween(-10000, 10000),
             'total_money' => $this->faker->numberBetween(-10000, 10000),
             'quantity' => $this->faker->numberBetween(-10000, 10000),
             'id_user' => TableUser::factory(),

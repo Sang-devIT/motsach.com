@@ -22,7 +22,6 @@ class CreateTableOrdersDetailsTable extends Migration
             $table->integer('id_product');
             $table->foreign('id_product')->references('id')->on('table_product');
             $table->integer('price');
-            $table->integer('stt');
             $table->integer('total_money');
             $table->integer('quantity');
             $table->integer('id_user');
