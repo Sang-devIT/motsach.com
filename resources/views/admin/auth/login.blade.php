@@ -26,6 +26,7 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
+  <link href="{{asset('backend/fontawesome512/all.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/css/nucleo-icons.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
@@ -56,8 +57,9 @@
               <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
                 <li class="nav-item">
                   <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                  
                     Về Trang chủ
+                    <i class="fas fa-arrow-alt-circle-right"></i>
                   </a>
                 </li>
                 <!-- <li class="nav-item">

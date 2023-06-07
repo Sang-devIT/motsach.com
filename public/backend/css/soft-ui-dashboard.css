@@ -22353,7 +22353,12 @@
     font-weight: 400;
     font-size: 0.875rem;
   }
-  
+    .navbar .nav-link i{
+      
+margin-top: 2px;
+      
+margin-left: 5px;
+    }
   .navbar.navbar-absolute {
     position: absolute;
     width: 100%;
@@ -26676,7 +26681,5 @@
       overflow: auto !important;
     }
   }
-  .box-eror-login {
-    color: red;
-}
+  
   /*# sourceMappingURL=dashboard-free.css.map */
