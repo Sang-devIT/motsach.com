@@ -18,7 +18,6 @@ class TableOrdersDetail extends Model
         'id_orders',
         'id_product',
         'price',
-        'stt',
         'total_money',
         'quantity',
         'id_user',

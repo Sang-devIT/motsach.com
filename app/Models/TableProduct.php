@@ -17,13 +17,11 @@ class TableProduct extends Model
     protected $fillable = [
         'id_category',
         'id_produce',
+        'id_author',
         'photo',
         'name',
         'regular_price',
-        'sale_price',
-        'discount',
         'code',
-        'stt',
         'desc',
         'content',
         'stock',
@@ -39,5 +37,10 @@ class TableProduct extends Model
     public function idProduce()
     {
         return $this->belongsTo(TableProduce::class);
+    }
+
+    public function idAuthor()
+    {
+        return $this->belongsTo(TableAuthor::class);
     }
 }

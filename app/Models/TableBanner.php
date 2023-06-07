@@ -15,7 +15,7 @@ class TableBanner extends Model
      * @var array
      */
     protected $fillable = [
-        'stt',
+        'name',
         'photo',
         'link',
         'type',

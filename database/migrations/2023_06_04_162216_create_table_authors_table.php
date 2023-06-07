@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRememberToUsersTable extends Migration
+class CreateTableAuthorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddRememberToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('table_users', function (Blueprint $table) {
-            $table->string('remember_token')->nullable;
+        Schema::create('table_authors', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->mediumText('desc');
+            $table->bigInteger('status');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddRememberToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('table_users', function (Blueprint $table) {
-            $table->dropIfExists('table_users');
-        });
+        Schema::dropIfExists('table_authors');
     }
 }

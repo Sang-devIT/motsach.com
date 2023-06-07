@@ -14,17 +14,20 @@ models:
         id: increments
         name: string
         status: string
+    TableAuthor:
+        id: increments
+        name: string
+        desc: mediumText
+        status: bigInteger
     TableProduct:
         id: increments
         id_category: integer foreign:table_category.id
         id_produce: integer foreign:table_produce.id
+        id_author: integer foreign:table_author.id
         photo: string
         name: string
         regular_price: integer
-        sale_price: integer
-        discount: integer
         code: string
-        stt: integer
         desc: mediumText
         content: longText
         stock: integer
@@ -43,15 +46,6 @@ models:
         address: string
         password: string
         status: string
-    TableAuthor:
-        id: increments
-        name: string
-        desc: mediumText
-        status: bigInteger
-    TableAuthorDetail:
-        id: integer primary
-        authour_id: integer foreign:table_author.id
-        product_id: integer foreign:table_product.id
     TableProductImportDetail:
         id: increments
         id_product: integer foreign:table_product.id
@@ -68,7 +62,6 @@ models:
         id_orders: integer foreign:table_order.id
         id_product: integer foreign:table_product.id
         price: integer
-        stt: integer
         total_money: integer
         quantity: integer
         id_user: integer foreign:table_user.id
@@ -80,7 +73,7 @@ models:
         status: string
     TableBanner:
         id: increments
-        stt: integer
+        name: string
         photo: string
         link: string
         type: string

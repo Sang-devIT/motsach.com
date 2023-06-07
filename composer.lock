@@ -2647,7 +2647,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/bobthecow/psysh/zipball/3dc5d4018dabd80bceb8fe1e3191ba8460569f0a",
                 "reference": "3dc5d4018dabd80bceb8fe1e3191ba8460569f0a",
-
                 "shasum": ""
             },
             "require": {
@@ -2711,7 +2710,6 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.11.17"
             },
             "time": "2023-05-05T20:02:42+00:00"
-
         },
         {
             "name": "ralouphie/getallheaders",

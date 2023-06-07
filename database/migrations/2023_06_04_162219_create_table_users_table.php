@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableAuthorDetailsTable extends Migration
+class CreateTableUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,14 @@ class CreateTableAuthorDetailsTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('table_author_details', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->integer('authour_id');
-            $table->foreign('authour_id')->references('id')->on('table_author');
-            $table->integer('product_id');
-            $table->foreign('product_id')->references('id')->on('table_product');
+        Schema::create('table_users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('fullname');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('password');
+            $table->string('status');
             $table->timestamps();
         });
 
@@ -34,6 +36,6 @@ class CreateTableAuthorDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_author_details');
+        Schema::dropIfExists('table_users');
     }
 }
