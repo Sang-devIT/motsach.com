@@ -118,7 +118,7 @@ textarea.form-control{
 .form-control:-moz-placeholder { color: #666; } /* Mozilla Firefox 4 to 18 */
 .form-control::-moz-placeholder { color: #666; } /* Mozilla Firefox 19+ */
 .form-control:-ms-input-placeholder { color: #666; } /* Internet Explorer 10-11 */
-.form-control::-ms-input-placeholder { color:#66; } /* Microsoft Edge */
+.form-control::-ms-input-placeholder { color:#666; } /* Microsoft Edge */
 input:focus,
 .select select:focus,
 .form-control:focus {
@@ -634,7 +634,7 @@ li.tg-rss a { background:#ff6600; }
 .tg-sectionhead .tg-btn,
 .tg-btnstyletwo {
 	float: right;
-	padding: 0 25px;
+	padding: 0 15px;
 	margin: 6px 0 0;
 	border-radius: 20px;
 }
@@ -2596,6 +2596,7 @@ li.menu-item-has-mega-menu { position: static; }
 	line-height: 17px;
 	list-style: none;
 	font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+	padding-left: 0;
 }
 .tg-widget ul li{
 	width: 100%;

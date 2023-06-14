@@ -56,7 +56,7 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
+                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{{route('index')}}">
                   
                     Về Trang chủ
                     <i class="fas fa-arrow-alt-circle-right"></i>
@@ -128,12 +128,7 @@
                   </form>
                   
                 </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
-                    Don't have an account?
-                    <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
-                  </p>
-                </div>
+                
               </div>
             </div>
             

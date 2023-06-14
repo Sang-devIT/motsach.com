@@ -6,7 +6,7 @@ Product
 @section('content')
     <div class="card">
         <div class="card-header" >
-            <h2>Danh sách sản phẩm</h2>
+            <h4>Danh sách sản phẩm</h4>
             @if(session('flash_message'))
                 <div class="close-flash_message" style="color: green;font-size: 14px;">{{ session('flash_message') }}</div>
             @endif

@@ -5,7 +5,7 @@ Product
 
 @section('content')
     <div class="card">
-        <div class="card-header pb-0"><h3>Thêm hình ảnh sản phẩm</h3></div>
+        <div class="card-header d-flex justify-content-start pb-0"><h5 class="title-1">Sản phẩm / </h5><h5> Thêm sản phẩm</h5></div>
         <div class="card-body pt-0">
             <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
                 @csrf

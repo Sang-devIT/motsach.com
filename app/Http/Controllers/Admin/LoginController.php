@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TableUser;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -20,6 +22,13 @@ class LoginController extends Controller
         return view('admin.auth.login');
 
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function login (Request $request){
         $this->validate($request,[
          'email'=> 'required|email',
@@ -30,7 +39,7 @@ class LoginController extends Controller
              'email' => $request -> email,
              'password' => $request -> password,
          ], $request-> get('remember')))
-         {
+         { 
              return redirect()-> intended(route('admin.dashboard'));
          } else {
        
@@ -38,6 +47,8 @@ class LoginController extends Controller
              return back()->with('error','Tài khoản or mật khẩu không đúng!!!');
  
          }
+         $users = DB::table('TableUser')->get();
+         return view('admin.partials.sidebar', ['users' => $users]);
      }
     public function logout (Request $request){
         Auth::guard('admin')->logout();

@@ -57,7 +57,9 @@ Route::group(['prefix' => '/'],function(){
         Route::get('destroy/{id}',[Admin\ProducesController::class,'destroy'])->name('admin.produce.destroy');
     });
     // ProductImport
-        Route::get('/product-import',[Admin\ProductImportsController::class,'index'])->name('admin.productimport');
+    Route::get('/product-import',[Admin\ProductImportsController::class,'index'])->name('admin.productimport');
+
+    
     Route::group(['middleware' => ['auth:admin']],function(){
             Route::get('/', function(){
                 return view('admin.dashboard.index');

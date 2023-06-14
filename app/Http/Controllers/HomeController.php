@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\TableProduct;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +22,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return view('home');
+        //$product = TableProduct::latest()->paginate(5);
+
+
     }
 }
