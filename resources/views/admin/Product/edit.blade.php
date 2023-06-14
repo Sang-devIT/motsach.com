@@ -10,10 +10,20 @@ Product
             <form action="{{ route('admin.product.update',$id)}}" enctype="multipart/form-data" method="post">
                 @csrf
                 @method("POST")
+                @if (empty($nameloi))
+                 <div class="form-group">
+                    <label>Tên sản phẩm</label>
+                    <input type="text" name="name" class="form-control" id="name" value="{{ $contact[0]->name }}" required>
+                    <span style="color: red">@error('name'){{ $message }}@enderror</span>
+                </div>   
+                @else
                 <div class="form-group">
                     <label>Tên sản phẩm</label>
-                    <input type="text" name="name" class="form-control" id="name" value="{{ $contact[0]->name }}">
+                    <input type="text" name="name" class="form-control" id="name" value="{{ $nameloi }}" required>
+                    <span style="color: red">{{ $loi }}</span>
                 </div>
+                    
+                @endif
                 <div class="form-group">
                     <label>Slug sản phẩm</label>
                     <input type="text" name="slug" class="form-control bg-secondary text-white" id="slug" value="{{ $contact[0]->slug }}" readonly>

@@ -38,7 +38,11 @@ class CategorysController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required'
+            'name'=>'required|unique:table_categories,name'
+        ],
+        [
+            'name.required'=>'Tên không được trống',
+            'name.unique'=>'Tên không được trùng',
         ]);
         $input = $request->all();
         TableCategory::create($input);
@@ -85,9 +89,26 @@ class CategorysController extends Controller
     public function update(Request $request, $id)
     {
         $contact = TableCategory::find($id);
-        $input = $request->all();
-        $contact->update($input);
-        return redirect()->route('admin.category')->with('flash_message', 'Cập nhật thành công !!!');
+        if ($contact->name == $request->name) {
+            $input = $request->all();
+            $contact->update($input);
+            return redirect()->route('admin.category')->with('flash_message', 'Cập nhật thành công !!!');
+        } else {
+           
+            $request->validate(
+                [
+                    'name' => 'required|unique:table_categories,name'
+                ],
+                [
+                    'name.required' => 'Tên không được trống',
+                    'name.unique' => 'Tên không được trùng',
+                ]
+            );
+
+            $input = $request->all();
+            $contact->update($input);           
+            return redirect()->route('admin.category')->with('flash_message', 'Cập nhật thành công !!!');
+        }
     }
 
     /**

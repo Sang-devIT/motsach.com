@@ -40,8 +40,11 @@ class ProducesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'desc'=>'required'
+            'name'=>'required|unique:table_produces,name'
+        ],
+        [
+            'name.required'=>'Tên không được trống',
+            'name.unique'=>'Tên không được trùng',
         ]);
         $input = $request->all();
         TableProduce::create($input);
@@ -88,9 +91,26 @@ class ProducesController extends Controller
     public function update(Request $request, $id)
     {
         $contact = TableProduce::find($id);
-        $input = $request->all();
-        $contact->update($input);
-        return redirect()->route('admin.produce')->with('flash_message', 'Cập nhật thành công !!!');
+        if ($contact->name == $request->name) {
+            $input = $request->all();
+            $contact->update($input);
+            return redirect()->route('admin.produce')->with('flash_message', 'Cập nhật thành công !!!');
+        } else {
+           
+            $request->validate(
+                [
+                    'name' => 'required|unique:table_produces,name'
+                ],
+                [
+                    'name.required' => 'Tên không được trống',
+                    'name.unique' => 'Tên không được trùng',
+                ]
+            );
+
+            $input = $request->all();
+            $contact->update($input);           
+            return redirect()->route('admin.produce')->with('flash_message', 'Cập nhật thành công !!!');
+        }
     }
 
     /**

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\TableAuthor;
+use App\Models\TableProduct;
 use Illuminate\Http\Request;
 use PharIo\Manifest\Author;
+use Validator;
 
 class AuthorsController extends Controller
 {
@@ -38,10 +40,15 @@ class AuthorsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required',
-            'desc'=>'required'
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|unique:table_authors,name'
+            ],
+            [
+                'name.required' => 'Tên không được trống',
+                'name.unique' => 'Tên không được trùng',
+            ]
+        );
         $input = $request->all();
         TableAuthor::create($input);
         return redirect()->route('admin.author')->with('flash_message', 'Thêm thành công!');
@@ -57,8 +64,8 @@ class AuthorsController extends Controller
     {
         $contact = TableAuthor::find($id);
         return view('admin.author.show')->with([
-            'contact'=>$contact,
-            'id'=>$id
+            'contact' => $contact,
+            'id' => $id
         ]);
     }
 
@@ -72,8 +79,8 @@ class AuthorsController extends Controller
     {
         $contact = TableAuthor::find($id);
         return view('admin.author.edit')->with([
-            'contact'=>$contact,
-            'id'=>$id
+            'contact' => $contact,
+            'id' => $id
         ]);
     }
 
@@ -87,9 +94,34 @@ class AuthorsController extends Controller
     public function update(Request $request, $id)
     {
         $contact = TableAuthor::find($id);
-        $input = $request->all();
-        $contact->update($input);
-        return redirect()->route('admin.author')->with('flash_message', 'Cập nhật thành công !!!');
+        if ($contact->name == $request->name) {
+            $input = $request->all();
+            $contact->update($input);
+            return redirect()->route('admin.author')->with('flash_message', 'Cập nhật thành công !!!');
+        } else {
+            $validator = Validator::make(
+                $request->all(),
+                [
+                    'name' => 'required|unique:table_authors,name'
+                ],
+                [
+                    'name.required' => 'Tên không được trống',
+                    'name.unique' => 'Tên không được trùng',
+                ]
+            );
+            if ($validator->fails()) {
+                return view('admin.author.edit')->with([
+                    'contact' => $contact,
+                    'id' => $id,
+                    'nameloi' => $request->name,
+                    'loi' => "Tên không được trùng",
+                ]);
+            } else {
+                $input = $request->all();
+                $contact->update($input);
+                return redirect()->route('admin.author')->with('flash_message', 'Cập nhật thành công !!!');
+            }
+        }
     }
 
     /**

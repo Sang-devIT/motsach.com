@@ -12,7 +12,7 @@ Author
                 <div class="form-group">
                     <label>Tên tác giả</label>
                     <input type="text" name="name" class="form-control" placeholder="Nhập tên tác giả" value="{{ old('name') }}">
-                    <span style="color: red">@error('name'){{ 'Vui lòng nhập tên' }}@enderror</span>
+                    <span style="color: red">@error('name'){{ $message }}@enderror</span>
                 </div>
                 <div class="form-group">
                     <label>Mô tả</label>
