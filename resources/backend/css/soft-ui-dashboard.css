@@ -22591,8 +22591,8 @@ margin-left: 5px;
   
   .navbar-vertical.navbar-expand-xs .navbar-collapse {
     display: block;
-    overflow: auto;
-    height: calc(100vh - 360px);
+    /* overflow: auto; */
+    height: calc(100vh - 30px);
   }
   
   .navbar-vertical.navbar-expand-xs>[class*="container"] {
@@ -26681,5 +26681,11 @@ margin-left: 5px;
       overflow: auto !important;
     }
   }
-  
+  .box-eror-login {
+    color: red;
+}
+h5.title-1 {
+  font-weight: 500;
+  margin-right: 5px;
+}
   /*# sourceMappingURL=dashboard-free.css.map */

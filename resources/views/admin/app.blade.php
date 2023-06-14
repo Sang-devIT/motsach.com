@@ -7,13 +7,15 @@
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('backend/img/apple-icon.png')}}">
   <link rel="icon" type="image/png" href="{{asset('backend/img/favicon.png')}}">
   <title>
-    Soft UI Dashboard by Creative Tim
+    Dashboard motsach.com
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="{{asset('backend/css/nucleo-icons.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/fontawesome512/all.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/css/icons.min.css')}}" rel="stylesheet" />
 
   <link href="{{asset('backend/img/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
@@ -39,6 +41,11 @@
   <script src="{{asset('backend/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{asset('backend/js/plugins/smooth-scrollbar.min.js')}}"></script>
   <script src="{{asset('backend/js/plugins/chartjs.min.js')}}"></script>
+  <script src="{{asset('backend/js/app.js')}}"></script>
+  <script src="{{asset('backend/libs/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{asset('backend/libs/feather-icons/feather.min.js')}}"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
