@@ -7,6 +7,8 @@ use App\Models\TableProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Validator;
+
 class ProductsController extends Controller
 {
     /**
@@ -132,54 +134,101 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $pro = DB::table('table_products')->where('slug',$id)->get();
-        $pro = TableProduct::where('slug',$id)->first();
-        $request->validate([
-            'name'=>'required|unique:table_products,name',
-            'code'=>'required|unique:table_products,code',
-            'regular_price'=>'required'
-            ],
-            [
-                'name.required'=>'Tên không được trống',
-                'code.required'=>'Mã sản phẩm không được trống',
-                'regular_price.required'=>'Giá không được trống',
-                'name.unique'=>'Tên không được trùng',
-                'code.unique'=>'Mã sản phẩm không được trùng',
-            ]
-        );
-        // dd($contact);
-        if($request->file('photo') != null){
-            $this->validate($request, 
+        $contact = TableProduct::where('slug',$id)->first();
+        if ($contact->name == $request->name) {
+            if($request->file('photo') != null){
+                $this->validate($request, 
+                    [
+                        'photo' => 'mimes:jpg,jpeg,png,gif|max:2048',
+                    ],			
+                    [
+                        'photo.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                        'photo.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+                    ]
+                );
+                $getImages = DB::table('table_products')->select('photo')->where('slug',$id)->get();
+                if($getImages[0]->photo != '' && file_exists(public_path('assets/images/upload/product/'.$getImages[0]->photo)))
+                {  
+                    unlink(public_path('assets/images/upload/product/'.$getImages[0]->photo));
+                }
+                $anh = $request->file('photo');
+                $getImages = time().'-'.$anh->getClientOriginalName();
+                $destinationPath = public_path('assets/images/upload/product');
+                $anh->move($destinationPath, $getImages);
+                $contact->photo = $getImages;
+            }
+            // $contact->name = $request->name;
+            $contact->id_category = $request->id_category;
+            $contact->id_produce = $request->id_produce;
+            $contact->id_author = $request->id_author;
+            $contact->regular_price = $request->regular_price;
+            $contact->desc = $request->desc;
+            $contact->content = $request->content;
+            $contact->status = $request->status;
+            // $contact['slug'] = Str::slug($request->name,'-');
+            $contact->update();
+            return redirect()->route('admin.product')->with('flash_message','Cập nhật thành công !!!');
+        }else{
+            $validator = Validator::make(
+                $request->all(),
                 [
-                    'photo' => 'mimes:jpg,jpeg,png,gif|max:2048',
-                ],			
+                    'name'=>'required|unique:table_products,name',
+                    'regular_price'=>'required'
+                ],
                 [
-                    'photo.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
-                    'photo.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+                    'name.required'=>'Tên không được trống',
+                    'regular_price.required'=>'Giá không được trống',
+                    'name.unique'=>'Tên không được trùng',
                 ]
             );
-            $getImages = DB::table('table_products')->select('photo')->where('slug',$id)->get();
-            if($getImages[0]->photo != '' && file_exists(public_path('assets/images/upload/product/'.$getImages[0]->photo)))
-            {  
-                unlink(public_path('assets/images/upload/product/'.$getImages[0]->photo));
-            }
-            $anh = $request->file('photo');
-            $getImages = time().'-'.$anh->getClientOriginalName();
-            $destinationPath = public_path('assets/images/upload/product');
-            $anh->move($destinationPath, $getImages);
-            $pro->photo = $getImages;
+            if ($validator->fails()) {
+                $nameloi=$request->name;
+                $loi="tên bị trùng";
+                $contact = DB::table('table_products')->where('slug',$id)
+                ->join('table_categories','table_products.id_category','=','table_categories.id')
+                ->join('table_produces','table_products.id_produce','=','table_produces.id')
+                ->join('table_authors','table_products.id_author','=','table_authors.id')
+                ->select('table_products.*',DB::raw('table_categories.name as nameCategory,table_produces.name as nameProduce,table_authors.name as nameAuthor,table_categories.id as idCategory,table_produces.id as idProduce,table_authors.id as idAuthor'))
+                ->get();
+                $category = DB::table('table_categories')->select('id','name')->get();
+                $produce = DB::table('table_produces')->select('id','name')->get();
+                $author = DB::table('table_authors')->select('id','name')->get();
+                return view('admin.product.edit',compact('id','contact','category','produce','author','loi','nameloi'));
+            } else {
+                if($request->file('photo') != null){
+                    $this->validate($request, 
+                        [
+                            'photo' => 'mimes:jpg,jpeg,png,gif|max:2048',
+                        ],			
+                        [
+                            'photo.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                            'photo.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+                        ]
+                    );
+                    $getImages = DB::table('table_products')->select('photo')->where('slug',$id)->get();
+                    if($getImages[0]->photo != '' && file_exists(public_path('assets/images/upload/product/'.$getImages[0]->photo)))
+                    {  
+                        unlink(public_path('assets/images/upload/product/'.$getImages[0]->photo));
+                    }
+                    $anh = $request->file('photo');
+                    $getImages = time().'-'.$anh->getClientOriginalName();
+                    $destinationPath = public_path('assets/images/upload/product');
+                    $anh->move($destinationPath, $getImages);
+                    $contact->photo = $getImages;
+                }
+                $contact->name = $request->name;
+                $contact->id_category = $request->id_category;
+                $contact->id_produce = $request->id_produce;
+                $contact->id_author = $request->id_author;
+                $contact->regular_price = $request->regular_price;
+                $contact->desc = $request->desc;
+                $contact->content = $request->content;
+                $contact->status = $request->status;
+                $contact['slug'] = Str::slug($request->name,'-');
+                $contact->update();
+                return redirect()->route('admin.product')->with('flash_message','Cập nhật thành công !!!');
+                }
         }
-        $pro->name = $request->name;
-        $pro->id_category = $request->id_category;
-        $pro->id_produce = $request->id_produce;
-        $pro->id_author = $request->id_author;
-        $pro->regular_price = $request->regular_price;
-        $pro->desc = $request->desc;
-        $pro->content = $request->content;
-        $pro->status = $request->status;
-        $pro['slug'] = Str::slug($request->name,'-');
-        $pro->update();
-        return redirect()->route('admin.product')->with('flash_message','Cập nhật thành công !!!');
     }
 
     /**
