@@ -36,4 +36,5 @@ Route::group(['prefix' => '/product'],function(){
     Route::get('/author/{id}',[ProductController::class, 'showauthor'] )->name('product.showauthor');
 });
 //ORDER
-Route::get('order',[OrderController::class, 'index'])->name('order');
+Route::get('cart',[OrderController::class, 'index'])->name('order.cart');
+Route::get('checkout',[OrderController::class, 'checkout'])->name('order.checkout');
