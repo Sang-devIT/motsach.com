@@ -157,7 +157,6 @@ class ProductsController extends Controller
                 $anh->move($destinationPath, $getImages);
                 $contact->photo = $getImages;
             }
-            // $contact->name = $request->name;
             $contact->id_category = $request->id_category;
             $contact->id_produce = $request->id_produce;
             $contact->id_author = $request->id_author;
@@ -165,7 +164,6 @@ class ProductsController extends Controller
             $contact->desc = $request->desc;
             $contact->content = $request->content;
             $contact->status = $request->status;
-            // $contact['slug'] = Str::slug($request->name,'-');
             $contact->update();
             return redirect()->route('admin.product')->with('flash_message','Cập nhật thành công !!!');
         }else{

@@ -26689,3 +26689,6 @@ h5.title-1 {
   margin-right: 5px;
 }
   /*# sourceMappingURL=dashboard-free.css.map */
+  .paging-index > nav > div:last-child > div:first-child,.paging-index > nav > div:first-child {
+    display: none;
+}

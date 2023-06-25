@@ -107,7 +107,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Sản phẩm nhập vào</span>
+            <span class="nav-link-text ms-1">Hóa đơn nhập vào</span>
           </a>
         </li>
         <li class="nav-item">

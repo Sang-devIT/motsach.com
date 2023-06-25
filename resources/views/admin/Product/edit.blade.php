@@ -76,10 +76,10 @@ Product
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-lg-6">
+                    {{-- <div class="form-group col-lg-6">
                         <label>Số lượng tồn</label>
                         <input type="number" name="stock" class="form-control bg-secondary text-white" placeholder="Nhập số lượng tồn" value="{{ ($contact[0]->stock)?$contact[0]->stock:0 }}" readonly>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="form-group">
                     <label>Mô tả</label>

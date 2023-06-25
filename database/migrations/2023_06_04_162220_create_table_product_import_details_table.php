@@ -14,13 +14,13 @@ class CreateTableProductImportDetailsTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-
+        Schema::dropIfExists('');
         Schema::create('table_product_import_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_product');
-            $table->foreign('id_product')->references('id')->on('table_product');
-            $table->integer('id_product_import');
-            $table->foreign('id_product_import')->references('id')->on('table_product_import');
+            $table->integer('id_product')->unsigned();
+            $table->foreign('id_product')->references('id')->on('table_products');
+            $table->integer('id_product_import')->unsigned();
+            $table->foreign('id_product_import')->references('id')->on('table_product_imports');
             $table->integer('quantity');
             $table->float('price');
             $table->timestamps();

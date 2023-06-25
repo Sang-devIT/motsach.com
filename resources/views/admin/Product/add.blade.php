@@ -63,11 +63,7 @@ Product
                         </div>
                         <span style="color: red">@error('regular_price'){{ $message }}@enderror</span>
                     </div>
-                    {{-- <div class="form-group col-lg-4">
-                        <label>Số lượng tồn</label>
-                        <input type="number" name="stock" class="form-control" placeholder="Nhập số lượng tồn" value="{{ old('stock') }}">
-                        <span style="color: red">@error('stock'){{ 'Vui lòng nhập số lượng tồn' }}@enderror</span>
-                    </div> --}}
+                    
                 </div>
                 <div class="form-group">
                     <label>Mô tả</label>

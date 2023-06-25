@@ -10,10 +10,20 @@ Category
             <form action="{{ route('admin.category.update',$id)}}" method="post">
                 @csrf
                 @method("POST")
+                @if (empty($nameloi))
+                 <div class="form-group">
+                    <label>Tên loại sản phẩm</label>
+                    <input type="text" name="name" class="form-control" id="name" value="{{ $contact->name }}" required>
+                    <span style="color: red">@error('name'){{ $message }}@enderror</span>
+                </div>   
+                @else
                 <div class="form-group">
                     <label>Tên loại sản phẩm</label>
-                    <input type="text" name="name" class="form-control" id="name" value="{{ $contact->name }}">
+                    <input type="text" name="name" class="form-control" id="name" value="{{ $nameloi }}" required>
+                    <span style="color: red">{{ $loi }}</span>
                 </div>
+                    
+                @endif
                 <div class="form-group">
                     <label>Trạng thái</label>
                     <select name="status" class="form-control" id="">

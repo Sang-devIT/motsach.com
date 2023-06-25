@@ -16,7 +16,7 @@ class CreateTableProducesTable extends Migration
         Schema::create('table_produces', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->mediumText('desc');
+            $table->mediumText('desc')->nullable();
             $table->string('status');
             $table->timestamps();
         });
