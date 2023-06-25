@@ -21,7 +21,11 @@ class indexController extends Controller
         ->select('table_products.*',DB::raw('table_authors.name as nameAuthor'))
         ->get();
         // dd($product);
-        return view('welcome',compact('product'));
+
+        $category= DB::table('table_categories')->get();
+
+
+        return view('welcome',compact('product','category'));
         
     }
 }

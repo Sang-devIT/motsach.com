@@ -871,7 +871,7 @@ body.tg-comingsoonpage .tg-wrapper{overflow:visible;}
 	float: left;
 	padding: 0 15px;
 }
-.tg-themedropdown + .tg-themedropdown { border-left: 1px solid #dbdbdb; }
+.tg-themedropdown + .tg-themedropdown {/* border-left: 1px solid #dbdbdb; */}
 .tg-btnthemedropdown {
 	color: #404040;
 	display: block;
@@ -2631,7 +2631,7 @@ li.menu-item-has-mega-menu { position: static; }
 .tg-widgettopsellingauthors ul li:before{display: none;}
 .tg-authornamebooks{
 	overflow: hidden;
-	padding: 12px 0 12px 15px;
+	/* padding: 12px 0 12px 15px; */
 }
 .tg-authornamebooks h4{
 	margin: 0 0 10px;

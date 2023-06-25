@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\source\IndexController;
+use App\Http\Controllers\source\OrderController;
 use App\Http\Controllers\source\ProductController;
 
 
@@ -26,8 +27,13 @@ Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //PRODUCT
+Route::get('search',[ProductController::class,'Search'])->name('product.search.pro');
+
 Route::group(['prefix' => '/product'],function(){  
     Route::get('/',[ProductController::class, 'index'] )->name('product');
     Route::get('/{id}',[ProductController::class, 'show'] )->name('product.detail');
     Route::get('/category/{id}',[ProductController::class, 'showcategory'] )->name('product.showcategory');
+    Route::get('/author/{id}',[ProductController::class, 'showauthor'] )->name('product.showauthor');
 });
+//ORDER
+Route::get('order',[OrderController::class, 'index'])->name('order');
