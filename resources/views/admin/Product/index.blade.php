@@ -62,6 +62,9 @@ Product
                             @endforeach
                     </tbody>
                 </table>
+                <div class="paging-index">
+                    {{ $pro->links() }}
+                </div>
             </div>
         </div>
     </div>
