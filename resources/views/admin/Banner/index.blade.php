@@ -63,6 +63,9 @@ Banner
                             @endforeach
                     </tbody>
                 </table>
+                <div class="paging-index">
+                    {{ $cthdnhap->links() }}
+                </div>
             </div>
         </div>
     </div>
