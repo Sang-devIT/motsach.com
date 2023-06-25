@@ -6,11 +6,15 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="tg-innerbannercontent">
-						<h1>Tất cả sản phẩm</h1>
+                    
+						<h1>Tác giả</h1>
+
 						<ol class="tg-breadcrumb">
 							<li><a href="javascript:void(0);">Trang chủ</a></li>
 							<li class="tg-active">Sản phẩm</li>
+                            <li class=""></li>
 						</ol>
+                  
 					</div>
 				</div>
 			</div>
@@ -125,7 +129,7 @@
 												</div>
 											</div>
 											@endforeach
-											
+										
 										</div>
 										
 									</div>
@@ -157,7 +161,8 @@
 											</ul>
 										</div>
 									</div>
-									<div class="tg-widget tg-catagories">
+                                   
+                                    <div class="tg-widget tg-catagories">
 										<div class="tg-widgettitle">
 											<h3>Tác giả</h3>
 										</div>
@@ -172,6 +177,7 @@
 											</ul>
 										</div>
 									</div>
+									
 									
 								</aside>
 							</div>

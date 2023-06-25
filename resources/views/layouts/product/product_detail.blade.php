@@ -48,6 +48,7 @@
                                                         <figure class="tg-featureimg"><img src="{{ asset('assets/images/upload/product/'.$item->photo) }}" alt="image description"></figure>
                                                         <div class="tg-postbookcontent">
                                                             <span class="tg-bookprice">
+																<span>Giá: </span>
                                                                 <ins>{{ $item->regular_price }} vnđ</ins>
                                                                 <del class="d-xl-none">$27.20</del>
                                                             </span>
@@ -58,9 +59,10 @@
                                                                 <span>Trạng thái: <em>{{ $item->status==1?'Còn hàng':'Hết hàng'; }}</em></span></li>
                                                             </ul>
                                                             <div class="tg-quantityholder">
-                                                                <em class="minus">-</em>
-                                                                <input type="text" class="result" value="0" id="quantity1" name="quantity">
-                                                                <em class="plus">+</em>
+																<span>Số lượng: </span>
+                                                                <!-- <em class="minus">-</em> -->
+                                                                <input type="number" class="result" min="1" value="0" id="quantity1" name="quantity">
+                                                                <!-- <em class="plus">+</em> -->
                                                             </div>
                                                             <a class="tg-btn tg-active tg-btn-lg" href="javascript:void(0);">Thêm vào giỏ hàng</a>
                                                             <a class="tg-btnaddtowishlist" href="javascript:void(0);">
@@ -360,7 +362,7 @@
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
 								<aside id="tg-sidebar" class="tg-sidebar">
-									<div class="tg-widget tg-widgetsearch">
+									<div class="tg-widget tg-widgetsearch d-xl-none">
 										<form class="tg-formtheme tg-formsearch">
 											<div class="form-group">
 												<button type="submit"><i class="icon-magnifier"></i></button>
@@ -370,21 +372,30 @@
 									</div>
 									<div class="tg-widget tg-catagories">
 										<div class="tg-widgettitle">
-											<h3>Categories</h3>
+											<h3>Thể loại</h3>
 										</div>
 										<div class="tg-widgetcontent">
 											<ul>
-												<li><a href="javascript:void(0);"><span>Art &amp; Photography</span><em>28245</em></a></li>
-												<li><a href="javascript:void(0);"><span>Biography</span><em>4856</em></a></li>
-												<li><a href="javascript:void(0);"><span>Children’s Book</span><em>8654</em></a></li>
-												<li><a href="javascript:void(0);"><span>Craft &amp; Hobbies</span><em>6247</em></a></li>
-												<li><a href="javascript:void(0);"><span>Crime &amp; Thriller</span><em>888654</em></a></li>
-												<li><a href="javascript:void(0);"><span>Fantasy &amp; Horror</span><em>873144</em></a></li>
-												<li><a href="javascript:void(0);"><span>Fiction</span><em>18465</em></a></li>
-												<li><a href="javascript:void(0);"><span>Fod &amp; Drink</span><em>3148</em></a></li>
-												<li><a href="javascript:void(0);"><span>Graphic, Anime &amp; Manga</span><em>77531</em></a></li>
-												<li><a href="javascript:void(0);"><span>Science Fiction</span><em>9247</em></a></li>
-												<li><a href="javascript:void(0);"><span>View All</span></a></li>
+												@foreach($categorydetail as $k => $v)
+												<li><a href="{{route('product.showcategory',$v->id)}}"><span>{{$v->name}}</span><em>
+													
+												{{(!empty($v->count)) ? "$v->count":"0"}}</em></a></li>	
+												@endforeach
+											</ul>
+										</div>
+									</div>
+									<div class="tg-widget tg-catagories">
+										<div class="tg-widgettitle">
+											<h3>Tác giả</h3>
+										</div>
+										<div class="tg-widgetcontent">
+											<ul>
+												@foreach($authordetail as $k => $v)
+												<li><a href="{{route('product.showauthor',$v->id)}}"><span>{{$v->name}}</span><em>
+													
+												{{(!empty($v->count)) ? "$v->count":"0"}}</em></a></li>	
+												@endforeach
+
 											</ul>
 										</div>
 									</div>

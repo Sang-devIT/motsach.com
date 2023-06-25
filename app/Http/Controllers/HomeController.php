@@ -31,6 +31,7 @@ class HomeController extends Controller
     {
         //$product = TableProduct::latest()->paginate(5);
 
+        $category= DB::table('table_categories')->get();
 
     }
 }
