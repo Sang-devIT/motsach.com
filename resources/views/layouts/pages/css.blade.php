@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{asset('frontend/css/transitions.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/color.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/css/order.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
 <script src="{{asset('frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">

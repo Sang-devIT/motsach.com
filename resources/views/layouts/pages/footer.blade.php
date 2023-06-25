@@ -103,29 +103,17 @@
                                 <h3>Top Selling Authors</h3>
                             </div>
                             <div class="tg-widgetcontent">
-                                <ul>
+                                <?php /* <ul>
+                                    @foreach($category as $k => $v)
                                     <li>
-                                        <figure><a href="javascript:void(0);"><img src="{{asset('frontend/images/author/imag-09.jpg')}}" alt="image description"></a></figure>
+                                       
                                         <div class="tg-authornamebooks">
-                                            <h4><a href="javascript:void(0);">Jude Morphew</a></h4>
-                                            <p>21,658 Published Books</p>
+                                            <h4><a href="{{route('product.showcategory',$v->id)}}">{{$v->name}}</a></h4>
+                                            
                                         </div>
                                     </li>
-                                    <li>
-                                        <figure><a href="javascript:void(0);"><img src="{{asset('frontend/images/author/imag-10.jpg')}}" alt="image description"></a></figure>
-                                        <div class="tg-authornamebooks">
-                                            <h4><a href="javascript:void(0);">Shaun Humes</a></h4>
-                                            <p>20,257 Published Books</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <figure><a href="javascript:void(0);"><img src="{{asset('frontend/images/author/imag-11.jpg')}}" alt="image description"></a></figure>
-                                        <div class="tg-authornamebooks">
-                                            <h4><a href="javascript:void(0);">Kathrine Culbertson</a></h4>
-                                            <p>15,686 Published Books</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                  @endforeach
+                                </ul> */?>
                             </div>
                         </div>
                     </div>
