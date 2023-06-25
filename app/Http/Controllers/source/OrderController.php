@@ -9,6 +9,10 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return view('layouts.order.order');    
+        return view('layouts.order.cart');    
+    }
+    public function checkout()
+    {
+        return view('layouts.order.checkout');    
     }
 }

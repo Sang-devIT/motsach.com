@@ -95,12 +95,17 @@
                             </div>
                         </div>
                         <div class="dropdown tg-themedropdown tg-minicartdropdown">
-                            <a href="{{route('order')}}" id="tg-minicart" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="{{route('order.cart')}}"  class="tg-btnthemedropdown" >
                                 <span class="tg-themebadge">0</span>
                                 <i class="icon-cart"></i>
                                 <span>$00</span>
                             </a>
-                            <div class="dropdown-menu tg-themedropdownmenu d-xl-none" aria-labelledby="tg-minicart">
+                            <a href="{{route('order.cart')}}" id="tg-minicart" class=" d-xl-none tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="tg-themebadge">0</span>
+                                <i class="icon-cart"></i>
+                                <span>$00</span>
+                            </a>
+                            <div class="dropdown-menu tg-themedropdownmenu " aria-labelledby="tg-minicart">
                                 <div class="tg-minicartbody">
                                     <div class="tg-minicarproduct">
                                         <figure>
