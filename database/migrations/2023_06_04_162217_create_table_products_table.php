@@ -27,9 +27,9 @@ class CreateTableProductsTable extends Migration
             $table->string('name');
             $table->integer('regular_price');
             $table->string('code');
-            $table->mediumText('desc');
-            $table->longText('content');
-            $table->integer('stock');
+            $table->mediumText('desc')->nullable();
+            $table->longText('content')->nullable();
+            $table->integer('stock')->nullable()->default(0);
             $table->string('status');
             $table->string('slug');
             $table->timestamps();

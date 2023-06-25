@@ -10,10 +10,20 @@ Produce
             <form action="{{ route('admin.produce.update',$id)}}" method="post">
                 @csrf
                 @method("POST")
+                @if (empty($nameloi))
+                 <div class="form-group">
+                    <label>Tên nhà sản xuất</label>
+                    <input type="text" name="name" class="form-control" id="name" value="{{ $contact->name }}" required>
+                    <span style="color: red">@error('name'){{ $message }}@enderror</span>
+                </div>   
+                @else
                 <div class="form-group">
                     <label>Tên nhà sản xuất</label>
-                    <input type="text" name="name" class="form-control" id="name" value="{{ $contact->name }}">
+                    <input type="text" name="name" class="form-control" id="name" value="{{ $nameloi }}" required>
+                    <span style="color: red">{{ $loi }}</span>
                 </div>
+                    
+                @endif
                 <div class="form-group">
                     <label>Mô tả</label>
                     <textarea type="text" name="desc" class="form-control" id="desc" value="{{ $contact->desc }}">{{ $contact->desc }}</textarea>

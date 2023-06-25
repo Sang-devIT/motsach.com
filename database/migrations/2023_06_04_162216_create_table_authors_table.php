@@ -16,7 +16,7 @@ class CreateTableAuthorsTable extends Migration
         Schema::create('table_authors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->mediumText('desc');
+            $table->mediumText('desc')->nullable();
             $table->bigInteger('status');
             $table->timestamps();
         });

@@ -58,7 +58,15 @@ Route::group(['prefix' => '/'],function(){
     });
     // ProductImport
     Route::get('/product-import',[Admin\ProductImportsController::class,'index'])->name('admin.productimport');
-
+    Route::group(['prefix' => '/product-import'],function(){
+        Route::get('/',[Admin\ProductImportsController::class,'index'])->name('admin.productimport');
+        Route::get('add',[Admin\ProductImportsController::class,'create'])->name('admin.productimport.create');
+        Route::post('add-productimport',[Admin\ProductImportsController::class,'store'])->name('admin.productimport.store');
+        //Route::get('edit/{id}',[Admin\ProductImportsController::class,'edit'])->name('admin.productimport.edit');
+        //Route::post('{id}/update',[Admin\ProductImportsController::class,'update'])->name('admin.productimport.update');
+        Route::get('show/{id}',[Admin\ProductImportsController::class,'show'])->name('admin.productimport.show');
+        //Route::get('destroy/{id}',[Admin\ProductImportsController::class,'destroy'])->name('admin.productimport.destroy');
+    });
     
     Route::group(['middleware' => ['auth:admin']],function(){
             Route::get('/', function(){

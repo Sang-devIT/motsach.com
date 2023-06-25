@@ -14,11 +14,11 @@ class CreateTableVouchersTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-
+        Schema::dropIfExists('table_vouchers');
         Schema::create('table_vouchers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_product');
-            $table->foreign('id_product')->references('id')->on('table_product');
+            $table->foreign('id_product')->references('id')->on('table_products');
             $table->string('name');
             $table->string('code');
             $table->string('status');
