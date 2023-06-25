@@ -8,10 +8,10 @@ Category
         <div class="card-header" >
             <h2>Danh sách loại sản phẩm</h2>
             @if(session('flash_message'))
-                <div style="color: green;font-size: 14px;">{{ session('flash_message') }}</div>
+                <div class="close-flash_message" style="color: green;font-size: 14px;">{{ session('flash_message') }}</div>
             @endif
             @if(session('flash_message1'))
-                <div style="color: red;font-size: 14px;">{{ session('flash_message1') }}</div>
+                <div class="close-flash_message" style="color: red;font-size: 14px;">{{ session('flash_message1') }}</div>
             @endif
         </div>
         <div class="card-body">
@@ -57,7 +57,7 @@ Category
                     </tbody>
                 </table>
                 <div class="paging-index">
-                    {{ $cthdnhap->links() }}
+                    {{ $category->links() }}
                 </div>
             </div>
         </div>

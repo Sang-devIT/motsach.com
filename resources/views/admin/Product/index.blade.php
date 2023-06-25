@@ -63,7 +63,7 @@ Product
                     </tbody>
                 </table>
                 <div class="paging-index">
-                    {{ $cthdnhap->links() }}
+                    {{ $pro->links() }}
                 </div>
             </div>
         </div>
