@@ -85,11 +85,6 @@
 										</a>
 									</figure>
 									<div class="tg-postbookcontent">
-										<ul class="tg-bookscategories d-xl-none">
-											<li><a href="javascript:void(0);">Adventure</a></li>
-											<li><a href="javascript:void(0);">Fun</a></li>
-										</ul>
-										<div class="tg-themetagbox d-xl-none"><span class="tg-themetag">sale</span></div>
 										<div class="tg-booktitle">
 											<h3><a href="{{route('product.detail',$item->slug) }}">{{ $item->name }}</a></h3>
 										</div>
@@ -99,7 +94,7 @@
 											<ins>{{ $item->regular_price }}</ins>
 											<del class="d-xl-none">$27.20</del>
 										</span>
-										<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
+										<a class="tg-btn tg-btnstyletwo" href="{{ route('order.addtocart', $item->id) }}">
 											<i class="fa fa-shopping-basket"></i>
 											<em>Thêm vào giỏ hàng </em>
 										</a>

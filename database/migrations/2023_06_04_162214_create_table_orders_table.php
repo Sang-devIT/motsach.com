@@ -13,14 +13,19 @@ class CreateTableOrdersTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('table_orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('table_users');
             $table->dateTime('order_date');
             $table->integer('total_money');
             $table->string('status');
             $table->string('order_code');
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

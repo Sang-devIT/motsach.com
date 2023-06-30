@@ -24,8 +24,6 @@ class CreateTableOrdersDetailsTable extends Migration
             $table->integer('price');
             $table->integer('total_money');
             $table->integer('quantity');
-            $table->integer('id_user');
-            $table->foreign('id_user')->references('id')->on('table_user');
             $table->timestamps();
         });
 
