@@ -66,6 +66,7 @@ class OrderController extends Controller
     }
     public function checkout()
     {
-        return view('layouts.order.checkout');    
+        $orders = Cart::content();
+        return view('layouts.order.checkout',compact('orders'));    
     }
 }

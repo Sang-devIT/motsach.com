@@ -60,8 +60,6 @@
                                 <div class="tg-description"><p>No products were added to the wishlist!</p></div>
                             </div>
                         </div>
-
-                        
                         <div class="header-control">
                             <ul class="ul-control">
                                 <li class="header-account d-lg-flex ">
@@ -102,7 +100,6 @@
                                         <img src="{{asset('frontend/images/cart.png')}}">
                                         <div class="gh">Giỏ hàng</div>
                                         <div class="count-cart">{{ Cart::content()->count(); }}</div>
-      
                                     </a>
                                 </li>
                             </ul>
