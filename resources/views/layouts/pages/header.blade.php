@@ -96,7 +96,7 @@
                         </div>
                         <div class="dropdown tg-themedropdown tg-minicartdropdown">
                             <a href="{{route('order.cart')}}"  class="tg-btnthemedropdown" >
-                                <span class="tg-themebadge">{{ Cart::count(); }}</span>
+                                <span class="tg-themebadge">{{ Cart::content()->count(); }}</span>
                                 <i class="icon-cart"></i>
                                 <span>Giỏ hàng</span>
                             </a>
