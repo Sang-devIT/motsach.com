@@ -3,19 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 
+
 Route::group(['prefix' => '/'],function(){
     Route::get('login',[Admin\LoginController::class, 'loginForm' ])->name('admin.login');
     Route::post('login',[Admin\LoginController::class, 'login' ])->name('admin.login.post');
     Route::get('logout',[Admin\LoginController::class, 'logout' ])->name('admin.logout');
-    // Product
   
-    // Category
-    
-    
     Route::group(['middleware' => ['auth:admin']],function(){
             Route::get('/', function(){
                 return view('admin.dashboard.index');
             }) ->name('admin.dashboard');
+      
+            // Product
             Route::group(['prefix' => '/product'],function(){
                 Route::get('/',[Admin\ProductsController::class,'index'])->name('admin.product');
                 Route::get('add',[Admin\ProductsController::class,'create'])->name('admin.product.create');
@@ -25,6 +24,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('show/{id}',[Admin\ProductsController::class,'show'])->name('admin.product.show');
                 Route::get('destroy/{id}',[Admin\ProductsController::class,'destroy'])->name('admin.product.destroy');
             });
+
             Route::group(['prefix' => '/category'],function(){
                 Route::get('/',[Admin\CategorysController::class,'index'])->name('admin.category');
                 Route::get('add',[Admin\CategorysController::class,'create'])->name('admin.category.create');
@@ -64,7 +64,9 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('destroy/{id}',[Admin\ProducesController::class,'destroy'])->name('admin.produce.destroy');
             });
             // ProductImport
-            // Route::get('/product-import',[Admin\ProductImportsController::class,'index'])->name('admin.productimport');
+
+            Route::get('/product-import',[Admin\ProductImportsController::class,'index'])->name('admin.productimport');
+
             Route::group(['prefix' => '/product-import'],function(){
                 Route::get('/',[Admin\ProductImportsController::class,'index'])->name('admin.productimport');
                 Route::get('add',[Admin\ProductImportsController::class,'create'])->name('admin.productimport.create');
@@ -74,5 +76,12 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('show/{id}',[Admin\ProductImportsController::class,'show'])->name('admin.productimport.show');
                 //Route::get('destroy/{id}',[Admin\ProductImportsController::class,'destroy'])->name('admin.productimport.destroy');
             });
+
+            // User
+            Route::group(['prefix' => '/user'],function(){
+                Route::get('/',[Admin\UserController::class,'index'])->name('admin.user');
+                Route::get('destroy/{id}',[Admin\UserController::class,'destroy'])->name('admin.user.destroy');
+            });
+
     });
 });

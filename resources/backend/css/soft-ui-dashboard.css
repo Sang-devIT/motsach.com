@@ -24590,7 +24590,9 @@ margin-left: 5px;
   .table.align-items-center th {
     vertical-align: middle;
   }
-  
+    .table tbody td{
+       padding: 0.75rem 1.5rem;
+    }
   .table tbody tr:last-child td {
     border-width: 0;
   }
@@ -26689,3 +26691,6 @@ h5.title-1 {
   margin-right: 5px;
 }
   /*# sourceMappingURL=dashboard-free.css.map */
+  .paging-index > nav > div:last-child > div:first-child,.paging-index > nav > div:first-child {
+    display: none;
+}

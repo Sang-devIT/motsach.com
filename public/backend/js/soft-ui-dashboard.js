@@ -432,22 +432,3 @@ function sidenavTypeOnResize() {
     });
   }
 }
-if(isExist($('.remove_cart'))) {
-  $(document).on('click','.remove_cart', function () {
-      let rowId = $(this).data('rowid');
-          $.ajax({
-          method: 'DELETE',
-          url: `{{ route('cart/delete/${rowId}') }}`,  
-          data: {rowId:rowId, _token: $("input[name='_token']").val()},
-          success: function (data) {
-          $('.total').html(data);
-          // $('.cart__main-'+rowId).html(data);      
-          return false; 
-          },
-          error: function(xhr, ajaxOptions, thrownError) {
-              alert(xhr.status);
-              alert(thrownError);
-          }             
-      });
-  });
-}

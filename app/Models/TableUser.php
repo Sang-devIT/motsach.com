@@ -20,10 +20,7 @@ class TableUser extends Authenticate
     protected $fillable = [
         'fullname',
         'email',
-        'phone',
-        'address',
         'password',
-        'status',
     ];
 
     /**

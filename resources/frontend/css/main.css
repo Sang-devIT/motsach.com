@@ -151,7 +151,7 @@ form p span i {
 option { padding: 5px 15px; }
 li {
 	line-height: 28px;
-	list-style: disc inside none;
+	/* list-style: disc inside none; */
 }
 ul ul { margin-left: 20px; }
 ol {
@@ -864,7 +864,7 @@ body.tg-comingsoonpage .tg-wrapper{overflow:visible;}
 .tg-wishlistandcart {
 	z-index: 2;
 	float: right;
-	padding: 23px 0;
+	/* padding: 23px 0; */
 	position: relative;
 }
 .tg-themedropdown {
