@@ -52,7 +52,6 @@ Route::group(['prefix' => '/'],function(){
 
 //PRODUCT
 Route::get('search',[ProductController::class,'Search'])->name('product.search.pro');
-
 Route::group(['prefix' => '/product'],function(){  
     Route::get('/',[ProductController::class, 'index'] )->name('product');
     Route::get('/{id}',[ProductController::class, 'show'] )->name('product.detail');
