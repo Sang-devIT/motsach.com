@@ -24590,7 +24590,9 @@ margin-left: 5px;
   .table.align-items-center th {
     vertical-align: middle;
   }
-  
+    .table tbody td{
+       padding: 0.75rem 1.5rem;
+    }
   .table tbody tr:last-child td {
     border-width: 0;
   }
