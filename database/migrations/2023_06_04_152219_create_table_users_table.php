@@ -13,7 +13,7 @@ class CreateTableUsersTable extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
+        
 
         Schema::create('table_users', function (Blueprint $table) {
             $table->increments('id');
@@ -26,7 +26,7 @@ class CreateTableUsersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::enableForeignKeyConstraints();
+        
     }
 
     /**

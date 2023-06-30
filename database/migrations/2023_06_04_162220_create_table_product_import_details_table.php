@@ -14,7 +14,7 @@ class CreateTableProductImportDetailsTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('');
+        
         Schema::create('table_product_import_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_product')->unsigned();

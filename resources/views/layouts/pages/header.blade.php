@@ -39,7 +39,7 @@
                             </li>
                         </ul>
                     </div> -->
-                    
+
                 </div>
             </div>
         </div>
@@ -60,6 +60,7 @@
                                 <div class="tg-description"><p>No products were added to the wishlist!</p></div>
                             </div>
                         </div>
+
                         
                         <div class="header-control">
                             <ul class="ul-control">
@@ -97,10 +98,11 @@
                                     </ul>
                                 </li>
                                 <li class="header-cart block-cart">
-                                    <a  class="icon" href="gio-hang" title="Giỏ hàng">
+                                    <a  class="icon" href="{{route('order.cart')}}" title="Giỏ hàng">
                                         <img src="{{asset('frontend/images/cart.png')}}">
                                         <div class="gh">Giỏ hàng</div>
-                                        <div class="count-cart"> 0</div>
+                                        <div class="count-cart">{{ Cart::content()->count(); }}</div
+      
                                     </a>
                                 </li>
                             </ul>
