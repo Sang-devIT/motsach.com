@@ -56,12 +56,12 @@
                                                             <ul class="tg-delevrystock">
                                                                 <li><i class="icon-rocket"></i><span>Giao hàng miễn phí trên toàn quốc </span></li>
                                                                 <li><i class="icon-store"></i>
-                                                                <span>Trạng thái: <em>{{ $item->status==1?'Còn hàng':'Hết hàng'; }}</em></span></li>
+                                                                <span>Trạng thái: <em>{{ $item->stock>0?'Còn hàng':'Hết hàng'; }}</em></span></li>
                                                             </ul>
                                                             <div class="tg-quantityholder">
 																<span>Số lượng: </span>
                                                                 <!-- <em class="minus">-</em> -->
-                                                                <input type="number" class="result" min="1" value="0" id="quantity1" name="quantity">
+                                                                <input type="number" class="result" min="1" value="1" id="quantity1" name="quantity">
                                                                 <!-- <em class="plus">+</em> -->
                                                             </div>
                                                             <a class="tg-btn tg-active tg-btn-lg" href="javascript:void(0);">Thêm vào giỏ hàng</a>

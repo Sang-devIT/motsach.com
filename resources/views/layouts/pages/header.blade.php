@@ -56,7 +56,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   Xin chào, {{ Auth::user()->name }}
+                                   Xin chào, {{ Auth::user()->fullname }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -96,14 +96,9 @@
                         </div>
                         <div class="dropdown tg-themedropdown tg-minicartdropdown">
                             <a href="{{route('order.cart')}}"  class="tg-btnthemedropdown" >
-                                <span class="tg-themebadge">0</span>
+                                <span class="tg-themebadge">{{ Cart::count(); }}</span>
                                 <i class="icon-cart"></i>
-                                <span>$00</span>
-                            </a>
-                            <a href="{{route('order.cart')}}" id="tg-minicart" class=" d-xl-none tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="tg-themebadge">0</span>
-                                <i class="icon-cart"></i>
-                                <span>$00</span>
+                                <span>Giỏ hàng</span>
                             </a>
                             <div class="dropdown-menu tg-themedropdownmenu " aria-labelledby="tg-minicart">
                                 <div class="tg-minicartbody">

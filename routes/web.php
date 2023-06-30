@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\source\IndexController;
 use App\Http\Controllers\source\OrderController;
 use App\Http\Controllers\source\ProductController;
+use App\Http\Controllers\source\CartController;
 
 
 /*
@@ -35,6 +36,14 @@ Route::group(['prefix' => '/product'],function(){
     Route::get('/category/{id}',[ProductController::class, 'showcategory'] )->name('product.showcategory');
     Route::get('/author/{id}',[ProductController::class, 'showauthor'] )->name('product.showauthor');
 });
+
 //ORDER
-Route::get('cart',[OrderController::class, 'index'])->name('order.cart');
-Route::get('checkout',[OrderController::class, 'checkout'])->name('order.checkout');
+Route::group(['middleware' => ['auth:user']],function(){
+    // CART
+    Route::get('cart',[OrderController::class, 'index'])->name('order.cart');
+    Route::get('cart/{id}',[OrderController::class, 'addToCart'])->name('order.addtocart');
+    Route::post('cart/update',[OrderController::class, 'update'])->name('cart.update');
+    Route::post('cart/update_ajax',[OrderController::class, 'updateAjax'])->name('cart.update.ajax');
+    Route::get('cart/delete/{rowId}', [OrderController::class, 'remove'])->name('cart.delete');
+    Route::get('checkout',[OrderController::class, 'checkout'])->name('order.checkout');
+});
