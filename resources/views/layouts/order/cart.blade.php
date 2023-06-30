@@ -14,11 +14,11 @@
                   <thead>
                     <tr>
                       <!-- Set columns width -->
-                      <th class="text-center py-3 px-4" style="min-width: 400px;">Tên Sản phẩm/thông tin</th>
-                      <th class="text-right py-3 px-4" style="width: 150px;">Đơn giá</th>
-                      <th class="text-center py-3 px-4" style="width: 120px;">Số lượng</th>
-                      <th class="text-right py-3 px-4" style="width: 150px;">Giá</th>
-                      <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
+                      <th class="text-center py-3 px-4" style="min-width: 50%;">Tên Sản phẩm/thông tin</th>
+                      <th class="text-right py-3 px-4" style="width: 20%;">Đơn giá</th>
+                      <th class="text-center py-3 px-4" style="width: 10%;">Số lượng</th>
+                      <th class="text-right py-3 px-4" style="width: 15%;">Giá</th>
+                      <th class="text-center align-middle py-3 px-0" style="width: 5%;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
                     </tr>
                   </thead>
                   <tbody>

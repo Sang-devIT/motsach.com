@@ -27,7 +27,7 @@ class LoginController extends Controller
         'email' => 'required|email',
         'password' => 'required|min:6'
         ]);
-        $checkAuth = Auth::guard('web')->attempt([
+        $checkAuth = Auth::guard('user')->attempt([
             'email' => $request->email,
             'password' => $request->password
         ], $request->get('remember'));
@@ -56,7 +56,7 @@ class LoginController extends Controller
     }
     public function logout(Request $request)
     {
-        Auth::guard('web')->logout();
+        Auth::guard('user')->logout();
         Session::flush();
         $request->session()->invalidate();
         return redirect()->route('index');

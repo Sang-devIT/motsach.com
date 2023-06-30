@@ -101,7 +101,7 @@
                                     <a  class="icon" href="{{route('order.cart')}}" title="Giỏ hàng">
                                         <img src="{{asset('frontend/images/cart.png')}}">
                                         <div class="gh">Giỏ hàng</div>
-                                        <div class="count-cart">{{ Cart::content()->count(); }}</div
+                                        <div class="count-cart">{{ Cart::content()->count(); }}</div>
       
                                     </a>
                                 </li>
