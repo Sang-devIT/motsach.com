@@ -34,7 +34,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="tg-threecolumns">
+                <div class="tg-threecolumns d-xl-none">
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                         <div class="tg-footercol">
                             <strong class="tg-logo"><a href="javascript:void(0);"><img src="{{asset('frontend/images/flogo.png')}}" alt="image description"></a></strong>
@@ -121,7 +121,7 @@
             </div>
         </div>
     </div>
-    <div class="tg-newsletter">
+    <div class="tg-newsletter d-xl-none">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">

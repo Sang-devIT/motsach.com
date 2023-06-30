@@ -22,6 +22,11 @@ class indexController extends Controller
         ->get();
         // dd($product);
 
+        $productnew = DB::table('table_products')
+        ->join('table_authors','table_products.id_author','=','table_authors.id')
+        ->select('table_products.*',DB::raw('table_authors.name as nameAuthor'))
+        ->get();
+
         $category= DB::table('table_categories')->get();
 
 

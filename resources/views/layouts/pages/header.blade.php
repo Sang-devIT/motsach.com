@@ -1,18 +1,19 @@
 
-<div class="tg-topbar">
+<header class="header">
+    <div class="tg-topbar">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <ul class="tg-addnav">
+                    <!--  <ul class="tg-addnav">
                         <li>
                             <a href="javascript:void(0);">
                                 <i class="icon-envelope"></i>
                                 <em>Liên hệ</em>
                             </a>
                         </li>
-                       
+                        
                     </ul>
-                    <!-- <div class="dropdown tg-themedropdown tg-currencydropdown">
+                    <div class="dropdown tg-themedropdown tg-currencydropdown">
                         <a href="javascript:void(0);" id="tg-currenty" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="icon-earth"></i>
                             <span>Currency</span>
@@ -38,42 +39,7 @@
                             </li>
                         </ul>
                     </div> -->
-                    <div class="tg-userlogin">
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Đăng nhập') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Đăng kí') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   Xin chào, {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -94,62 +60,50 @@
                                 <div class="tg-description"><p>No products were added to the wishlist!</p></div>
                             </div>
                         </div>
-                        <div class="dropdown tg-themedropdown tg-minicartdropdown">
-                            <a href="{{route('order.cart')}}"  class="tg-btnthemedropdown" >
-                                <span class="tg-themebadge">0</span>
-                                <i class="icon-cart"></i>
-                                <span>$00</span>
-                            </a>
-                            <a href="{{route('order.cart')}}" id="tg-minicart" class=" d-xl-none tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="tg-themebadge">0</span>
-                                <i class="icon-cart"></i>
-                                <span>$00</span>
-                            </a>
-                            <div class="dropdown-menu tg-themedropdownmenu " aria-labelledby="tg-minicart">
-                                <div class="tg-minicartbody">
-                                    <div class="tg-minicarproduct">
-                                        <figure>
-                                            <img src="{{asset('frontend/images/products/img-01.jpg')}}" alt="image description">
-                                            
-                                        </figure>
-                                        <div class="tg-minicarproductdata">
-                                            <h5><a href="javascript:void(0);">Our State Fair Is A Great Function</a></h5>
-                                            <h6><a href="javascript:void(0);">$ 12.15</a></h6>
-                                        </div>
-                                    </div>
-                                    <div class="tg-minicarproduct">
-                                        <figure>
-                                            <img src="{{asset('frontend/images/products/img-02.jpg')}}" alt="image description">
-                                            
-                                        </figure>
-                                        <div class="tg-minicarproductdata">
-                                            <h5><a href="javascript:void(0);">Bring Me To Light</a></h5>
-                                            <h6><a href="javascript:void(0);">$ 12.15</a></h6>
-                                        </div>
-                                    </div>
-                                    <div class="tg-minicarproduct">
-                                        <figure>
-                                            <img src="{{asset('frontend/images/products/img-03.jpg')}}" alt="image description">
-                                            
-                                        </figure>
-                                        <div class="tg-minicarproductdata">
-                                            <h5><a href="javascript:void(0);">Have Faith In Your Soul</a></h5>
-                                            <h6><a href="javascript:void(0);">$ 12.15</a></h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tg-minicartfoot">
-                                    <a class="tg-btnemptycart" href="javascript:void(0);">
-                                        <i class="fa fa-trash-o"></i>
-                                        <span>Clear Your Cart</span>
+                        
+                        <div class="header-control">
+                            <ul class="ul-control">
+                                <li class="header-account d-lg-flex ">
+                                    <img src="{{asset('frontend/images/user.png')}}">
+                                
+                                    <ul>
+                                        @if(Session::get('customers') != null)			
+                                            <li>
+                                                <a href="{{route('user.account_management')}}">
+                                                    <span>Hi, {{Session::get('customers')->fullname}}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('user.logout')}}">
+                                                    <i class="fas fa-sign-out-alt"></i>
+                                                    <span>Đăng xuất</span>
+                                                </a>
+                                            </li>
+                                            @endif
+                                        @if(Session::get('customers') == null)
+                                            <li>
+                                                <a href="{{route('user.register')}}">
+                                                    <span>Đăng ký</span>
+                                                    <i class="bi bi-person-plus"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('user.login')}}">
+                                                    <span>Đăng nhập</span>
+                                                    <i class="bi bi-box-arrow-in-right"></i>
+                                                </a>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </li>
+                                <li class="header-cart block-cart">
+                                    <a  class="icon" href="gio-hang" title="Giỏ hàng">
+                                        <img src="{{asset('frontend/images/cart.png')}}">
+                                        <div class="gh">Giỏ hàng</div>
+                                        <div class="count-cart"> 0</div>
                                     </a>
-                                    <span class="tg-subtotal">Subtotal: <strong>35.78</strong></span>
-                                    <div class="tg-btns">
-                                        <a class="tg-btn tg-active" href="javascript:void(0);">View Cart</a>
-                                        <a class="tg-btn" href="javascript:void(0);">Checkout</a>
-                                    </div>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="tg-searchbox">
@@ -161,8 +115,10 @@
                             <!-- <a href="javascript:void(0);">+  Advanced Search</a> -->
                         </form>
                     </div>
+                   
                 </div>
             </div>
         </div>
     </div>
+</header>
     

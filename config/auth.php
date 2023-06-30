@@ -66,11 +66,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\TableUser::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Models\TableUser::class,
+            'model' => App\Models\TableAdmin::class,
         ],
 
         // 'users' => [
