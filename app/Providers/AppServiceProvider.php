@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $pro = DB::table('table_products')->select('id','name')->get();
+        View::share([
+            'pro'=>$pro,
+        ]);
         Paginator::useBootstrap();
     }
 }

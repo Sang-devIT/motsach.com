@@ -34,8 +34,8 @@ class ProductImportsController extends Controller
      */
     public function create()
     {
-        $pro = DB::table('table_products')->select('id','name')->get();
-        $proImport = DB::table('table_product_imports')->select('id','import_date')->get();
+        // $pro = DB::table('table_products')->select('id','name')->get();
+        // $proImport = DB::table('table_product_imports')->select('id','import_date')->get();
         return view('admin.productimport.add',compact('pro','proImport'));
     }
 
@@ -58,13 +58,20 @@ class ProductImportsController extends Controller
         $import->import_date = Carbon::now('Asia/Ho_Chi_Minh');
         $import->total_money = $request->quantity * $request->price;
         $import->save();
-        
-        $importDetail = new TableProductImportDetail();
-        $importDetail->id_product_import =  $import->id;
-        $importDetail->id_product = $request->id_product;
-        $importDetail->quantity = $request->quantity;
-        $importDetail->price = $request->price;
-        $importDetail->save();
+
+        foreach( $request->data['id_product'] as $k=>$v){
+            $importDetail = new TableProductImportDetail();
+            $importDetail->id_product_import =  $import->id;
+            $importDetail->id_product = $v;
+            $importDetail->quantity = $request->data['quanlity'][$k];
+            $importDetail->price = $request->data['price'][$k];
+            $importDetail->save();
+        }
+        // $importDetail->id_product_import =  $import->id;
+        // $importDetail->id_product = $request->data['id_product'];
+        // $importDetail->quantity = $request->quantity;
+        // $importDetail->price = $request->price;
+        // $importDetail->save();
 
         $data = DB::table('table_product_import_details')
         ->where('id',$importDetail->id)
