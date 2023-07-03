@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\TableAdmin;
 use Faker\Factory as Faker;
 class AdminsTableSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        User::create([
+        TableAdmin::create([
             'name'=>'Admin',
             'email'=> 'admin@gmail.com',
             'email_verified_at' => null,

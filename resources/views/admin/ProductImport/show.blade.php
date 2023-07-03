@@ -10,14 +10,22 @@ ProductImport
             <form action="{{ route('admin.productimport.show',$id)}}" method="get">
                 @csrf
                 @method('GET')
-                  <div class="card-body">
-                    <h5 class="card-title"><span style="font-weight: bold;font-size: 30px;"> Mã hóa đơn :</span> {{ $productImport->import_code }}</h5><br>
-                    <h5 class="card-title"><span style="font-weight: bold;font-size: 30px;">Tên sản phẩm : </span>{{ $product->name }}</h5><br>
-                    <h5 class="card-title"><span style="font-weight: bold;font-size: 30px;">Ngày nhập : </span>{{ $productImport->import_date }}</h5><br>
-                    <h5 class="card-title"><span style="font-weight: bold;font-size: 30px;">Số lượng : </span>{{ $contact[0]->quantity }}</h5><br>
-                    <h5 class="card-title"><span style="font-weight: bold;font-size: 30px;">Giá nhập : </span>{{ $contact[0]->price }}</h5><br>
-                    <h5 class="card-title"><span style="font-weight: bold;font-size: 30px;">Tổng tiền : </span>{{ $productImport->total_money }}</h5><br>
-                  </div>
+                <div class="card-body">
+                    <div class="row" style="margin: 0 -5px;">
+                        @foreach($cthdnhap as $key => $item)
+                            <div class="col-6" style="padding: 5px;">
+                                <div style="border: 1px solid #ccc;padding: 15px;">
+                                    <h5 class="card-title"><span style="font-weight: bold;font-size: 20px;"> Mã hóa đơn :</span> {{ $item->codeProductImport  }}</h5><br>
+                                    <h5 class="card-title"><span style="font-weight: bold;font-size: 20px;">Tên sản phẩm : </span>{{ $item->nameProduct  }}</h5><br>
+                                    <h5 class="card-title"><span style="font-weight: bold;font-size: 20px;">Ngày nhập : </span>{{ $item->dateProductImport }}</h5><br>
+                                    <h5 class="card-title"><span style="font-weight: bold;font-size: 20px;">Số lượng : </span>{{ $item->quantity }}</h5><br>
+                                    <h5 class="card-title"><span style="font-weight: bold;font-size: 20px;">Giá nhập : </span>{{ $item->price }}</h5><br>
+                                    <h5 class="card-title"><span style="font-weight: bold;font-size: 20px;">Tổng tiền : </span>{{ $item->quantity*$item->price }}</h5>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
               </form>
         </div>
     </div>

@@ -121,7 +121,7 @@
 															<ins>{{ $item->regular_price }}</ins>
 															<del class="d-xl-none">$27.20</del>
 														</span>
-														<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
+														<a class="tg-btn tg-btnstyletwo" href="{{ route('order.addtocart', $item->id) }}">
 															<i class="fa fa-shopping-basket"></i>
 															<em>Thêm vào giỏ hàng</em>
 														</a>
