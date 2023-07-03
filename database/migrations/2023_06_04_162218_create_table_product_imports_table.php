@@ -18,7 +18,7 @@ class CreateTableProductImportsTable extends Migration
         Schema::create('table_product_imports', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('import_date');
-            $table->integer('total_money');
+            $table->integer('total_money')->nullable();
             $table->string('import_code');
             $table->timestamps();
         });

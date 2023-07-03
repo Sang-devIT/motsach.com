@@ -39,39 +39,28 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="kh_ten">Họ tên</label>
-                                <input type="text" class="form-control" name="kh_ten" id="kh_ten"
-                                    value="Dương Nguyễn Phú Cường" >
+                                <label for="fullname">Họ tên</label>
+                                <input type="text" class="form-control" name="fullname" id="fullname"
+                                    value="{{ old('fullname') }}" >
                             </div>
                             <div class="col-md-12">
-                                <label for="kh_gioitinh">Giới tính</label>
-                                <input type="text" class="form-control" name="kh_gioitinh" id="kh_gioitinh" value="Nam"
-                                    >
+                                <label for="address">Địa chỉ</label>
+                                <input type="text" class="form-control" name="address" id="address"
+                                    value="{{ old('address') }}" >
                             </div>
                             <div class="col-md-12">
-                                <label for="kh_diachi">Địa chỉ</label>
-                                <input type="text" class="form-control" name="kh_diachi" id="kh_diachi"
-                                    value="130 Xô Viết Nghệ Tỉnh" >
+                                <label for="phone">Điện thoại</label>
+                                <input type="text" class="form-control" name="phone" id="phone"
+                                    value="{{ old('phone') }}" >
                             </div>
                             <div class="col-md-12">
-                                <label for="kh_dienthoai">Điện thoại</label>
-                                <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai"
-                                    value="0915659223" >
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" name="email" id="email"
+                                    value="{{ old('email') }}" >
                             </div>
                             <div class="col-md-12">
-                                <label for="kh_email">Email</label>
-                                <input type="text" class="form-control" name="kh_email" id="kh_email"
-                                    value="phucuong@ctu.edu.vn" >
-                            </div>
-                            <div class="col-md-12">
-                                <label for="kh_ngaysinh">Ngày sinh</label>
-                                <input type="text" class="form-control" name="kh_ngaysinh" id="kh_ngaysinh"
-                                    value="11/6/1989" >
-                            </div>
-                            <div class="col-md-12">
-                                <label for="kh_cmnd">CMND</label>
-                                <input type="text" class="form-control" name="kh_cmnd" id="kh_cmnd" value="362209685"
-                                    >
+                                <label for="requirements">Nội dung</label>
+                                <textarea type="text" name="requirements" rows="5" class="form-control"  value="{{ old('requirements') }}"></textarea>
                             </div>
                         </div>
 

@@ -64,7 +64,7 @@
                                                                 <input type="number" class="result" min="1" value="1" id="quantity1" name="quantity">
                                                                 <!-- <em class="plus">+</em> -->
                                                             </div>
-                                                            <a class="tg-btn tg-active tg-btn-lg" href="javascript:void(0);">Thêm vào giỏ hàng</a>
+                                                            <a class="tg-btn tg-active tg-btn-lg" href="{{ route('order.addtocart', $item->id) }}">Thêm vào giỏ hàng</a>
                                                             <a class="tg-btnaddtowishlist" href="javascript:void(0);">
                                                                 <span>Mua ngay</span>
                                                             </a>

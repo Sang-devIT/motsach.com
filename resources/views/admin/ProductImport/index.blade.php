@@ -26,22 +26,18 @@ ProductImport
                         <tr>
                             <th>STT</th>
                             <th >Mã hóa đơn nhập</th>
-                            <th >Tên sản phẩm</th>
-                            <th >Số lượng</th>
-                            <th >Giá nhập</th>
-                            <th >Tổng tiền</th>
-                            <th></th>
+                            <th >Ngày nhập</th>
+                            <th >Thành tiền</th>
+                            <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($cthdnhap as $key => $item)
+                        @foreach($hdnhap as $key => $item)
                                 <tr>
                                     <td>{{ ($key+1) }}</td>
-                                    <td>{{ $item->codeProductImport }}</td>
-                                    <td>{{ $item->nameProduct }}</td>
-                                    <td>{{ $item->quantity }}</td>
-                                    <td>{{ $item->price }}</td>
-                                    <td>{{ ($item->price)*($item->quantity) }}</td>
+                                    <td>{{ $item->import_code }}</td>
+                                    <td>{{ $item->import_date }}</td>
+                                    <td>{{ ($item->total_money) }}</td>
                                     <td>
                                         <a href="{{route('admin.productimport.show',$item->id) }}" ><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                         
@@ -51,7 +47,7 @@ ProductImport
                     </tbody>
                 </table>
                 <div class="paging-index">
-                    {{ $cthdnhap->links() }}
+                    {{ $hdnhap->links() }}
                 </div>
             </div>
         </div>
