@@ -263,5 +263,14 @@ jQuery(document).on('ready', function() {
 	jQuery('em.plus').on('click', function () {
 		jQuery('#quantity1').val(parseInt(jQuery('#quantity1').val(), 10) + 1);
 	});
+	/*------------------------------------------
+			SLICK SLIDE 
+	------------------------------------------*/
+	$('.slick-slideshow').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
 	
 });

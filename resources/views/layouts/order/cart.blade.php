@@ -52,7 +52,7 @@
               </div>
               <!-- / Shopping cart table -->
               
-              <div class="d-flex flex-wrap justify-content-end align-items-center pb-4 me-5">
+              <div class="d-flex flex-wrap justify-content-end align-items-center pb-4">
                 <div class="d-flex">
                   <div class="text-right mt-4">
                     <label class="text-muted font-weight-normal m-0"></label>Tổng tiền</label>
@@ -61,7 +61,7 @@
                 </div>
               </div>
               
-              <div class="float-right">
+              <div class="float-right d-flex justify-content-end">
                 <a href="{{ route('index') }}"><button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Tiếp tục mua sắm</button></a>
                 <a href="{{ route('order.checkout') }}"><button type="button" class="btn btn-lg btn-primary mt-2">Thanh toán</button></a>
               </div>

@@ -440,5 +440,6 @@
     "/frontend/js/vendor/jquery-library.js": "/frontend/js/vendor/jquery-library.js",
     "/frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js": "/frontend/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
-    "/js/components/ExampleComponent.vue": "/js/components/ExampleComponent.vue"
+    "/js/components/ExampleComponent.vue": "/js/components/ExampleComponent.vue",
+    "/js/main.js": "/js/main.js"
 }

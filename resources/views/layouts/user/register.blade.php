@@ -57,7 +57,7 @@
                                             </div>
                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                 <fieldset class="form-group">
-                                                    <input type="password" class="form-control form-control-lg" value="" id="passwordConfirm" name="passwordConfirm" placeholder="nhaplaimatkhau" required >
+                                                    <input type="password" class="form-control form-control-lg" value="" id="passwordConfirm" name="passwordConfirm" placeholder="Nhập lại mật khẩu" required >
                                                     @if(!empty(Session::get('error-password')))
                                                         <span style="color:red">Mật khẩu không trùng khớp</span>
                                                     @endif    

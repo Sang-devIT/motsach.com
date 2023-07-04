@@ -9,7 +9,10 @@
 	<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
         <header id="tg-header" class="tg-header tg-haslayout">
         @include('layouts.pages.header')
+        @include('layouts.pages.menu')
         </header>
+   
+
         <main >
             @yield('content')
         </main>
