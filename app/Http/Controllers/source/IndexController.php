@@ -28,9 +28,12 @@ class indexController extends Controller
         ->get();
 
         $category= DB::table('table_categories')->get();
-
-
-        return view('welcome',compact('product','category'));
+        $slidemax = DB::table('table_banners')->where('type','=','slide')->get();
+        $slidemin = DB::table('table_banners')->where('type','=','slidemin')->get();
+        // return session()->all();
+        return view('welcome',compact('product','category','slidemax','slidemin'));
         
     }
+
+    
 }

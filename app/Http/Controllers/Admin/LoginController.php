@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Session;
+
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -35,16 +38,26 @@ class LoginController extends Controller
          'email'=> 'required|email',
          'password'=> 'required|min:6'
         ]);
- 
          if(Auth::guard('admin')->attempt([
              'email' => $request -> email,
              'password' => $request -> password,
          ], $request-> get('remember')))
          { 
+            DB::table('table_admins')
+            ->where('email',$request->email)
+            ->update([
+                'remember_token' => Session::get('_token'),
+            ]);
+
+            $token = Session::get('_token');
+            $infoadmin = DB::table('table_users')->where('remember_token',$token)->get();
+
+            foreach($infoadmin as $item){
+                 Session::put(['customersadmin',$item]);
+             }
             return redirect()-> intended(route('admin.dashboard'));
          } else {
        
-             // back()-> withInput($request->only('email','remember','message'));
              return back()->with('error','Tài khoản or mật khẩu không đúng!!!');
  
          }
@@ -52,8 +65,10 @@ class LoginController extends Controller
          return view('admin.partials.sidebar', ['users' => $users]);
      }
     public function logout (Request $request){
+        
         Auth::guard('admin')->logout();
-        $request-> session() -> invalidate();
-        return redirect()-> route('admin.login');
+        $request->session()->forget('customersadmin');
+        return redirect()->route('admin.login');
+
     }
 }

@@ -57,10 +57,15 @@
 		</div>
 	</section>
 	<?php */?>
+		<section class=" tg-haslayout">
+			<div class="container">
+				@include('layouts.pages.slide')
+			</div>
+		</section>
 	<!--************************************
 			Best Selling End
 	*************************************-->
-	<section class="tg-sectionspace tg-haslayout">
+	<section class="wrap-tatca tg-haslayout">
 		<div class="container">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="tg-sectionhead">
