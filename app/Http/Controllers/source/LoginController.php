@@ -37,17 +37,17 @@ class LoginController extends Controller
             ->select('status')->get();
             if($checkAccount[0]->status==-1){
                 return redirect()->route('user.login');
-            }
+            } 
             DB::table('table_users')
             ->where('email',$request->email)
             ->update([
                 'remember_token' => Session::get('_token'),
                 'status' => 1,
             ]);
-            $user = DB::table('table_users')
-            ->where('remember_token',$request->_token)->get();
-            foreach($user as $item){
-                Session::put('customers',$item);
+            $pass = Session::get('_token');         
+            $info = DB::table('table_users')->where('remember_token',$pass)->get();  
+            foreach($info as $item){
+                Session::put(['customers',$item]);
                 Session::put('carts',[]);
             }
             return redirect()->route('index');
@@ -57,8 +57,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('user')->logout();
-        Session::flush();
-        $request->session()->invalidate();
+        $request->session()->forget('customers');
         return redirect()->route('index');
     }
     public function registerForm(){

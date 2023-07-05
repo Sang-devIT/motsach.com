@@ -66,20 +66,22 @@
                                     <img src="{{asset('frontend/images/user.png')}}">
                                 
                                     <ul>
-                                        @if(Session::get('customers') != null)			
+                                 
+                                        @if(Auth::user())			
                                             <li>
                                                 <a href="{{route('user.account_management')}}">
-                                                    <span>Hi, {{Session::get('customers')->fullname}}</span>
+                                                    <span>Hi, {{Auth::user()->fullname}}</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{route('user.logout')}}">
+                                                    @csrf
                                                     <i class="fas fa-sign-out-alt"></i>
                                                     <span>Đăng xuất</span>
                                                 </a>
                                             </li>
                                             @endif
-                                        @if(Session::get('customers') == null)
+                                        @if(Auth::user() === null )	
                                             <li>
                                                 <a href="{{route('user.register')}}">
                                                     <span>Đăng ký</span>

@@ -8,6 +8,8 @@ use App\Http\Controllers\source\OrderController;
 use App\Http\Controllers\source\ProductController;
 use App\Http\Controllers\source\LoginController;
 use App\Http\Controllers\source\UserController;
+use App\Http\Controllers\source\AllController;
+
 
 
 
@@ -25,7 +27,7 @@ use App\Http\Controllers\source\UserController;
 */
 Auth::routes(); 
 Route::get('/',[IndexController::class, 'index'] )->name('index');
- 
+
 // Route::get('/', [App\Http\Controllers\source\indexController::class, 'index']);
 //Route::get('/', [HomeController::class, 'index'])->name('home');
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -71,4 +73,21 @@ Route::group(['middleware' => ['auth:user']],function(){
     Route::get('checkout',[OrderController::class, 'checkout'])->name('order.checkout');
     Route::post('checkout_store',[OrderController::class, 'checkoutStore'])->name('order.checkout.store');
 });
+
+// public function handle(Request $request, Closure $next)
+// {
+//     if (Auth::check() && Auth::user()->level == 2) {
+//         return redirect('/');
+//     }
+//     return $next($request);
+// }
+
+// // Revoke all tokens...
+// $user->tokens()->delete();
+
+// // Revoke the token that was used to authenticate the current request...
+// $request->user()->currentAccessToken()->delete();
+
+// // Revoke a specific token...
+// $user->tokens()->where('id', $tokenId)->delete();
 

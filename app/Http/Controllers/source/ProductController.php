@@ -114,7 +114,7 @@ class ProductController extends Controller
      }
      else
      {
-        return redirect('/') ->with('status',"Loại Sản không đúng");
+        return redirect('/') ->with('status',"Loại Sản phẩm không đúng");
      }
        
     }
@@ -169,6 +169,6 @@ class ProductController extends Controller
             return redirect()->back()->with('message','Không tìm thấy');
         }
     }
-
+ 
     
 }

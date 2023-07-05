@@ -3108,7 +3108,7 @@ top: calc(100% + 10px);
 
 z-index: 999;
 
-width: 100px;
+width: 150px;
 
 right: 0;
 
@@ -5404,4 +5404,29 @@ header.header .header-control .ul-control li .icon > span {
     opacity: 1
 
 }
-
+.wrap-tatca{
+    padding: 50px;
+}
+.slide-index{
+    max-width: 1230px;
+    margin: auto;
+    width: 100%;
+}
+.slide-left{
+    width: 67.4796747967%;
+}
+.slick-slideshow{
+ 
+}
+.slide-right{
+    width: 31.7073170732%;
+}
+.slidemin{
+    margin-bottom: 8px;
+}
+.slidemin:last-child{
+    margin-bottom: 0;
+}
+.w-menu{
+    margin-bottom: 30px;
+}
