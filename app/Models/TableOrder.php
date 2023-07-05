@@ -15,8 +15,15 @@ class TableOrder extends Model
      * @var array
      */
     protected $fillable = [
+        'id_user',
         'order_date',
         'total_money',
+        'fullname',
+        'phone',
+        'email',
+        'order_payment',
+        'address',
+        'requirements',
         'status',
         'order_code',
     ];

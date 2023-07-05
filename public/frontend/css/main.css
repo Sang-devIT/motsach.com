@@ -4143,3 +4143,13 @@ body.tg-comingsoonpage:before{
 body.tg-comingsoonpage .tg-footer{border:0;}
 body.tg-comingsoonpage .tg-footerbar{position:static;}
 .tg-userlogin  figure a img {width: 50px; height: 50px;}
+.tg-featureimg{position: relative;}
+.hethang{
+    position: absolute;
+    display: block;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+}
+.hethang img{
+    width: 150px;
+}

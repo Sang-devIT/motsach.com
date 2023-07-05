@@ -20,6 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = DB::table('table_products')
+        ->where('deleted_at','=',null)
         ->join('table_categories','table_products.id_category','=','table_categories.id')
         ->join('table_produces','table_products.id_produce','=','table_produces.id')
         ->join('table_authors','table_products.id_author','=','table_authors.id')
@@ -30,6 +31,7 @@ class ProductController extends Controller
         foreach($category as $item){       
             $item->count= DB::table('table_products')
             ->addSelect(DB::raw('count(table_products.id_category) as count'))
+            ->where('table_products.deleted_at','=',null)
             ->where('table_products.id_category',$item->id)
             ->groupBy('table_products.id_category')->get()->implode('count', ', ');
         }
@@ -37,6 +39,7 @@ class ProductController extends Controller
         foreach($author as $item){       
             $item->count= DB::table('table_products')
             ->addSelect(DB::raw('count(table_products.id_author) as count'))
+            ->where('table_products.deleted_at','=',null)
             ->where('table_products.id_author',$item->id)
             ->groupBy('table_products.id_author')->get()->implode('count', ', ');
         }
@@ -44,7 +47,7 @@ class ProductController extends Controller
     }
     public function show($id)
     {
-        $contact = DB::table('table_products')->where('slug',$id)->get();
+        $contact = DB::table('table_products')->where('deleted_at','=',null)->where('slug',$id)->get();
 
         $category=DB::table('table_categories')->select('name')->where('id',$contact[0]->id_category)->first();
         $produce=DB::table('table_produces')->select('name')->where('id',$contact[0]->id_produce)->first();
@@ -54,6 +57,7 @@ class ProductController extends Controller
         foreach($categorydetail as $item){       
             $item->count= DB::table('table_products')
             ->addSelect(DB::raw('count(table_products.id_category) as count'))
+            ->where('table_products.deleted_at','=',null)
             ->where('table_products.id_category',$item->id)
             ->groupBy('table_products.id_category')->get()->implode('count', ', ');
         }
@@ -64,6 +68,7 @@ class ProductController extends Controller
         foreach($authordetail as $item){       
             $item->count= DB::table('table_products')
             ->addSelect(DB::raw('count(table_products.id_author) as count'))
+            ->where('table_products.deleted_at','=',null)
             ->where('table_products.id_author',$item->id)
             ->groupBy('table_products.id_author')->get()->implode('count', ', ');
         }
@@ -78,25 +83,27 @@ class ProductController extends Controller
      if(TableCategory::where('id',$id)->exists())
      {
         $cate = TableCategory::where('id', $id)->get()->first();
-        $product = TableProduct::where('id_category',$cate->id)->where('status','1')->get();
+        $product = TableProduct::where('id_category',$cate->id)->where('table_products.deleted_at','=',null)->where('status','1')->get();
         $category = TableCategory::latest()->paginate(15);
         
         $category= DB::table('table_categories')->get();
         foreach($category as $item){       
             $item->count= DB::table('table_products')
             ->addSelect(DB::raw('count(table_products.id_category) as count'))
+            ->where('table_products.deleted_at','=',null)
             ->where('table_products.id_category',$item->id)
             ->groupBy('table_products.id_category')->get()->implode('count', ', ');
         }
 
         $authors = TableAuthor::where('id', $id)->first();
-        $product = TableProduct::where('id_author',$authors->id)->where('status','1')->get();
+        $product = TableProduct::where('id_author',$authors->id)->where('table_products.deleted_at','=',null)->where('status','1')->get();
         $author = TableAuthor::latest()->paginate(15);
 
         $author= DB::table('table_authors')->get();
         foreach($author as $item){       
             $item->count= DB::table('table_products')
             ->addSelect(DB::raw('count(table_products.id_author) as count'))
+            ->where('table_products.deleted_at','=',null)
             ->where('table_products.id_author',$item->id)
             ->groupBy('table_products.id_author')->get()->implode('count', ', ');
         }
@@ -118,25 +125,27 @@ class ProductController extends Controller
      if(TableAuthor::where('id',$id)->exists())
      {
         $cate = TableCategory::where('id', $id)->get()->first();
-        $product = TableProduct::where('id_category',$cate->id)->where('status','1')->get();
+        $product = TableProduct::where('id_category',$cate->id)->where('table_products.deleted_at','=',null)->where('status','1')->get();
         $category = TableCategory::latest()->paginate(15);
         
         $category= DB::table('table_categories')->get();
         foreach($category as $item){       
             $item->count= DB::table('table_products')
             ->addSelect(DB::raw('count(table_products.id_category) as count'))
+            ->where('table_products.deleted_at','=',null)
             ->where('table_products.id_category',$item->id)
             ->groupBy('table_products.id_category')->get()->implode('count', ', ');
         }
 
         $authors = TableAuthor::where('id', $id)->first();
-        $product = TableProduct::where('id_author',$authors->id)->where('status','1')->get();
+        $product = TableProduct::where('id_author',$authors->id)->where('table_products.deleted_at','=',null)->where('status','1')->get();
         $author = TableAuthor::latest()->paginate(15);
 
         $author= DB::table('table_authors')->get();
         foreach($author as $item){       
             $item->count= DB::table('table_products')
             ->addSelect(DB::raw('count(table_products.id_author) as count'))
+            ->where('table_products.deleted_at','=',null)
             ->where('table_products.id_author',$item->id)
             ->groupBy('table_products.id_author')->get()->implode('count', ', ');
         }
@@ -153,7 +162,7 @@ class ProductController extends Controller
 
         if($request->search){
 
-            $searchpro = TableProduct::where('name','LIKE','%'.$request->search.'%')->get();
+            $searchpro = TableProduct::where('name','LIKE','%'.$request->search.'%')->where('table_products.deleted_at','=',null)->get();
           
             return view('layouts.product.searchpro',compact('searchpro'));
         }else{

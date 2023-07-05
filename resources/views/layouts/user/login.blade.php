@@ -24,10 +24,10 @@
                                 </span>
                                 <div class="form-signup clearfix">
                                     <fieldset class="form-group">
-                                        <input type="text" class="form-control form-control-lg" value="" id="email" name="email" placeholder="Email" Required>
+                                        <input type="text" class="form-control " value="" id="email" name="email" placeholder="Email" Required>
                                     </fieldset>
                                     <fieldset class="form-group">
-                                        <input type="password" class="form-control form-control-lg" value="" id="password" name="password" placeholder="Mật khẩu" Required>
+                                        <input type="password" class="form-control " value="" id="password" name="password" placeholder="Mật khẩu" Required>
                                     </fieldset>
                                     <div class="checkbox-user custom-control custom-checkbox d-xl-none">
                                         <input type="checkbox" class="custom-control-input" name="remember-user" id="remember-user" value="1">

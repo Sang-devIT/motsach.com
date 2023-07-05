@@ -19,6 +19,7 @@ class CreateTableProducesTable extends Migration
             $table->mediumText('desc')->nullable();
             $table->string('status');
             $table->timestamps();
+            
         });
     }
 

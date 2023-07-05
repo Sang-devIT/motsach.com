@@ -33,6 +33,7 @@ class CreateTableProductsTable extends Migration
             $table->string('status');
             $table->string('slug');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::enableForeignKeyConstraints();

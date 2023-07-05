@@ -18,14 +18,14 @@ class CreateTableOrdersTable extends Migration
         Schema::create('table_orders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('table_users');
+            $table->foreign('id_user')->references('id')->on('table_users')->onDelete('cascade');
             $table->dateTime('order_date');
             $table->integer('total_money');
             $table->string('fullname');
             $table->string('phone');
             $table->string('email');
             $table->string('address');
-            $table->string('order_payment');
+            $table->string('order_payment')->nullable();
             $table->string('requirements')->nullable();
             $table->string('status');
             $table->string('order_code');

@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $pro = DB::table('table_products')->select('id','name')->get();
+        $pro = DB::table('table_products')->where('table_products.deleted_at','=',null)->select('id','name')->get();
         View::share([
             'pro'=>$pro,
         ]);

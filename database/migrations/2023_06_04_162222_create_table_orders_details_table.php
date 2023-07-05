@@ -17,10 +17,10 @@ class CreateTableOrdersDetailsTable extends Migration
 
         Schema::create('table_orders_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_orders');
-            $table->foreign('id_orders')->references('id')->on('table_order');
-            $table->integer('id_product');
-            $table->foreign('id_product')->references('id')->on('table_product');
+            $table->unsignedInteger('id_orders');
+            $table->foreign('id_orders')->references('id')->on('table_orders')->onDelete('cascade');
+            $table->unsignedInteger('id_product');
+            $table->foreign('id_product')->references('id')->on('table_products');
             $table->integer('price');
             $table->integer('total_money');
             $table->integer('quantity');

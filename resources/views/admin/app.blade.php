@@ -16,6 +16,7 @@
   <link href="{{asset('backend/fontawesome512/all.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
   <link href="{{asset('backend/css/icons.min.css')}}" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
 
   <link href="{{asset('backend/img/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
@@ -233,14 +234,33 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
   <script type="text/javascript">
     $("document").ready(function() {
         setTimeout(function() {
             $(".close-flash_message").remove();
         }, 3000);
     });
-</script>
-
+  </script>
+  <script>
+    $(document).on('click','.btn-delete',function(){
+      Swal.fire({
+        title: 'Bạn có chắc chắn xóa?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ok'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var id = $(this).data('id');
+          var type = $(this).data('type');
+          window.location.href = type + '/destroy/'+ id;
+          Swal.fire('Đã xóa!', '', 'success')
+        }
+      })
+    });
+  </script>
 
 @stack('scripts')
 
