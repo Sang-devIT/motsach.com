@@ -3,9 +3,9 @@
 @section('content')
 <div class="container mt-4">
             <form class="needs-validation" name="frmthanhtoan" method="post"
-                action="#">
-                <input type="hidden" name="kh_tendangnhap" value="dnpcuong">
-
+                action="{{ route('order.checkout.store') }}">
+                @csrf
+                
                 <div class="py-5 text-center">
                     <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
                     <h2>Thanh toán</h2>
@@ -32,6 +32,9 @@
                                 <span>Tổng thành tiền</span>
                                 <strong>{{ number_format(Cart::total(), 0, ",", ".") }}</strong>
                             </li>
+                            @if(session('flash_message'))
+                            <div class="close-flash_message" style="color: red;font-size: 14px;">{{ session('flash_message') }}</div>
+                            @endif
                         </ul>
                     </div>
                     <div class="col-md-8 order-md-1">
@@ -41,26 +44,27 @@
                             <div class="col-md-12">
                                 <label for="fullname">Họ tên</label>
                                 <input type="text" class="form-control" name="fullname" id="fullname"
-                                    value="{{ old('fullname') }}" >
+                                    value="{{ old('fullname') }}" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="address">Địa chỉ</label>
                                 <input type="text" class="form-control" name="address" id="address"
-                                    value="{{ old('address') }}" >
+                                    value="{{ old('address') }}" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="phone">Điện thoại</label>
                                 <input type="text" class="form-control" name="phone" id="phone"
-                                    value="{{ old('phone') }}" >
+                                    value="{{ old('phone') }}" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" name="email" id="email"
-                                    value="{{ old('email') }}" >
+                                <input type="email" class="form-control" name="email" id="email"
+                                    value="{{ old('email') }}" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="requirements">Nội dung</label>
-                                <textarea type="text" name="requirements" rows="5" class="form-control"  value="{{ old('requirements') }}"></textarea>
+                                <input type="text" class="form-control" name="requirements" id="email"
+                                    value="{{ old('requirements') }}">
                             </div>
                         </div>
 
@@ -84,11 +88,23 @@
                             </div>
                         </div>
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt
+                        <button class="btn btn-primary btn-lg btn-block btn-dathang" type="submit" name="btnDatHang">Đặt
                             hàng</button>
                     </div>
                 </div>
             </form>
 
         </div>
+        <script>
+            $(document).on('click','.btn-dathang',function(){
+                alert("aaa");
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
+                });
+          </script>
 @endsection

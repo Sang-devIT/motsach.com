@@ -49,11 +49,6 @@ Product
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-4">
-                        <label>Mã sản phẩm</label>
-                        <input type="text" name="code" class="form-control" placeholder="Nhập mã sản phẩm" value="{{ old('code') }}">
-                        <span style="color: red">@error('code'){{ $message }}@enderror</span>
-                    </div>
-                    <div class="form-group col-lg-4">
                         <label>Giá bán</label>
                         <div class="input-group">
                             <input type="number" class="form-control format-price regular_price text-sm" name="regular_price" id="regular_price" placeholder="Giá bán" value="{{ old('regular_price') }}">

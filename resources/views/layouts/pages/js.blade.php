@@ -10,7 +10,7 @@
 <script src="{{asset('frontend/js/appear.js')}}"></script>
 <script src="{{asset('frontend/js/gmap3.js')}}"></script>
 <script src="{{asset('frontend/js/main.js')}}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
 <!--************************************
         js auth
 *************************************-->

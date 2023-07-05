@@ -98,6 +98,9 @@
 															<div class="tg-frontcover"><img src="{{ asset('assets/images/upload/product/'.$item->photo) }}" alt="image description"></div>
 															<div class="tg-backcover"><img src="{{ asset('assets/images/upload/product/'.$item->photo) }}" alt="image description"></div>
 														</div>
+														<?php if($item->stock == 0){?>
+															<span class="hethang"><img src="{{asset('frontend/images/hethang.png')}}" alt=""></span>
+														<?php }?>
 														<a class="tg-btnaddtowishlist d-xl-none" href="javascript:void(0);">
 															<i class="icon-heart"></i>
 															<span>add to wishlist</span>
@@ -117,10 +120,17 @@
 															<ins>{{ $item->regular_price }}</ins>
 															<del class="d-xl-none">$27.20</del>
 														</span>
-														<a class="tg-btn tg-btnstyletwo" href="{{ route('order.addtocart', $item->id) }}">
-															<i class="fa fa-shopping-basket"></i>
-															<em>Thêm vào giỏ hàng</em>
-														</a>
+														<?php if($item->stock == 0){?>
+															<a class="tg-btn tg-btnstyletwo" style="opacity: .5;">
+																<i class="fa fa-shopping-basket"></i>
+																<em>Thêm vào giỏ hàng </em>
+															</a>
+														<?php }else{?>
+															<a class="tg-btn tg-btnstyletwo" href="{{ route('order.addtocart1', $item->id) }}">
+																<i class="fa fa-shopping-basket"></i>
+																<em>Thêm vào giỏ hàng </em>
+															</a>
+														<?php }?>
 													</div>
 												</div>
 											</div>

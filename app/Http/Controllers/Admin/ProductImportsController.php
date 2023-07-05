@@ -63,6 +63,7 @@ class ProductImportsController extends Controller
             ->get();
             foreach($data as $item){
                 $stock = DB::table('table_products')
+                ->where('table_products.deleted_at','=',null)
                     ->where('id', $item->id_product)
                     ->select('stock')->get();
                 DB::table('table_products')

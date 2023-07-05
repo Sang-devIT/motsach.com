@@ -52,12 +52,13 @@ Banner
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{route('admin.banner.edit',$item->id) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                        <form method="GET" action="{{ route('admin.banner.destroy',$item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                        <a href="{{route('admin.banner.edit',$item->id) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa</button></a>
+                                        <a class="btn-delete" data-id="{{ $item->id }}" data-type="banner"><button class="btn btn-danger btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Xóa</button></a>
+                                        {{-- <form method="GET" action="{{ route('admin.banner.destroy',$item->id) }}" accept-charset="UTF-8" style="display:inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                             @endforeach

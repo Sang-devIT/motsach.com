@@ -69,6 +69,5 @@ class LoginController extends Controller
         Auth::guard('admin')->logout();
         $request->session()->forget('customersadmin');
         return redirect()->route('admin.login');
-
     }
 }

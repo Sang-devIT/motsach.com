@@ -9,7 +9,7 @@ Author
         <div class="card-body pt-0">
             <form action="{{ route('admin.author.update',$id)}}" method="post">
                 @csrf
-                @method("POST")
+                {{-- @method("POST") --}}
                 @if (empty($nameloi))
                  <div class="form-group">
                     <label>Tên tác giả</label>

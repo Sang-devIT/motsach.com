@@ -41,7 +41,7 @@
                             </div>
                           </td>
                           <td class="text-right font-weight-semibold align-middle p-4">{{ number_format($item->price,0,",",",") }} VNĐ</td>
-                          <td class="align-middle p-4"><input type="number" min="1" class="form-control text-center qty_cart " data-price="{{ $item->price }}" data-rowid="{{ $item->rowId }}" data-id="{{ $item->id }}" name="qty[{{ $item->rowId }}]" value="{{ $item->qty }}"></td>
+                          <td class="align-middle p-4"><input type="number" min="1" class="form-control text-center qty_cart " data-price="{{ $item->price }}" data-rowid="{{ $item->rowId }}" data-id="{{ $item->id }}" data-sl="{{ $item->options->stock }}" name="qty[{{ $item->rowId }}]" value="{{ $item->qty }}" max="{{ $item->options->stock }}"></td>
                           <td class="text-right font-weight-semibold align-middle p-4 subtotal-{{ $item->id }}">{{ number_format($item->subtotal,0,",",",") }} VNĐ</td>
                           <td class="text-center align-middle px-0"><a href="{{ route('cart.delete',$item->rowId) }}" class="remove_cart shop-tooltip close float-none text-danger" title="" data-qty="{{ $item->qty }}" data-rowid="{{ $item->rowId }}" data-original-title="Remove">×</a></td>
                         </tr>
@@ -75,10 +75,16 @@
       
       $('.qty_cart').change(function(){
         let id = $(this).data('id');
+        let sltk = $(this).data('sl');
         let qty = parseInt($(this).val());
         let price = $(this).data('price');
         let rowid = $(this).data('rowid');
         let _token = $("input[name='_token']").val();
+        if(qty > sltk){
+          alert("Số lượng mua quá lớn so với tồn kho của sản phẩm!!!!");
+          $(this).attr('value','sltk');
+          return false;
+        }
         $.ajax({
           url:"/cart/update_ajax",
           dataType:"JSON",

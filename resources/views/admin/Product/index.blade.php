@@ -50,13 +50,14 @@ Product
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{route('admin.product.show',$item->slug) }}" ><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                        <a href="{{route('admin.product.edit',$item->slug) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                        <form method="GET" action="{{ route('admin.product.destroy',$item->slug) }}" accept-charset="UTF-8" style="display:inline">
+                                        <a href="{{route('admin.product.show',$item->slug) }}" ><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Xem</button></a>
+                                        <a href="{{route('admin.product.edit',$item->slug) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa</button></a>
+                                        <a class="btn-delete" data-id="{{ $item->slug }}" data-type="product"><button class="btn btn-danger btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Xóa</button></a>
+                                        {{-- <form method="GET" action="{{ route('admin.product.destroy',$item->slug) }}" accept-charset="UTF-8" style="display:inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                             @endforeach

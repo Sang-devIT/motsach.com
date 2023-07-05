@@ -65,11 +65,13 @@ Route::group(['prefix' => '/product'],function(){
 Route::group(['middleware' => ['auth:user']],function(){
     // CART
     Route::get('cart',[OrderController::class, 'index'])->name('order.cart');
-    Route::get('cart/{id}',[OrderController::class, 'addToCart'])->name('order.addtocart');
-    Route::post('cart/update',[OrderController::class, 'update'])->name('cart.update');
+    Route::post('cart/add',[OrderController::class, 'addToCart'])->name('order.addtocart');
+    Route::get('cart/{id}',[OrderController::class, 'addToCart1'])->name('order.addtocart1');
+    // Route::post('cart/update',[OrderController::class, 'update'])->name('cart.update');
     Route::post('cart/update_ajax',[OrderController::class, 'updateAjax'])->name('cart.update.ajax');
     Route::get('cart/delete/{rowId}', [OrderController::class, 'remove'])->name('cart.delete');
     Route::get('checkout',[OrderController::class, 'checkout'])->name('order.checkout');
+    Route::post('checkout_store',[OrderController::class, 'checkoutStore'])->name('order.checkout.store');
 });
 
 // public function handle(Request $request, Closure $next)
