@@ -10,9 +10,10 @@ Route::group(['prefix' => '/'],function(){
     Route::get('logout',[Admin\LoginController::class, 'logout' ])->name('admin.logout');
   
     Route::group(['middleware' => ['auth:admin']],function(){
-            Route::get('/', function(){
-                return view('admin.dashboard.index');
-            }) ->name('admin.dashboard');
+            // Route::get('/', function(){
+            //     return view('admin.dashboard.index');
+            // }) ->name('admin.dashboard');
+            Route::get('/',[Admin\IndexsController::class,'index'])->name('admin.dashboard');
             // Product
             Route::group(['prefix' => '/product'],function(){
                 Route::get('/',[Admin\ProductsController::class,'index'])->name('admin.product');
