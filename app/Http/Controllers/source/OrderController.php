@@ -92,7 +92,7 @@ class OrderController extends Controller
     {
 
         $cart = Cart::content();
-        if(!empty($cart))
+        if(empty($cart))
         {
             $orders = Cart::content();
             return redirect()->route('order.checkout')->with('flash_message','Vui lòng thêm sản phẩm vào giỏ hàng!!!');
