@@ -20,7 +20,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('add',[Admin\ProductsController::class,'create'])->name('admin.product.create');
                 Route::post('add-product',[Admin\ProductsController::class,'store'])->name('admin.product.store');
                 Route::get('edit/{id}',[Admin\ProductsController::class,'edit'])->name('admin.product.edit');
-                Route::post('update',[Admin\ProductsController::class,'update'])->name('admin.product.update');
+                Route::post('update/{id}',[Admin\ProductsController::class,'update'])->name('admin.product.update');
                 Route::get('show/{id}',[Admin\ProductsController::class,'show'])->name('admin.product.show');
                 Route::get('destroy/{id}',[Admin\ProductsController::class,'destroy'])->name('admin.product.destroy');
             });
@@ -37,7 +37,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('add',[Admin\CategorysController::class,'create'])->name('admin.category.create');
                 Route::post('add-category',[Admin\CategorysController::class,'store'])->name('admin.category.store');
                 Route::get('edit/{id}',[Admin\CategorysController::class,'edit'])->name('admin.category.edit');
-                Route::post('update',[Admin\CategorysController::class,'update'])->name('admin.category.update');
+                Route::post('update/{id}',[Admin\CategorysController::class,'update'])->name('admin.category.update');
                 Route::get('show/{id}',[Admin\CategorysController::class,'show'])->name('admin.category.show');
                 Route::get('destroy/{id}',[Admin\CategorysController::class,'destroy'])->name('admin.category.destroy');
             });
@@ -47,7 +47,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('add',[Admin\BannersController::class,'create'])->name('admin.banner.create');
                 Route::post('add-banner',[Admin\BannersController::class,'store'])->name('admin.banner.store');
                 Route::get('edit/{id}',[Admin\BannersController::class,'edit'])->name('admin.banner.edit');
-                Route::post('update',[Admin\BannersController::class,'update'])->name('admin.banner.update');
+                Route::post('update/{id}',[Admin\BannersController::class,'update'])->name('admin.banner.update');
                 Route::get('destroy/{id}',[Admin\BannersController::class,'destroy'])->name('admin.banner.destroy');
             });
             // Author
@@ -56,7 +56,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('add',[Admin\AuthorsController::class,'create'])->name('admin.author.create');
                 Route::post('add-author',[Admin\AuthorsController::class,'store'])->name('admin.author.store');
                 Route::get('edit/{id}',[Admin\AuthorsController::class,'edit'])->name('admin.author.edit');
-                Route::post('update',[Admin\AuthorsController::class,'update'])->name('admin.author.update');
+                Route::post('update/{id}',[Admin\AuthorsController::class,'update'])->name('admin.author.update');
                 Route::get('show/{id}',[Admin\AuthorsController::class,'show'])->name('admin.author.show');
                 Route::get('destroy/{id}',[Admin\AuthorsController::class,'destroy'])->name('admin.author.destroy');
             });
@@ -66,7 +66,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('add',[Admin\ProducesController::class,'create'])->name('admin.produce.create');
                 Route::post('add-produce',[Admin\ProducesController::class,'store'])->name('admin.produce.store');
                 Route::get('edit/{id}',[Admin\ProducesController::class,'edit'])->name('admin.produce.edit');
-                Route::post('update',[Admin\ProducesController::class,'update'])->name('admin.produce.update');
+                Route::post('update/{id}',[Admin\ProducesController::class,'update'])->name('admin.produce.update');
                 Route::get('show/{id}',[Admin\ProducesController::class,'show'])->name('admin.produce.show');
                 Route::get('destroy/{id}',[Admin\ProducesController::class,'destroy'])->name('admin.produce.destroy');
             });
@@ -79,7 +79,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('add',[Admin\ProductImportsController::class,'create'])->name('admin.productimport.create');
                 Route::post('add-productimport',[Admin\ProductImportsController::class,'store'])->name('admin.productimport.store');
                 //Route::get('edit/{id}',[Admin\ProductImportsController::class,'edit'])->name('admin.productimport.edit');
-                //Route::post('update',[Admin\ProductImportsController::class,'update'])->name('admin.productimport.update');
+                //Route::post('update/{id}',[Admin\ProductImportsController::class,'update'])->name('admin.productimport.update');
                 Route::get('show/{id}',[Admin\ProductImportsController::class,'show'])->name('admin.productimport.show');
                 //Route::get('destroy/{id}',[Admin\ProductImportsController::class,'destroy'])->name('admin.productimport.destroy');
             });

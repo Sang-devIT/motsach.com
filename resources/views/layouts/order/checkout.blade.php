@@ -81,11 +81,6 @@
                                     value="2">
                                 <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
                             </div>
-                            <div class="custom-control custom-radio">
-                                <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required=""
-                                    value="3">
-                                <label class="custom-control-label" for="httt-3">Ship COD</label>
-                            </div>
                         </div>
                         <hr class="mb-4">
                         <button class="btn btn-primary btn-lg btn-block btn-dathang" type="submit" name="btnDatHang">Đặt
@@ -93,18 +88,5 @@
                     </div>
                 </div>
             </form>
-
         </div>
-        <script>
-            $(document).on('click','.btn-dathang',function(){
-                alert("aaa");
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: false,
-                    timer: 1500
-                    })
-                });
-          </script>
 @endsection

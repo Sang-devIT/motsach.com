@@ -40,7 +40,7 @@
                                             </div>
                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                 <fieldset class="form-group">   
-                                                    <input placeholder="Số điện thoại" type="phone" pattern="\d+" class="form-control form-control-comment form-control-lg" id="phone" name="phone" Required>
+                                                    <input placeholder="Số điện thoại" type="number" pattern="\d+" class="form-control form-control-comment form-control-lg" id="phone" name="phone" Required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">

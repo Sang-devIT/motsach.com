@@ -16,7 +16,6 @@ class indexController extends Controller
      */
     public function index()
     {
-        
         $product = DB::table('table_products')
         ->where('deleted_at','=',null)
         ->join('table_authors','table_products.id_author','=','table_authors.id')

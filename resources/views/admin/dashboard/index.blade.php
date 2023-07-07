@@ -15,7 +15,7 @@ Dashboard
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Tiền bán hôm nay</p>
                     <h5 class="font-weight-bolder mb-0">
-                     {{-- {{$a}} --}}
+                     {{number_format($sum,0,',',',')}} VNĐ
                     </h5>
                   </div>
                 </div>
@@ -34,10 +34,9 @@ Dashboard
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Lượt user đăng ký</p>
                     <h5 class="font-weight-bolder mb-0">
-                      2,300
-                      <span class="text-success text-sm font-weight-bolder">+3%</span>
+                      {{ $countUser }}
                     </h5>
                   </div>
                 </div>
@@ -56,10 +55,9 @@ Dashboard
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Đơn hàng hôm nay</p>
                     <h5 class="font-weight-bolder mb-0">
                       +3,462
-                      <span class="text-danger text-sm font-weight-bolder">-2%</span>
                     </h5>
                   </div>
                 </div>
@@ -78,10 +76,9 @@ Dashboard
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Doanh thu hôm nay</p>
                     <h5 class="font-weight-bolder mb-0">
                       $103,430
-                      <span class="text-success text-sm font-weight-bolder">+5%</span>
                     </h5>
                   </div>
                 </div>
