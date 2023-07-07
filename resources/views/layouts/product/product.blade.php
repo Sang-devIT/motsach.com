@@ -137,8 +137,10 @@
 											@endforeach
 											
 										</div>
-										
 									</div>
+								</div>
+								<div class="paging-index">
+									{{ $product->links() }}
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
