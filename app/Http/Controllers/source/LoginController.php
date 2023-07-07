@@ -47,9 +47,10 @@ class LoginController extends Controller
             $pass = Session::get('_token');         
             $info = DB::table('table_users')->where('remember_token',$pass)->get();  
             foreach($info as $item){
-                Session::put(['customers',$item]);
+                Session::put('customers',$item);
                 Session::put('carts',[]);
             }
+            // return Session::get('customers');
             return redirect()->route('index');
         }
         return back()->with('error','Tài khoản or mật khẩu không đúng!!!');

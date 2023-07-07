@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="section">
                                             <!-- <button type="submit" name="registration-user" value="Đăng ký" class="btn  btn-style btn_50">Đăng ký</button> -->
-                                            <input type="submit" class="btn  btn-style btn_50"  value="Register"/>
+                                            <input type="submit" class="btn  btn-style btn_50"  value="Đăng kí"/>
                                         </div>
                                     </div>
                                     </form>

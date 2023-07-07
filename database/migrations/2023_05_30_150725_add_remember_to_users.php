@@ -13,7 +13,7 @@ class AddRememberToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('table_admins', function (Blueprint $table) {
             $table->string('remember_token')->nullable()->default(null);
         });
     }
@@ -25,8 +25,8 @@ class AddRememberToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropIfExists('users');
+        Schema::table('table_admins', function (Blueprint $table) {
+            $table->dropIfExists('table_admins');
         });
     }
 }
