@@ -100,10 +100,9 @@
 										<span class="tg-bookwriter">Tác giả:{{$item->nameAuthor}}</span>
 										
 										<span class="tg-bookprice">
-											<ins>{{ $item->regular_price }}</ins>
-											<del class="d-xl-none">$27.20</del>
+											<ins>{{ number_format($item->regular_price,0,',',',') }} VNĐ</ins>
 										</span>
-										<?php if($item->stock == 0){?>
+										<?php if($item->stock == 0 || ktraSLT($item->stock,$item->id) == $item->stock){?>
 											<a class="tg-btn tg-btnstyletwo" style="opacity: .5;">
 												<i class="fa fa-shopping-basket"></i>
 												<em>Thêm vào giỏ hàng </em>

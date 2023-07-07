@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\source;
 
 use App\Http\Controllers\Controller;
+use App\Models\TableUser;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades;
@@ -81,18 +82,15 @@ class LoginController extends Controller
             return redirect()->route('user.register');
         }
         $randomID = Date('Ymd') . Str::random(3);
-            DB::table('table_users')->insert([
-                [
-                
+        // dd($request->phone);
+            TableUser::create([
                     'password' => Hash::make($request->password),
                     'email' => $request->email,
                     'fullname' => $request->fullname,
                     'address' => $request->address,
                     'phone' => $request->phone,
-                    'status' => 1,
-                ],
+                    'status' => 1
             ]);
-        
        
         return redirect()->route('user.login');
     }

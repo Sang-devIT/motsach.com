@@ -26,6 +26,7 @@
                     @if(!count($orders))
                       <h5 style="font-size: 20px;font-style: italic;font-weight: bold;">Bạn chưa có sản phẩm trên giỏ hàng!!!!</h5>
                     @endif
+                   
                     @if(!empty($orders))
                       @foreach($orders as $item)
                       <?php $total += $item->price * $item->qty ?>

@@ -125,7 +125,7 @@
 															<ins>{{ $item->regular_price }}</ins>
 															<del class="d-xl-none">$27.20</del>
 														</span>
-														<?php if($item->stock == 0){?>
+														<?php if($item->stock == 0 || ktraSLT($item->stock,$item->id) == $item->stock){?>
 															<a class="tg-btn tg-btnstyletwo" style="opacity: .5;">
 																<i class="fa fa-shopping-basket"></i>
 																<em>Thêm vào giỏ hàng </em>

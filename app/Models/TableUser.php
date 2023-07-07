@@ -21,6 +21,9 @@ class TableUser extends Authenticate
         'fullname',
         'email',
         'password',
+        'phone',
+        'address',
+        'status'
     ];
 
     /**

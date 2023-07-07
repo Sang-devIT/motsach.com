@@ -69,7 +69,7 @@
 																	<input type="number" class="result" data-sl="{{ $item->stock }}" min="1" value="1" id="quantity1" data-id="{{ $item->id}}" name="quantity">
 																	<!-- <em class="plus">+</em> -->
 																</div>
-																<?php if($item->stock == 0){?>
+																<?php if($item->stock == 0 || ktraSLT($item->stock,$item->id) == $item->stock){?>
 																	<a class="tg-btn tg-active tg-btn-lg" style="opacity: .5;">
 																		Thêm vào giỏ hàng
 																	</a>
