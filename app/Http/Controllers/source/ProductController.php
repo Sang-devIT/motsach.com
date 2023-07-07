@@ -109,7 +109,7 @@ class ProductController extends Controller
         }
 
 
-
+       
         return view('layouts.product.category',compact('id','product','category','cate','author'));
      }
      else

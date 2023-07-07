@@ -21,8 +21,8 @@ Author
                 <div class="form-group">
                     <label>Trạng thái</label>
                     <select name="status" class="form-control" id="">
-                        <option value="0" {{ old('status')==0 ? 'selected' : false }}>Chưa kích hoạt</option>
                         <option value="1" {{ old('status')==1 ? 'selected' : false }}>Kích hoạt</option>
+                        <option value="0" {{ old('status')==0 ? 'selected' : false }}>Chưa kích hoạt</option>
                     </select>
                 </div>
                 <div class="form-group">

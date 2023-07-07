@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
+<div class="container mt-4 mb-4 ">
             <form class="needs-validation" name="frmthanhtoan" method="post"
                 action="{{ route('order.checkout.store') }}">
                 @csrf
@@ -38,28 +38,28 @@
                         </ul>
                     </div>
                     <div class="col-md-8 order-md-1">
-                        <h4 class="mb-3">Thông tin khách hàng</h4>
+                        <h3 class="mb-3">Thông tin khách hàng</h3>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="fullname">Họ tên</label>
                                 <input type="text" class="form-control" name="fullname" id="fullname"
-                                    value="{{ old('fullname') }}" required>
+                                    value="{{Session::get('customers')->fullname}}" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="address">Địa chỉ</label>
                                 <input type="text" class="form-control" name="address" id="address"
-                                    value="{{ old('address') }}" required>
+                                    value="{{Session::get('customers')->address}}" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="phone">Điện thoại</label>
                                 <input type="text" class="form-control" name="phone" id="phone"
-                                    value="{{ old('phone') }}" required>
+                                    value="{{Session::get('customers')->phone}}" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" name="email" id="email"
-                                    value="{{ old('email') }}" required>
+                                    value="{{Session::get('customers')->email}}" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="requirements">Nội dung</label>
@@ -68,7 +68,7 @@
                             </div>
                         </div>
 
-                        <h4 class="mb-3">Hình thức thanh toán</h4>
+                        <h3 class="mb-3">Hình thức thanh toán</h3>
 
                         <div class="d-block my-3">
                             <div class="custom-control custom-radio">
