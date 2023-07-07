@@ -30,9 +30,9 @@ class AppServiceProvider extends ServiceProvider
         $pro = DB::table('table_products')->where('table_products.deleted_at','=',null)->select('id','name')->get();
         $catmenu = DB::table('table_categories')->select('id','name')->get();
         $authormenu = DB::table('table_authors')->select('id','name')->get();
-
+        $logo = DB::table('table_banners')->where('type','=','logo')->latest()->paginate(1);
         View::share([
-            'pro'=>$pro,'catmenu'=>$catmenu,'authormenu'=>$authormenu,
+            'pro'=>$pro,'catmenu'=>$catmenu,'authormenu'=>$authormenu,'logo'=>$logo,
         ]);
         Paginator::useBootstrap();
        

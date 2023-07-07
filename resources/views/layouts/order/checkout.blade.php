@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 order-md-2 mb-4">
+                    <div class="col-md-6 order-md-2 mb-4">
                         <h4 class="d-flex justify-content-between align-items-center mb-3">
                             <span class="text-muted">Giỏ hàng</span>
                             <span class="badge badge-secondary badge-pill">{{ Cart::content()->count(); }}</span>
@@ -22,7 +22,7 @@
                             @foreach($orders as $item)
                                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                                     <div>
-                                        <h6 class="my-0">{{ $item->name }}</h6>
+                                        <h3 class="my-0">{{ $item->name }}</h3>
                                         <small class="text-muted">{{ number_format($item->price,0,",",",") }} x {{ $item->qty }}</small>
                                     </div>
                                     <span class="text-muted">{{ number_format($item->subtotal,0,",",",") }}</span>
@@ -37,7 +37,7 @@
                             @endif
                         </ul>
                     </div>
-                    <div class="col-md-8 order-md-1">
+                    <div class="col-md-6 order-md-1">
                         <h3 class="mb-3">Thông tin khách hàng</h3>
 
                         <div class="row">

@@ -92,6 +92,9 @@
 													</fieldset>
 												</form>
 											</div>
+											<?php if(count($product)==0){?>
+												<div class="thongbaoccsn">Chưa có sản phẩm </div>
+												<?php }?>
 											@foreach($product as $key => $item)
 											<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
 												<div class="tg-postbook">

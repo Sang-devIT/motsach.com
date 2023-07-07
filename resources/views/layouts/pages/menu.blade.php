@@ -17,6 +17,9 @@
                                     <a href="/">Trang chủ</a>
                                    
                                 </li>
+                                <li class="">
+                                    <a href="{{route('product')}}">Sản phẩm</a>
+                                </li>
                                 <li class="menu-item-has-children ">
                                     <a href="javascript:void(0);">Thể loại sản phẩm </a>
                                     <ul class="sub-menu">
@@ -34,32 +37,9 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="products.html">Best Selling</a></li>
-                                <li><a href="products.html">Weekly Sale</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Latest News</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="newslist.html">News List</a></li>
-                                        <li><a href="newsgrid.html">News Grid</a></li>
-                                        <li><a href="newsdetail.html">News Detail</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contactus.html">Contact</a></li>
-                                <li class="menu-item-has-children current-menu-item">
-                                    <a href="javascript:void(0);"><i class="icon-menu"></i></a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item-has-children">
-                                            <a href="aboutus.html">Products</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="products.html">Products</a></li>
-                                                <li><a href="productdetail.html">Product Detail</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="aboutus.html">About Us</a></li>
-                                        <li><a href="404error.html">404 Error</a></li>
-                                        <li><a href="comingsoon.html">Coming Soon</a></li>
-                                    </ul>
-                                </li>
+                           
+                               
+                             
                             </ul>
                         </div>
                     </nav>
