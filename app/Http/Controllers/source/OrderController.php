@@ -97,7 +97,7 @@ class OrderController extends Controller
             $orders = Cart::content();
             return redirect()->route('order.checkout')->with('flash_message','Vui lòng thêm sản phẩm vào giỏ hàng!!!');
         }
-        $order_date = Carbon::now('Asia/Ho_Chi_Minh');
+        $order_date = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
         $count =  DB::table('table_product_imports')->count() + 1;
         $order_code =  'HD' . Date('Ymd') .  $count;
         $id_user = Auth::user()->id;
