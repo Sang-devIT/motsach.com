@@ -34,7 +34,7 @@ Order
                                 <td>{{ $item->fullname }}</td>
                                 <td>{{ $item->order_date }}</td>
                                 <td>
-                                    @switch($item->status)
+                                    @switch($item->order_payment)
                                         @case(1)
                                             Tiền mặt
                                             @break

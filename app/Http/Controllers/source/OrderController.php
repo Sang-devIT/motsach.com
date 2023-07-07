@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Type\Integer;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Nette\Utils\Random;
+use Illuminate\Support\Str;
 class OrderController extends Controller
 {
     public function index()
@@ -91,18 +93,21 @@ class OrderController extends Controller
     public function checkoutStore(Request $request)
     {
 
+        //dd($request->get('httt_ma'));
         $cart = Cart::content();
         if(empty($cart))
         {
             $orders = Cart::content();
             return redirect()->route('order.checkout')->with('flash_message','Vui lòng thêm sản phẩm vào giỏ hàng!!!');
         }
-        $order_date = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
-        $count =  DB::table('table_product_imports')->count() + 1;
+
+        $order_date = Carbon::now('Asia/Ho_Chi_Minh');
+        $count =  DB::table('table_orders')->count() + 1;
+        //$count = Str::random(5);
+
         $order_code =  'HD' . Date('Ymd') .  $count;
         $id_user = Auth::user()->id;
         // dd($id_user);
-        //dd($request->get('httt_ma'));
         $order = TableOrder::create([
             'id_user'=> $id_user,   
             'order_date'=>$order_date,

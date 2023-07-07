@@ -74,9 +74,10 @@
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="row">
+				<div id="tg-bestsellingbooksslider" class="tg-bestsellingbooksslider tg-bestsellingbooks owl-carousel">
+				
 					@foreach($product as $key => $item)
-						<div class="col-6 col-sm-3 col-lg-2">
+					
 							<div class="item">
 								<div class="tg-postbook">
 									<figure class="tg-featureimg">
@@ -115,7 +116,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						
 					@endforeach
 				</div>
 			</div>
@@ -124,6 +125,24 @@
 	<!--************************************
 			Featured Item Start
 	*************************************-->
+	{{-- @php 
+	//dd( count($productnew));
+	$a='';
+	foreach ($productnew as $k => $item) {
+		if(max($item->id)){
+			$a=$item;
+
+		}
+		dd($a);
+
+		// $d = DateTime::createFromFormat('d-m-Y H:i:s', $item->created_at);
+		// if ($d === false) {
+		// 	die("Incorrect date string");
+		// } else {
+		// 	echo $d->getTimestamp();
+		// }
+	} --}}
+	{{-- @endphp --}}
 	<section class="tg-bglight tg-haslayout">
 		<div class="container">
 			<div class="row">
@@ -180,7 +199,7 @@
 						<div class="row">
 							<div class="tg-newreleasebooks">
 
-							@foreach($product as $key => $item)
+							@foreach($product1 as $key => $item)
 								<div class="col-xs-4 col-sm-4 col-md-6 col-lg-4">
 									<div class="tg-postbook">
 										<figure class="tg-featureimg">
@@ -189,7 +208,7 @@
 												<div class="tg-backcover"><img src="{{ asset('assets/images/upload/product/'.$item->photo) }}" alt="image description"></div>
 												
 											</div>
-											<a class="tg-btnaddtowishlist" href="javascript:void(0);">
+											<a class="tg-btnaddtowishlist" href="{{ route('order.addtocart1', $item->id) }}">
 												<i class="icon-heart"></i>
 												<span>Thêm vào giỏ hàng</span>
 											</a>
@@ -482,9 +501,7 @@ Có thể tăng cân, nhưng nó sẽ xảy ra vào thời điểm mà tôi sẽ
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<div class="tg-calltoaction">
-							<h2>Giảm giá mở cho tất cả</h2>
-						
+						<div class="tg-calltoaction">						
 							<a class="tg-btn tg-active d-xl-none" href="javascript:void(0);">Read More</a>
 						</div>
 					</div>

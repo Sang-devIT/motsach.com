@@ -64,7 +64,12 @@
               
               <div class="float-right d-flex justify-content-end">
                 <a href="{{ route('index') }}"><button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Tiếp tục mua sắm</button></a>
-                <a href="{{ route('order.checkout') }}"><button type="button" class="btn btn-lg btn-primary mt-2">Thanh toán</button></a>
+                
+                @if (count(Cart::content())>0)
+                  <a href="{{ route('order.checkout') }}"><button type="button" class="btn btn-lg btn-primary mt-2">Thanh toán</button></a>
+                @else
+                <a style="opacity: 0.5;"><button type="button" class="btn btn-lg btn-primary mt-2">Thanh toán</button></a>
+                @endif
               </div>
           </div>
       </div>
