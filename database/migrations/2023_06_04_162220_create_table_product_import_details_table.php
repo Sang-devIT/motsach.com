@@ -22,7 +22,8 @@ class CreateTableProductImportDetailsTable extends Migration
             $table->integer('id_product_import')->unsigned();
             $table->foreign('id_product_import')->references('id')->on('table_product_imports');
             $table->integer('quantity');
-            $table->float('price');
+            // $table->float('price');
+            $table->integer('price');
             $table->timestamps();
         });
 

@@ -14,6 +14,7 @@ Route::group(['prefix' => '/'],function(){
             //     return view('admin.dashboard.index');
             // }) ->name('admin.dashboard');
             Route::get('/',[Admin\IndexsController::class,'index'])->name('admin.dashboard');
+            Route::post('/statistics-by-date',[Admin\IndexsController::class,'statisticsByDate'])->name('admin.statistics');
             // Product
             Route::group(['prefix' => '/product'],function(){
                 Route::get('/',[Admin\ProductsController::class,'index'])->name('admin.product');

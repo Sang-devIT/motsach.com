@@ -26694,3 +26694,17 @@ h5.title-1 {
   .paging-index > nav > div:last-child > div:first-child,.paging-index > nav > div:first-child {
     display: none;
 }
+.box-item-import-pro{
+  box-shadow: 0 0 5px #ccc;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.box-item-import-pro .title-name{
+  font-size: 25px;
+  text-transform: capitalize;
+}
+.div-select {
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px #ccc;
+}

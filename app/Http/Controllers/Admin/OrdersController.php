@@ -45,6 +45,7 @@ class OrdersController extends Controller
             }
         }
         $order->update($input);
+        toastr()->success('Cập nhật thành công !!!');
         return redirect()->route('admin.order');
     }
     public function destroy($id){
