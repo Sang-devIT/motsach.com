@@ -134,6 +134,7 @@ class OrderController extends Controller
                 ]);
         }
         Cart::destroy();
-        return redirect("/cart")->with('success','Thanh toán thành công!') ;
+        toastr()->success('Thanh toán thành công !!!');
+        return redirect("/cart");
     }
 }

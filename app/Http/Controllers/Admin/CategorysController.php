@@ -46,7 +46,8 @@ class CategorysController extends Controller
         ]);
         $input = $request->all();
         TableCategory::create($input);
-        return redirect()->route('admin.category')->with('flash_message', 'Thêm thành công!');
+        toastr()->success('Thêm thành công !!!');
+        return redirect()->route('admin.category');
     }
 
     /**
@@ -92,7 +93,8 @@ class CategorysController extends Controller
         if ($contact->name == $request->name) {
             $input = $request->all();
             $contact->update($input);
-            return redirect()->route('admin.category')->with('flash_message', 'Cập nhật thành công !!!');
+            toastr()->success('Cập nhật thành công !!!');
+            return redirect()->route('admin.category');
         } else {
            
             $request->validate(
@@ -106,8 +108,9 @@ class CategorysController extends Controller
             );
 
             $input = $request->all();
-            $contact->update($input);           
-            return redirect()->route('admin.category')->with('flash_message', 'Cập nhật thành công !!!');
+            $contact->update($input);
+            toastr()->success('Cập nhật thành công !!!');           
+            return redirect()->route('admin.category');
         }
     }
 
@@ -120,6 +123,6 @@ class CategorysController extends Controller
     public function destroy($id)
     {
         $contact = TableCategory::find($id)->delete();
-        return redirect()->route('admin.category')->with('flash_message1', 'Xóa thành công !!!');
+        return redirect()->route('admin.category');
     }
 }

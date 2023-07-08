@@ -79,7 +79,8 @@ class ProductImportsController extends Controller
                     ->update([
                         'total_money' => $total,
                     ]);
-        return redirect()->route('admin.productimport')->with('flash_message','Thêm thành công !!!');
+        toastr()->success('Thêm thành công !!!');
+        return redirect()->route('admin.productimport');
     }
 
     /**
