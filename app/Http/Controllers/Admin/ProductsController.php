@@ -4,15 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\TableProduct;
+use App\Models\TableGalery;
 use App\Models\TableProductImportDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use PhpParser\Node\Stmt\Foreach_;
 use Validator;
+use Carbon\Carbon;
+
 
 class ProductsController extends Controller
 {
 
+   
     /**
      * Display a listing of the resource.
      *
@@ -87,6 +92,35 @@ class ProductsController extends Controller
         $input['slug'] = Str::slug($request->name,'-');
         $input['code'] = 'SP-'.Str::upper(Str::random(5));
         TableProduct::create($input);
+
+        $slug1 = Str::slug($request->name,'-');
+        $id_pro = DB::table('table_products')->where('deleted_at','=',null)->where('slug',$slug1)->get()->first();
+    
+        if ($request->hasFile('gallery')) {
+          
+            $gallerys = $request->gallery;
+            $galleryTypeAllows = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+            foreach ($gallerys as $k =>  $gallery) {
+                $galleryName = time() . $k . "." . $gallery->extension();
+                $galleryType = $gallery->getClientOriginalExtension();
+                $gallerySize = $gallery->getSize();
+
+                if (in_array(strtolower($galleryType), $galleryTypeAllows) && $gallerySize <= 26214400) {
+                    TableGalery::create(
+                        [
+                            'thumbnail' => $galleryName,
+                            'product_id' => $id_pro->id
+                            // "type" => $request->type_hidden,
+                            // "status" => 'active',
+                        ]
+                    );
+                    $gallery->move('assets/images/upload/product', $galleryName);
+                } else {
+                    return redirect()->route('admin.product')->with('danger', 'Album ảnh tải lên chưa đúng định dạng hoặc vượt quá 25MB');
+                }
+            }
+        }
+
         return redirect()->route('admin.product')->with('flash_message','Thêm thành công !!!');
     }
 
@@ -99,10 +133,13 @@ class ProductsController extends Controller
     public function show($id)
     {
         $contact = DB::table('table_products')->where('deleted_at','=',null)->where('slug',$id)->get();
+        
         $category=DB::table('table_categories')->select('name')->where('id',$contact[0]->id_category)->first();
         $produce=DB::table('table_produces')->select('name')->where('id',$contact[0]->id_produce)->first();
         $author=DB::table('table_authors')->select('name')->where('id',$contact[0]->id_author)->first();
-        return view('admin.product.show',compact('id','contact','category','produce','author'));
+        $gallery=DB::table('table_galeries')->select('thumbnail')->where('product_id',$contact[0]->id)->get();
+     
+        return view('admin.product.show',compact('id','contact','category','produce','author','gallery'));
     }
 
     /**
@@ -123,7 +160,8 @@ class ProductsController extends Controller
         $category = DB::table('table_categories')->select('id','name')->get();
         $produce = DB::table('table_produces')->select('id','name')->get();
         $author = DB::table('table_authors')->select('id','name')->get();
-        return view('admin.product.edit',compact('id','contact','category','produce','author'));
+        $gallery=DB::table('table_galeries')->select('thumbnail')->where('product_id',$contact[0]->id)->get();
+        return view('admin.product.edit',compact('id','contact','category','produce','author','gallery'));
     }
 
     /**
@@ -152,13 +190,56 @@ class ProductsController extends Controller
                 {  
                     unlink(public_path('assets/images/upload/product/'.$getImages[0]->photo));
                 }
+                
                 $anh = $request->file('photo');
                 $getImages = time().'-'.$anh->getClientOriginalName();
                 $destinationPath = public_path('assets/images/upload/product');
                 $anh->move($destinationPath, $getImages);
                 $contact->photo = $getImages;
             }
+
+            
+            if ($request->file('gallery')!= null) {
+           
+                $gallerys = $request->gallery;
+               
+                $galleryTypeAllows = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+                $getImages1 = DB::table('table_galeries')->select('thumbnail')->where('product_id',   $contact->id)->get();
+                // dd($getImages1);
+                foreach($getImages1 as $item){
+
+                    // return $item->thumbnail;
+                    unlink(public_path('assets/images/upload/product/'.$item->thumbnail));
+                
+                }
+                DB::table('table_galeries')->where('product_id',$contact->id)->delete();
+                foreach ($gallerys as $k =>  $gallery) {
+                    
+                    $galleryName = time() . $k . "." . $gallery->extension();
+                    $galleryType = $gallery->getClientOriginalExtension();
+                    $gallerySize = $gallery->getSize();
+                   
+                    if (in_array(strtolower($galleryType), $galleryTypeAllows) && $gallerySize <= 26214400) {
+                        TableGalery::create(
+                            [
+                                'thumbnail' => $galleryName,
+                                'product_id' => $contact->id
+                                // "type" => $request->type_hidden,
+                                // "status" => 'active',
+                            ]
+                        );
+
+                       
+                        $gallery->move('assets/images/upload/product', $galleryName);
+                    } else {
+                        return redirect()->route('admin.product')->with('danger', 'Album ảnh tải lên chưa đúng định dạng hoặc vượt quá 25MB');
+                    }
+                }
+            }
+
             $contact->id_category = $request->id_category;
+            $contact->name = $request->name;
+            $contact->slug = Str::slug($request->name,'-');
             $contact->id_produce = $request->id_produce;
             $contact->id_author = $request->id_author;
             $contact->regular_price = $request->regular_price;

@@ -32,6 +32,7 @@
                                         <div class="row">
                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                 <fieldset class="form-group">
+                                                    
                                                     <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" class="form-control form-control-lg"  value="" id="email" name="email"  placeholder="Email" required="">
                                                     @if(!empty(Session::get('error-email')))
                                                         <span style="color:red">Email đã được sử dụng</span>

@@ -17,10 +17,10 @@ class CreateTableGaleriesTable extends Migration
 
         Schema::create('table_galeries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id');
-            $table->foreign('product_id')->references('id')->on('table_product');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('table_products');
             $table->string('thumbnail');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
 

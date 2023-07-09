@@ -428,6 +428,7 @@ li.tg-rss a { background:#ff6600; }
 .tg-description {
 	width: 100%;
 	float: left;
+	font-size: 16px;
 }
 .tg-bglight { background:#f7f7f7; }
 .tg-bgdark { background:#373542; }
@@ -1846,6 +1847,10 @@ li.menu-item-has-mega-menu { position: static; }
 	width: 100%;
 	float: left;
 	padding: 0 0 20px;
+}
+.tg-booktitle h2{
+    font-size: 23px;
+    font-weight: 600;
 }
 .tg-booktitle h3 {
 	margin: 0;
@@ -3517,11 +3522,11 @@ blockquote .tg-bookwriter{
 	padding:20px;
 	background:#f7f7f7;
 }
-.tg-productdetail .tg-postbook .tg-bookprice{padding:0 0 14px 20px;}
+.tg-productdetail .tg-postbook .tg-bookprice{padding: 0 0 14px 0px;}
 .tg-productdetail .tg-postbook .tg-bookprice ins{
 	color:#484848;
-	font-size:30px;
-	line-height:25px;
+	font-size: 22px;
+	line-height: 25px;
 }
 .tg-productdetail .tg-postbook .tg-bookprice del{
 	font-size:20px;
@@ -3535,14 +3540,15 @@ blockquote .tg-bookwriter{
 	vertical-align:bottom;
 }
 .tg-productdetail .tg-postbookcontent{padding: 15px 0 0 0;}
-.tg-productdetail .tg-postbookcontent .tg-bookwriter{padding:0 0 30px 20px;}
+.tg-productdetail .tg-postbookcontent .tg-bookwriter{padding: 0px 0 10px 0px;}
 .tg-delevrystock{
 	width:100%;
 	float:left;
 	font-size:14px;
 	list-style:none;
 	line-height:25px;
-	padding:0 0 10px 20px;
+	padding: 0 0 0px 0px;
+	margin-bottom: 0;
 }
 .tg-delevrystock li{
 	width:100%;
@@ -3550,7 +3556,7 @@ blockquote .tg-bookwriter{
 	line-height:inherit;
 	list-style-type:none;
 }
-.tg-delevrystock li + li{padding:30px 0 0;}
+.tg-delevrystock li + li{padding: 5px 0 0;}
 .tg-delevrystock li i{
 	width:40px;
 	font-size:24px;
@@ -3564,6 +3570,7 @@ blockquote .tg-bookwriter{
 .tg-delevrystock li span{
 	width:78%;
 	overflow:hidden;
+	color: #000;
 }
 .tg-delevrystock li span em{font-style:normal;}
 .tg-quantityholder{
@@ -3654,8 +3661,8 @@ blockquote .tg-bookwriter{
 .tg-share .tg-socialicons li:first-child{padding-left:0;}
 .tg-productcontent .tg-description p a{text-decoration:none;}
 .tg-productcontent .tg-sectionhead{
-	margin:0 0 30px;
-	padding:0 0 27px;
+	margin: 15px 0 10px 0;
+	padding: 0px 0 10px;
 }
 .tg-productcontent .tg-sectionhead h2{
 	font-size:22px;
@@ -3664,7 +3671,7 @@ blockquote .tg-bookwriter{
 .tg-productinfo{
 	width:100%;
 	float:left;
-	font-size:14px;
+	font-size: 16px;
 	list-style:none;
 	line-height:18px;
 	padding:0 0 30px;

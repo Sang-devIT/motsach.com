@@ -3,7 +3,7 @@
 
 @section('content')
 <?php /*?>
-<div class="breadcrumb-section breadcrumb-bg">
+    <div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
@@ -16,84 +16,84 @@
 		</div>
 	</div>
 	<!-- end breadcrumb section -->
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-lg-3 my-lg-0 my-md-1">
-            <div id="sidebar" class="bg-purple">
-                <div class="h4 text-white">Tài khoản</div>
-                <ul>
-                    <li >
-                         <a href="{{route('user.account_management')}}" class="text-decoration-none d-flex align-items-start">
-                            <div class="fas fa-box pt-2 me-3"></div>
-                            <div class="d-flex flex-column">
-                                <div class="link">Tài khoản của tôi</div>
-                                <div class="link-desc">Xem và quản lí tài khoản</div>
-                            </div>
-                        </a>
-                     </li>
-                    <li> 
-                        <a href="{{route('user.order_management')}}" class="text-decoration-none d-flex align-items-start">
-                            <div class="fas fa-box-open pt-2 me-3"></div>
-                            <div class="d-flex flex-column">
-                                <div class="link">Đơn hàng của tôi</div>
-                                <div class="link-desc">Xem và quản lí đơn hàng</div>
-                            </div>
-                        </a> 
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-9 my-lg-0 my-1">
-            <div id="main-content" class="bg-white border">
-            <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-               
-                <span class="font-weight-bold">{{Session::get('customers')->fullname}}</span>
-                <span class="text-black-50">{{Session::get('customers')->email}}</span>
-                <span> </span>
-            </div>
-        </div>
-        <div class="col-md-8 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Thiết lập hồ sơ</h4>
+    <div class="container mt-4">
+            <div class="row">
+                <div class="col-lg-3 my-lg-0 my-md-1">
+                    <div id="sidebar" class="bg-purple">
+                        <div class="h4 text-white">Tài khoản</div>
+                        <ul>
+                            <li >
+                                <a href="{{route('user.account_management')}}" class="text-decoration-none d-flex align-items-start">
+                                    <div class="fas fa-box pt-2 me-3"></div>
+                                    <div class="d-flex flex-column">
+                                        <div class="link">Tài khoản của tôi</div>
+                                        <div class="link-desc">Xem và quản lí tài khoản</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li> 
+                                <a href="{{route('user.order_management')}}" class="text-decoration-none d-flex align-items-start">
+                                    <div class="fas fa-box-open pt-2 me-3"></div>
+                                    <div class="d-flex flex-column">
+                                        <div class="link">Đơn hàng của tôi</div>
+                                        <div class="link-desc">Xem và quản lí đơn hàng</div>
+                                    </div>
+                                </a> 
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <form action="{{route('user.edit_account')}}" method="POST" enctype="multipart/form-data">
-               @csrf
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label class="labels">Họ tên</label>
-                            <input type="text" class="form-control" name="fullname"value="{{Session::get('customers')->fullname}}">
-                        </div>
-                      
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12">
-                            <label class="labels">Số điện thoại</label>
-                            <input type="text" class="form-control"name="phone" value="{{Session::get('customers')->phone}}">
-                        </div>
-                        <div class="col-md-12">
-                            <label class="labels">Địa chỉ </label>
-                            <input type="text" class="form-control"name="address"value="{{Session::get('customers')->address}}">
-                        </div>
+                <div class="col-lg-9 my-lg-0 my-1">
+                    <div id="main-content" class="bg-white border">
+                    <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     
+                        <span class="font-weight-bold">{{Session::get('customers')->fullname}}</span>
+                        <span class="text-black-50">{{Session::get('customers')->email}}</span>
+                        <span> </span>
                     </div>
-                    
-                    <div class="mt-5 text-center">
-                        <button class="btn btn-primary profile-button" type="submit">Lưu thông tin</button>
+                </div>
+                <div class="col-md-8 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Thiết lập hồ sơ</h4>
+                        </div>
+                        <form action="{{route('user.edit_account')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Họ tên</label>
+                                    <input type="text" class="form-control" name="fullname"value="{{Session::get('customers')->fullname}}">
+                                </div>
+                            
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <label class="labels">Số điện thoại</label>
+                                    <input type="text" class="form-control"name="phone" value="{{Session::get('customers')->phone}}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Địa chỉ </label>
+                                    <input type="text" class="form-control"name="address"value="{{Session::get('customers')->address}}">
+                                </div>
+                            
+                            </div>
+                            
+                            <div class="mt-5 text-center">
+                                <button class="btn btn-primary profile-button" type="submit">Lưu thông tin</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
+            
             </div>
         </div>
-       
-    </div>
-</div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     </div>
 </div>
@@ -202,15 +202,30 @@
             </div>
 
             </div>
-
+            
            
+        
+                <div class="form-control">
+                    <label class="input-label">&nbsp;</label>
+                    <button type="submit" name="info-user" class="btn-submit" >Cập nhật</button>
+                </div>
+               
+          
 
+        </form>
+        <form action="{{route('user.change_password')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="form-control">
                 <label class="input-label">&nbsp;</label>
-                <button type="submit" name="info-user" class="btn-submit" >Cập nhật</button>
+                <label for="id123" class="Checkbox__StyledCheckbox-sc-75m08j-0 gkoeQY">
+                    <input id="id123" name="change_passs" type="checkbox">
+                    <span class="checkbox-fake"></span>
+                    <span class="label">Thay đổi mật khẩu</span>
+                </label>
             </div>
-
-       </form>
+            <div id="1234qw"></div>
+        </form>
+      
 
    </div>
 

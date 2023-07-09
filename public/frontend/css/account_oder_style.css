@@ -2191,6 +2191,7 @@ ul.Account__StyledNav a svg,ul.Account__StyledNav a .icon {
     vertical-align: middle;
     text-align: justify;
     font-weight: 500;
+    color: #000;
 }
 
 .gkoeQY input[type="checkbox"]:checked + .checkbox-fake {
@@ -2666,4 +2667,9 @@ ul.Account__StyledNav a svg,ul.Account__StyledNav a .icon {
 }
 .inner-scroll {
     overflow-x: scroll;
+}
+.doimk{
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
 }

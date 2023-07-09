@@ -45,6 +45,8 @@ Route::group(['prefix' => '/'],function(){
     Route::get('user/order-management',[UserController::class,'orderManagement'])->name("user.order_management");
     Route::get('user/account-management',[UserController::class,'accountManagement'])->name("user.account_management");
     Route::post('user/account-management',[UserController::class,'editUser'])->name("user.edit_account");
+    Route::post('user/account-password',[UserController::class,'changePassword'])->name("user.change_password");
+
 
 });
 

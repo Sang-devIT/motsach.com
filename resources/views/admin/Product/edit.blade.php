@@ -96,6 +96,18 @@ Product
                         <option value="1" {{ old('status')==1 || $contact[0]->status==1 ? 'selected' : false }}>Kích hoạt</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label>Thư viện ảnh</label>
+                    <input type="file" name="gallery[]" id="gallery" class="form-control" multiple>
+                    <div class="d-flex justify-content-start mt-1 flex-wrap">
+                        @foreach($gallery as $item)
+                        <div class="image-gallery1">
+                            <img src="{{ asset('assets/images/upload/product/'.$item->thumbnail) }}" style="cursor: zoom-in;" >
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
                 <div class="form-group">
                     <input type="submit" value="Cập nhật" class="btn btn-success">
                 </div>

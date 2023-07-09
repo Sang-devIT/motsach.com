@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use PharIo\Manifest\Author;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -83,7 +84,40 @@ class UserController extends Controller
         Session::forget('customers');
         $newUser = DB::table('table_users')->where('remember_token',$request->_token)->get();
         Session::put('customers',$newUser[0]);
-      
-        return redirect()->route('user.account_management')->with('flash_message','Cập nhật thành công !!!');
+        toastr()->success('Cập nhật thông tin thành công',['timeOut' => 2000]);
+        return redirect()->route('user.account_management');
+    }
+
+    public function password(){
+        return view('layouts.user.password');
+    }
+    public function changePassword(Request $request){
+
+        $this->validate($request,[
+            
+            'password'=> 'required|min:8'
+        ]);
+       $old_pass = $request->old_password;
+       $new_pass = $request->new_password;
+       $new_pass_confirm = $request->new_password_confirm;
+       
+       $database_pass = Auth::user()->password;
+       if(Hash::check($old_pass,$database_pass)){
+            if($new_pass==$new_pass_confirm){
+                $request->user()->fill([
+                    'password'=> Hash::make($new_pass)
+                ])->save();
+                toastr()->success('Cập nhật mật khẩu thành công',['timeOut' => 2000]);
+                return back();
+            }else{
+                toastr()->error('Mật khẩu không trùng khớp',['timeOut' => 2000]);
+                return back();
+            }
+            
+        }else{
+            toastr()->error('Mật khẩu cũ không đúng',['timeOut' => 2000]);
+            return back();
+        }
+
     }
 }
