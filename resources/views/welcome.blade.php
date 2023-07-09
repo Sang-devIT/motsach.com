@@ -146,30 +146,42 @@
 	<section class="tg-bglight tg-haslayout">
 		<div class="container">
 			<div class="row">
+				
 				<div class="tg-featureditm">
 					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
-						<figure><img src="{{asset('frontend/images/img-02.png')}}" alt="image description"></figure>
+						<figure><img src="{{ asset('assets/images/upload/product/'.$productnew->photo) }}" alt="image description" width="570px"></figure>
+						<?php if($item->stock == 0){?>
+							<span class="hethang"><img src="{{asset('frontend/images/hethang.png')}}" alt=""></span>
+						<?php }?>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 						<div class="tg-featureditmcontent">
 							<div class="tg-themetagbox d-xl-none"><span class="tg-themetag">featured</span></div>
 							<div class="tg-booktitle">
-								<h3><a href="javascript:void(0);">Những Điều Cần Biết Về Thiết Kế Phẳng Xanh</a></h3>
+								<h3><a href="{{route('product.detail',$productnew->slug) }}">{{ $productnew->name }}</a></h3>
 							</div>
-							<span class="tg-bookwriter">Tác giả : <a href="javascript:void(0);">Thích Nhất Hạnh</a></span>
+							<span class="tg-bookwriter">Tác giả : <a href="javascript:void(0);">{{$productnew->nameAuthor}}</a></span>
 							<div class="tg-priceandbtn">
 								<span class="tg-bookprice">
-									<ins>59.180vnđ</ins>
+									<ins>{{ number_format($productnew->regular_price,0,',',',') }} VNĐ</ins>
 									<del class="d-xl-none">$30.20</del>
 								</span>
-								<a class="tg-btn tg-btnstyletwo tg-active" href="javascript:void(0);">
-									<i class="fa fa-shopping-basket"></i>
-									<em>Thêm vào giỏ hàng</em>
-								</a>
+								<?php if($productnew->stock == 0 || ktraSLT($productnew->stock,$productnew->id) == $productnew->stock){?>
+									<a class="tg-btn tg-btnstyletwo" style="opacity: .5;">
+										<i class="fa fa-shopping-basket"></i>
+										<em>Thêm vào giỏ hàng </em>
+									</a>
+								<?php }else{?>
+									<a class="tg-btn tg-btnstyletwo" href="{{ route('order.addtocart1', $productnew->id) }}">
+										<i class="fa fa-shopping-basket"></i>
+										<em>Thêm vào giỏ hàng </em>
+									</a>
+								<?php }?>
 							</div>
 						</div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</section>
@@ -208,7 +220,7 @@
 												<div class="tg-backcover"><img src="{{ asset('assets/images/upload/product/'.$item->photo) }}" alt="image description"></div>
 												
 											</div>
-											<a class="tg-btnaddtowishlist" href="{{ route('order.addtocart1', $item->id) }}">
+											<a class="tg-btnaddtowishlist d-none" href="{{ route('order.addtocart1', $item->id) }}">
 												<i class="icon-heart"></i>
 												<span>Thêm vào giỏ hàng</span>
 											</a>
@@ -219,7 +231,18 @@
 											<h3><a href="{{route('product.detail',$item->slug) }}">{{ $item->name }}</a></h3>
 											</div>
 											<span class="tg-bookwriter">Tác giả: <a href="javascript:void(0);">{{$item->nameAuthor}}</a></span>
-										
+
+											<?php if($item->stock == 0 || ktraSLT($item->stock,$item->id) == $item->stock){?>
+												<a class="tg-btn tg-btnstyletwo" style="opacity: .5;">
+													<i class="fa fa-shopping-basket"></i>
+													<em>Thêm vào giỏ hàng </em>
+												</a>
+											<?php }else{?>
+												<a class="tg-btn tg-btnstyletwo" href="{{ route('order.addtocart1', $item->id) }}">
+													<i class="fa fa-shopping-basket"></i>
+													<em>Thêm vào giỏ hàng </em>
+												</a>
+											<?php }?>
 										</div>
 									</div>
 								</div>
@@ -290,7 +313,7 @@
 	<!--************************************
 			Picked By Author Start
 	*************************************-->
-	<section class="tg-sectionspace tg-haslayout">
+	{{-- <section class="tg-sectionspace tg-haslayout">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -443,7 +466,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!--************************************
 			Picked By Author End
 	*************************************-->
@@ -515,7 +538,7 @@ Có thể tăng cân, nhưng nó sẽ xảy ra vào thời điểm mà tôi sẽ
 	<!--************************************
 			Latest News Start
 	*************************************-->
-	<section class="tg-sectionspace tg-haslayout">
+	{{-- <section class="tg-sectionspace tg-haslayout">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -636,7 +659,7 @@ Có thể tăng cân, nhưng nó sẽ xảy ra vào thời điểm mà tôi sẽ
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!--************************************
 			Latest News End
 	*************************************-->

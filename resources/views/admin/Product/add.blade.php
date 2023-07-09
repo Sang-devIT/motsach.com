@@ -75,6 +75,23 @@ Product
                         <option value="1" {{ old('status')==1 ? 'selected' : false }}>Kích hoạt</option>
                     </select>
                 </div>
+                {{-- <div class="mb-3 upload">
+                    <div class="upload__box">
+                        <div class="upload__btn-box">
+                            <label class="upload__btn">
+                            <p>Thư viện ảnh</p>
+                            {!! Form::file('gallery[]', ['class' => ['card__file2', 'form-control','bg-dark', 'mt-2', 'upload__inputfile'], 'multiple', "data-max_length=20"]) !!}
+                            </label>
+                        </div>
+                        <div class="upload__img-wrap"></div>
+                    </div>
+                </div> --}}
+                <div class="form-group">
+                    <label>Thư viện ảnh</label>
+                    {{-- <input type="file" name="gallerys[]" class="form-control input-file" placeholder="Chọn file"  multiple> --}}
+                    {!! Form::file('gallery[]', ['class' => ['card__file2', 'form-control','input-file'], 'multiple', "data-max_length=20", 'placeholder' => "Chọn file" ]) !!}
+                   
+                </div>
                 <div class="form-group">
                     <input type="submit" value="Lưu" class="btn btn-success">
                 </div>

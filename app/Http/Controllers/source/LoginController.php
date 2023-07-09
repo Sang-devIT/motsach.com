@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -51,6 +52,7 @@ class LoginController extends Controller
                 Session::put('customers',$item);
                 Session::put('carts',[]);
             }
+            toastr()->success('Đăng nhập thành công',['timeOut' => 2000]);
             // return Session::get('customers');
             return redirect()->route('index');
         }
@@ -60,6 +62,7 @@ class LoginController extends Controller
     {
         Auth::guard('user')->logout();
         $request->session()->forget('customers');
+        toastr()->success('Đăng xuất thành công',['timeOut' => 2000]);
         return redirect()->route('index');
     }
     public function registerForm(){
@@ -91,7 +94,7 @@ class LoginController extends Controller
                     'phone' => $request->phone,
                     'status' => 1
             ]);
-       
+        toastr()->success('Đăng ký thành công',['timeOut' => 5000]);
         return redirect()->route('user.login');
     }
 }

@@ -52,7 +52,7 @@
                     <strong class="tg-logo"><a href="{{route('index')}}"><img src="{{ asset('assets/images/upload/banner/'.$item->photo) }}" alt="image description"></a></strong>
                     @endforeach
                     <div class="tg-wishlistandcart">
-                        <div class="dropdown d-xl-none tg-themedropdown tg-wishlistdropdown">
+                        <div class="dropdown d-none tg-themedropdown tg-wishlistdropdown">
                             <a href="javascript:void(0);" id="tg-wishlisst" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="tg-themebadge">3</span>
                                 <i class="icon-heart"></i>
@@ -112,7 +112,7 @@
                     <div class="tg-searchbox">
                         <form class="tg-formtheme tg-formsearch" action="{{route('product.search.pro')}}" method="GET" role="search">
                             <fieldset>
-                                <input type="text" name="search" class="typeahead form-control" placeholder="Tìm kiếm Sách, tác giả, từ khóa,...">
+                                <input type="text" name="search" class="typeahead form-control" placeholder="Tìm kiếm Sách,...">
                                 <button type="submit"><i class="icon-magnifier"></i></button>
                             </fieldset>
                             <!-- <a href="javascript:void(0);">+  Advanced Search</a> -->

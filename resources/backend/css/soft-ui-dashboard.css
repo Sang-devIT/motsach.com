@@ -26694,6 +26694,30 @@ h5.title-1 {
   .paging-index > nav > div:last-child > div:first-child,.paging-index > nav > div:first-child {
     display: none;
 }
+
+.images-gallery img{width: 100%;}
+.images-gallery{
+
+width: calc(100%/3 - 10px);
+
+margin: 0 5px 10px 5px;
+}
+.product-img-slider img{
+    max-width: 265px;
+}
+.product-img-slider{
+  margin-bottom:15px;
+}
+.flex-gallery{
+}
+.image-gallery1{
+  width: calc(100%/6 - 10px);
+  margin: 0 5px 10px 5px;
+
+}
+.image-gallery1 img {
+  width: 100%;
+
 .box-item-import-pro{
   box-shadow: 0 0 5px #ccc;
   margin: 5px;
@@ -26707,4 +26731,5 @@ h5.title-1 {
 .div-select {
   margin-bottom: 10px;
   box-shadow: 0 0 5px #ccc;
+
 }

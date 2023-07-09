@@ -37,8 +37,7 @@ class indexController extends Controller
         ->where('deleted_at','=',null)
         ->join('table_authors','table_products.id_author','=','table_authors.id')
         ->select('table_products.*',DB::raw('table_authors.name as nameAuthor'))->orderBy('id', 'desc')->first();
-    
-    
+      
 
         $category= DB::table('table_categories')->get();
         $slidemax = DB::table('table_banners')->where('type','=','slide')->latest()->paginate(2);

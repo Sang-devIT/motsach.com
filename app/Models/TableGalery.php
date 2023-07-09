@@ -17,7 +17,7 @@ class TableGalery extends Model
     protected $fillable = [
         'product_id',
         'thumbnail',
-        'status',
+         'status',
     ];
 
     public function product()

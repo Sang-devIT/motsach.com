@@ -11,9 +11,17 @@ Product
             <div class="col-xl-3 col-md-8 mx-auto">
                 <div class="product-img-slider sticky-side-div">
                 @foreach ($contact as $item )    
-                <img src="{{ asset('assets/images/upload/product/'.$item->photo) }}" style="cursor: zoom-in;" width="300px" height="300px"></h5><br>
+                <img src="{{ asset('assets/images/upload/product/'.$item->photo) }}" style="cursor: zoom-in;" max-width="250px" max-height="250px"></h5><br>
                 @endforeach
                     <!-- end swiper nav slide -->
+                </div>
+                <div class="flex-gallery d-flex justify-content-star flex-wrap">
+
+                    @foreach ($gallery as $item )    
+                    <div class="images-gallery">
+                        <img src="{{ asset('assets/images/upload/product/'.$item->thumbnail) }}" style="cursor: zoom-in;"  height="90px"></h5><br>
+                    </div>
+                    @endforeach
                 </div>
             </div>
             <!-- end col -->

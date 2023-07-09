@@ -51,10 +51,12 @@ class ProductController extends Controller
     {
         $contact = DB::table('table_products')->where('deleted_at','=',null)->where('slug',$id)->get();
 
-        $category=DB::table('table_categories')->select('name')->where('id',$contact[0]->id_category)->first();
-        $produce=DB::table('table_produces')->select('name')->where('id',$contact[0]->id_produce)->first();
-        $author=DB::table('table_authors')->select('name')->where('id',$contact[0]->id_author)->first();
+        $category=DB::table('table_categories')->select('name','id')->where('id',$contact[0]->id_category)->first();
+        $produce=DB::table('table_produces')->select('name','id')->where('id',$contact[0]->id_produce)->first();
+        $author=DB::table('table_authors')->select('name','id')->where('id',$contact[0]->id_author)->first();
 
+        $gallery=DB::table('table_galeries')->select('thumbnail')->where('product_id',$contact[0]->id)->get();
+        
         $categorydetail= DB::table('table_categories')->get();
         foreach($categorydetail as $item){       
             $item->count= DB::table('table_products')
@@ -76,8 +78,8 @@ class ProductController extends Controller
         }
 
 
-
-        return view('layouts.product.product_detail',compact('id','contact','category','produce','author','categorydetail','authordetail'));
+ 
+        return view('layouts.product.product_detail',compact('id','contact','category','produce','author','categorydetail','authordetail','gallery'));
 
     }
     public function showcategory($id)
