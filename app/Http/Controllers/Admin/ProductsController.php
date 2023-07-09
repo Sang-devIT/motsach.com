@@ -9,9 +9,7 @@ use App\Models\TableProductImportDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use PhpParser\Node\Stmt\Foreach_;
-use Validator;
-use Carbon\Carbon;
+
 
 
 class ProductsController extends Controller
@@ -93,6 +91,7 @@ class ProductsController extends Controller
         $input['code'] = 'SP-'.Str::upper(Str::random(5));
         TableProduct::create($input);
 
+
         $slug1 = Str::slug($request->name,'-');
         $id_pro = DB::table('table_products')->where('deleted_at','=',null)->where('slug',$slug1)->get()->first();
     
@@ -121,7 +120,10 @@ class ProductsController extends Controller
             }
         }
 
-        return redirect()->route('admin.product')->with('flash_message','Thêm thành công !!!');
+
+        toastr()->success('Thêm thành công !!!');
+        return redirect()->route('admin.product');
+
     }
 
     /**
@@ -247,7 +249,8 @@ class ProductsController extends Controller
             $contact->content = $request->content;
             $contact->status = $request->status;
             $contact->update();
-            return redirect()->route('admin.product')->with('flash_message','Cập nhật thành công !!!');
+            toastr()->success('Cập nhật thành công !!!');
+            return redirect()->route('admin.product');
         // }else{
         //     $validator = Validator::make(
         //         $request->all(),
@@ -327,6 +330,6 @@ class ProductsController extends Controller
         }
         
         $contact->delete();
-        return redirect()->route('admin.product')->with('flash_message1', 'Xóa thành công !!!');
+        return redirect()->route('admin.product');
     }
 }

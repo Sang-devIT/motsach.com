@@ -48,7 +48,8 @@ class ProducesController extends Controller
         ]);
         $input = $request->all();
         TableProduce::create($input);
-        return redirect()->route('admin.produce')->with('flash_message', 'Thêm thành công!');
+        toastr()->success('Thêm thành công !!!');
+        return redirect()->route('admin.produce');
     }
 
     /**
@@ -108,8 +109,9 @@ class ProducesController extends Controller
             );
 
             $input = $request->all();
-            $contact->update($input);           
-            return redirect()->route('admin.produce')->with('flash_message', 'Cập nhật thành công !!!');
+            $contact->update($input);    
+            toastr()->success('Cập nhật thành công !!!');       
+            return redirect()->route('admin.produce');
         }
     }
 
@@ -122,6 +124,6 @@ class ProducesController extends Controller
     public function destroy($id)
     {
         $contact = TableProduce::find($id)->delete();
-        return redirect()->route('admin.produce')->with('flash_message1', 'Xóa thành công !!!');
+        return redirect()->route('admin.produce');
     }
 }

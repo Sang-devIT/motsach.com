@@ -51,7 +51,8 @@ class AuthorsController extends Controller
         );
         $input = $request->all();
         TableAuthor::create($input);
-        return redirect()->route('admin.author')->with('flash_message', 'Thêm thành công!');
+        toastr()->success('Thêm thành công !!!');
+        return redirect()->route('admin.author');
     }
 
     /**
@@ -97,7 +98,8 @@ class AuthorsController extends Controller
         if ($contact->name == $request->name) {
             $input = $request->all();
             $contact->update($input);
-            return redirect()->route('admin.author')->with('flash_message', 'Cập nhật thành công !!!');
+            toastr()->success('Cập nhật thành công !!!');
+            return redirect()->route('admin.author');
         } else {
             $validator = Validator::make(
                 $request->all(),
@@ -119,7 +121,8 @@ class AuthorsController extends Controller
             } else {
                 $input = $request->all();
                 $contact->update($input);
-                return redirect()->route('admin.author')->with('flash_message', 'Cập nhật thành công !!!');
+                toastr()->success('Cập nhật thành công !!!');
+                return redirect()->route('admin.author');
             }
         }
     }

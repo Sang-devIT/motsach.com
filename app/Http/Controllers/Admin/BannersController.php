@@ -64,7 +64,8 @@ class BannersController extends Controller
             $input = $request->all();
             $input['photo'] = $getImages;
             TableBanner::create($input);
-        return redirect()->route('admin.banner')->with('flash_message','Thêm thành công !!!');
+            toastr()->success('Thêm thành công !!!');
+        return redirect()->route('admin.banner');
     }
 
     /**
@@ -126,7 +127,8 @@ class BannersController extends Controller
             $input = $request->all();
             $input['photo'] = $getImages;
             $contact->update($input);
-        return redirect()->route('admin.banner')->with('flash_message','Cập nhật thành công !!!');
+            toastr()->success('Cập nhật thành công !!!');
+        return redirect()->route('admin.banner');
     }
 
     /**
