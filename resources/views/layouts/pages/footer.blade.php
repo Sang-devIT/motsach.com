@@ -142,9 +142,9 @@
         <a id="tg-btnbacktotop" class="tg-btnbacktotop" href="javascript:void(0);"><i class="icon-chevron-up"></i></a>
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <span class="tg-paymenttype"><img src="{{asset('frontend/images/paymenticon.png')}}" alt="image description"></span>
-                    <span class="tg-copyright">2017 All Rights Reserved By &copy; Book Library</span>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 justify-content-center d-flex">
+                    {{-- <span class="tg-paymenttype"><img src="{{asset('frontend/images/paymenticon.png')}}" alt="image description"></span> --}}
+                    <span class="tg-copyright">2023 All Rights Reserved By &copy; Book Library</span>
                 </div>
             </div>
         </div>

@@ -26733,3 +26733,7 @@ margin: 0 5px 10px 5px;
   box-shadow: 0 0 5px #ccc;
 
 }
+.title-name {
+    font-size: 15px;
+}
+.title-name span{font-weight: 400;margin-right: 10px;}

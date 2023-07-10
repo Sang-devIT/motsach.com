@@ -125,31 +125,14 @@
 	<!--************************************
 			Featured Item Start
 	*************************************-->
-	{{-- @php 
-	//dd( count($productnew));
-	$a='';
-	foreach ($productnew as $k => $item) {
-		if(max($item->id)){
-			$a=$item;
 
-		}
-		dd($a);
-
-		// $d = DateTime::createFromFormat('d-m-Y H:i:s', $item->created_at);
-		// if ($d === false) {
-		// 	die("Incorrect date string");
-		// } else {
-		// 	echo $d->getTimestamp();
-		// }
-	} --}}
-	{{-- @endphp --}}
 	<section class="tg-bglight tg-haslayout">
 		<div class="container">
 			<div class="row">
-				
+				@if(!empty($productnew))
 				<div class="tg-featureditm">
 					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
-						<figure><img src="{{ asset('assets/images/upload/product/'.$productnew->photo) }}" alt="image description" width="570px"></figure>
+						<img src="{{ asset('assets/images/upload/product/'.$productnew->photo) }}" alt="image description" >
 						<?php if($item->stock == 0){?>
 							<span class="hethang"><img src="{{asset('frontend/images/hethang.png')}}" alt=""></span>
 						<?php }?>
@@ -181,7 +164,7 @@
 						</div>
 					</div>
 				</div>
-				
+				@endif
 			</div>
 		</div>
 	</section>

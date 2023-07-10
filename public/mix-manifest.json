@@ -448,6 +448,7 @@
     "/js/apexcharts.common.js": "/js/apexcharts.common.js",
     "/js/apexcharts.esm.js": "/js/apexcharts.esm.js",
     "/js/apexcharts.js": "/js/apexcharts.js",
+    "/js/apexcharts.min.js": "/js/apexcharts.min.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
     "/js/components/ExampleComponent.vue": "/js/components/ExampleComponent.vue",
     "/js/jquery-3.2.1.min.js": "/js/jquery-3.2.1.min.js",

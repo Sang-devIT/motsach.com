@@ -27,7 +27,7 @@ class indexController extends Controller
         ->where('deleted_at','=',null)
         ->join('table_authors','table_products.id_author','=','table_authors.id')
         ->select('table_products.*',DB::raw('table_authors.name as nameAuthor'))
-        ->latest()->paginate(6);
+        ->latest()->paginate(3);
         
 
 
