@@ -54,7 +54,7 @@ Product
 
                     function setTempProduct(name,id) { 
                         var temp = '<div class="box-item-import-pro"><div class="form-group mb-0">\
-                            <label for="id_product" class="title-name">'+name+'</label>\
+                            <div for="id_product" class="title-name"><span>Tên Sản phẩm:</span>'+name+'</div>\
                             <input type="hidden" value="'+id+'" class="form-control" name="data[id_product][]">\
                         </div>';
                         temp += '<div class="row">\

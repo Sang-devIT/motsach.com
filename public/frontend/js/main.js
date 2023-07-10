@@ -272,13 +272,7 @@ jQuery(document).on('ready', function() {
         autoplay: true,
         autoplaySpeed: 2000,
     });
-	$('.slick-gallery').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-    });
-	
+
 	
 	$('#id123').change(function(event) {
         if($(this).is(':checked')){

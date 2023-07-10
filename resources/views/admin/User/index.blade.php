@@ -40,7 +40,7 @@ User
                                     <td>{{ $item->email }}</td>
                                    
                                     <td>
-                                        <a href="" ><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                        {{-- <a href="" ><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a> --}}
                                         <form method="GET" action="{{ route('admin.user.destroy',$item->id) }}" accept-charset="UTF-8" style="display:inline">
                                             @csrf
                                             @method('DELETE')
