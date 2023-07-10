@@ -24,6 +24,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::post('update/{id}',[Admin\ProductsController::class,'update'])->name('admin.product.update');
                 Route::get('show/{id}',[Admin\ProductsController::class,'show'])->name('admin.product.show');
                 Route::get('destroy/{id}',[Admin\ProductsController::class,'destroy'])->name('admin.product.destroy');
+                Route::get('/search',[Admin\ProductsController::class,'searchProduct'])->name('admin.product.search');
             });
             // Oder
             Route::group(['prefix' => '/order'],function(){
@@ -31,6 +32,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::get('/edit/{id}',[Admin\OrdersController::class,'show'])->name('admin.order.edit');
                 Route::post('/update/{id}',[Admin\OrdersController::class,'update'])->name('admin.order.update');
                 Route::get('destroy/{id}',[Admin\OrdersController::class,'destroy'])->name('admin.order.destroy');
+                Route::get('/search',[Admin\OrdersController::class,'searchOrder'])->name('admin.order.search');
             });
             // Category
             Route::group(['prefix' => '/category'],function(){

@@ -88,8 +88,8 @@ OrderDetail
                         <td><img src={{ asset('assets/images/upload/product/'.$v->photoPro) }} style="cursor: zoom-in;" width="60px"/></td>
                         <td>{{ $v->namePro }}</td>
                         <td>{{ $v->quantity }}</td>
-                        <td>{{ $v->price }}</td>
-                        <td>{{ $v->total_money }}</td>
+                        <td>{{ number_format($v->price,0,",",",") }} VNĐ</td>
+                        <td>{{ number_format($v->total_money,0,",",",") }} VNĐ</td>
                     </tr>
                     @endforeach
                     <tr>

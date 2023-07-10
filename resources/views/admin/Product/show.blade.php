@@ -37,8 +37,6 @@ Product
                                 <div class="vr"></div>
                                 <div class="text-muted">Tác giả: <span class="text-body fw-medium">{{ $author->name }}</span></div>
                                 <div class="vr"></div>
-                                <div class="text-muted">Ngày tạo: <span class="text-body fw-medium">{{$item->created_at}}</span></div>
-                                <div class="vr"></div>
                                 <div class="text-muted">Tồn kho: <span class="text-body fw-medium">{{$item->stock}}</span></div>
                             </div>
                             @endforeach

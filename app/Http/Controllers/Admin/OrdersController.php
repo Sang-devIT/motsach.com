@@ -52,4 +52,16 @@ class OrdersController extends Controller
         $deleteOder = TableOrder::find($id)->delete();
         return redirect()->route('admin.order');
     }
+    public function searchOrder(Request $request)
+    {
+        if($request->search){
+
+            $searchpro = TableOrder::where('order_code','LIKE','%'.$request->search.'%')
+            ->get();
+            return view('admin.order.search',compact('searchpro'));
+        }else{
+            toastr()->warning('không tìm thấy');
+            return redirect()->back();
+        }
+    }
 }

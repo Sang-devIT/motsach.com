@@ -79,7 +79,7 @@
 													
 														<!-- <span class="tg-stars"><span></span></span> -->
 														<span class="tg-bookprice">
-															<ins>{{ $item->regular_price }}</ins>
+															<ins>{{ number_format($item->regular_price,0,',',',') }} VNĐ</ins>
 															<del class="d-xl-none">$27.20</del>
 														</span>
 														<?php if($item->stock == 0 || ktraSLT($item->stock,$item->id) == $item->stock){?>
