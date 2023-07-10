@@ -176,7 +176,7 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         $contact = TableProduct::where('slug',$id)->where('table_products.deleted_at','=',null)->first();
-        // if ($contact->name == $request->name) {
+        
             if($request->file('photo') != null){
                 $this->validate($request, 
                     [
@@ -226,8 +226,6 @@ class ProductsController extends Controller
                             [
                                 'thumbnail' => $galleryName,
                                 'product_id' => $contact->id
-                                // "type" => $request->type_hidden,
-                                // "status" => 'active',
                             ]
                         );
 
@@ -251,66 +249,6 @@ class ProductsController extends Controller
             $contact->update();
             toastr()->success('Cập nhật thành công !!!');
             return redirect()->route('admin.product');
-        // }else{
-        //     $validator = Validator::make(
-        //         $request->all(),
-        //         [
-        //             'name'=>'required',
-        //             'regular_price'=>'required'
-        //         ],
-        //         [
-        //             'name.required'=>'Tên không được trống',
-        //             'regular_price.required'=>'Giá không được trống',
-        //         ]
-        //     );
-        //     if ($validator->fails()) {
-        //         $nameloi=$request->name;
-        //         $loi="tên bị trùng";
-        //         $contact = DB::table('table_products')->where('slug',$id)
-        //         ->join('table_categories','table_products.id_category','=','table_categories.id')
-        //         ->join('table_produces','table_products.id_produce','=','table_produces.id')
-        //         ->join('table_authors','table_products.id_author','=','table_authors.id')
-        //         ->select('table_products.*',DB::raw('table_categories.name as nameCategory,table_produces.name as nameProduce,table_authors.name as nameAuthor,table_categories.id as idCategory,table_produces.id as idProduce,table_authors.id as idAuthor'))
-        //         ->get();
-        //         $category = DB::table('table_categories')->select('id','name')->get();
-        //         $produce = DB::table('table_produces')->select('id','name')->get();
-        //         $author = DB::table('table_authors')->select('id','name')->get();
-        //         return view('admin.product.edit',compact('id','contact','category','produce','author','loi','nameloi'));
-        //     } else {
-        //         if($request->file('photo') != null){
-        //             $this->validate($request, 
-        //                 [
-        //                     'photo' => 'mimes:jpg,jpeg,png,gif|max:2048',
-        //                 ],			
-        //                 [
-        //                     'photo.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
-        //                     'photo.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
-        //                 ]
-        //             );
-        //             $getImages = DB::table('table_products')->select('photo')->where('slug',$id)->get();
-        //             if($getImages[0]->photo != '' && file_exists(public_path('assets/images/upload/product/'.$getImages[0]->photo)))
-        //             {  
-        //                 unlink(public_path('assets/images/upload/product/'.$getImages[0]->photo));
-        //             }
-        //             $anh = $request->file('photo');
-        //             $getImages = time().'-'.$anh->getClientOriginalName();
-        //             $destinationPath = public_path('assets/images/upload/product');
-        //             $anh->move($destinationPath, $getImages);
-        //             $contact->photo = $getImages;
-        //         }
-        //         $contact->name = $request->name;
-        //         $contact->id_category = $request->id_category;
-        //         $contact->id_produce = $request->id_produce;
-        //         $contact->id_author = $request->id_author;
-        //         $contact->regular_price = $request->regular_price;
-        //         $contact->desc = $request->desc;
-        //         $contact->content = $request->content;
-        //         $contact->status = $request->status;
-        //         $contact['slug'] = Str::slug($request->name,'-');
-        //         $contact->update();
-        //         return redirect()->route('admin.product')->with('flash_message','Cập nhật thành công !!!');
-        //         }
-        // }
     }
 
     /**
@@ -331,5 +269,17 @@ class ProductsController extends Controller
         
         $contact->delete();
         return redirect()->route('admin.product');
+    }
+    public function searchProduct(Request $request)
+    {
+        if($request->search){
+
+            $searchpro = TableProduct::where('name','LIKE','%'.$request->search.'%')
+            ->get();
+            return view('admin.product.search',compact('searchpro'));
+        }else{
+            toastr()->warning('không tìm thấy');
+            return redirect()->back();
+        }
     }
 }

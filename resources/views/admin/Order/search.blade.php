@@ -11,7 +11,7 @@ Order
             <div class="close-flash_message" style="color: green;font-size: 14px;">{{ session('flash_message') }}</div>
         @endif
         <form class="d-flex timkiem" method="GET" action="{{ route('admin.order.search') }}">
-            <input class="form-control me-2" name="search" type="text" placeholder="Tìm kiếm đơn hàng">
+            <input class="form-control me-2" name="keyWord" type="text" placeholder="Tìm kiếm đơn hàng">
             <button class="btn btn-info" type="submit">Tìm kiếm</button>
         </form>
     </div>
@@ -31,12 +31,12 @@ Order
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($order as $key => $item)
+                    @foreach($searchpro as $key => $item)
                             <tr>
                                 <td>{{ ($key+1) }}</td>
                                 <td>{{ $item->order_code }}</td>
                                 <td>{{ $item->fullname }}</td>
-                                <td>{{\Carbon\Carbon::parse($item->order_date)->format('d-m-Y') }}</td>
+                                <td>{{ $item->order_date }}</td>
                                 <td>
                                     @switch($item->order_payment)
                                         @case(1)
@@ -65,7 +65,7 @@ Order
                                     @endswitch
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.order.edit',$item->id) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa</button></a>
+                                    <a href="{{route('admin.order.edit',$item->id) }}"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                     {{-- <form method="GET" action="{{ route('admin.order.destroy',$item->id) }}" accept-charset="UTF-8" style="display:inline">
                                         @csrf
                                         @method('DELETE')

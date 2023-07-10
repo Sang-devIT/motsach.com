@@ -37,7 +37,7 @@ Product
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($pro as $key => $item)
+                        @foreach($searchpro as $key => $item)
                                 <tr>
                                     <td>{{ ($key+1) }}</td>
                                     <td>
@@ -67,9 +67,7 @@ Product
                             @endforeach
                     </tbody>
                 </table>
-                <div class="paging-index">
-                    {{ $pro->links() }}
-                </div>
+                
             </div>
         </div>
     </div>

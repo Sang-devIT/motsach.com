@@ -36,10 +36,10 @@ ProductImport
                                 <tr>
                                     <td>{{ ($key+1) }}</td>
                                     <td>{{ $item->import_code }}</td>
-                                    <td>{{ $item->import_date }}</td>
-                                    <td>{{ ($item->total_money) }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($item->import_date)->format('d-m-Y') }}</td>
+                                    <td>{{ number_format($item->total_money,0,",",",") }} VNĐ</td>
                                     <td>
-                                        <a href="{{route('admin.productimport.show',$item->id) }}" ><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                        <a href="{{route('admin.productimport.show',$item->id) }}" ><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Xem</button></a>
                                         
                                     </td>
                                 </tr>

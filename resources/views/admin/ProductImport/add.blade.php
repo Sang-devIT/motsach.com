@@ -63,7 +63,7 @@ Product
                                 <input type="number" name="data[quantity][]" class="form-control" placeholder="Nhập số lượng" value="{{ old('quantity') }}" required>\
                             </div>\
                             <div class="form-group col-lg-4">\
-                                <label>Giá bán</label>\
+                                <label>Giá nhập</label>\
                                 <div class="input-group">\
                                     <input type="number" class="form-control format-price price text-sm" name="data[price][]" id="price" placeholder="Giá nhập" value="{{ old('price') }}" required>\
                                     <div class="input-group-append">\
@@ -76,7 +76,7 @@ Product
                     }
       $(document).ready(function () {
         $('body').on('click', '.btn-addrow', function(){
-            $('.div-select').addClass('d-xl-none');
+            // $('.div-select').addClass('d-xl-none');
             var $a = $('.select-muti').val();
             var h = '';
             $('.select-muti option:selected').each( function (i, v) { 
