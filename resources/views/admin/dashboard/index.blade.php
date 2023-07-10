@@ -134,14 +134,14 @@ Dashboard
     $("document").ready(function() {
       var options = {
           series: [{
-          name: 'Doanh thu',
-          data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+          name: 'Xuất',
+          data: [44, 55, 57, 56, 61, 58, 63, 60, 66,44, 55, 57, 56, 61, 58, 63, 60, 66,44, 55, 57, 56, 61, 58, 63, 60, 66,44, 55, 57,100]
         }, {
           name: 'Lợi nhuận',
-          data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+          data: [76, 85, 101, 98, 87, 105, 91, 114, 94,76, 85, 101, 98, 87, 105, 91, 114, 94,76, 85, 101, 98, 87, 105, 91, 114, 94,76, 85, 101,99]
         }, {
-          name: 'Tổng chi',
-          data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+          name: 'Nhập',
+          data: [35, 41, 36, 26, 45, 48, 52, 53, 41,35, 41, 36, 26, 45, 48, 52, 53, 41,35, 41, 36, 26, 45, 48, 52, 53, 41,35,0, 41, 26]
         }],
           chart: {
           type: 'bar',
@@ -163,7 +163,7 @@ Dashboard
           colors: ['transparent']
         },
         xaxis: {
-          categories: ['Jan','Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov','Dec'],
+          categories: ['Ngày 1','Ngày 2', 'Ngày 3', 'Ngày 4', 'Ngày 5', 'Ngày 6', 'Ngày 7', 'Ngày 8', 'Ngày 9', 'Ngày 10','Ngày 11','Ngày 12','Ngày 13','Ngày 14', 'Ngày 15', 'Ngày 16', 'Ngày 17', 'Ngày 18', 'Ngày 19', 'Ngày 20', 'Ngày 21', 'Ngày 22','Ngày 23','Ngày 24','Ngày 25','Ngày 26','Ngày 27','Ngày 28','Ngày 29','Ngày 30','Ngày 31'],
         },
         yaxis: {
           title: {
@@ -198,9 +198,16 @@ Dashboard
           method: "POST",
           dataType: "JSON",
           data: {toDate:toDate,fromDate:fromDate,_token:_token},
-          success: function (data) {
-            // dd(data);
-            chart.setData(data);
+          success: function (response) {
+            chart.updateOptions({
+              series: [{
+                        data: response.sumOrder
+              },{
+                        data: response.sumTotal
+              },{
+                        data: response.sumImport
+              }],
+            });
           }
         });
       });
