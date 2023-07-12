@@ -33,13 +33,10 @@
                                     <a href="javascript:void(0);">Tác giả</a>
                                     <ul class="sub-menu">
                                         @foreach($authormenu as $k => $v)
-                                            <li><a href="{{route('product.showcategory',$v->id)}}">{{$v->name}}</a></li>
+                                            <li><a href="{{route('product.showauthor',$v->id)}}">{{$v->name}}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
-                           
-                               
-                             
                             </ul>
                         </div>
                     </nav>
