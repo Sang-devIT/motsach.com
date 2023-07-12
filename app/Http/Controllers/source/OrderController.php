@@ -24,7 +24,7 @@ class OrderController extends Controller
     
     public function addToCart(Request $request)
     {
-        
+        dd('a');
         $qty = $request->input('qty');
         $id = $request->input('id');
         $product = TableProduct::find($id); 
@@ -34,7 +34,7 @@ class OrderController extends Controller
                 'name' => $product->name, 
                 'qty' => $qty, 
                 'price' => $product->regular_price, 
-                'options' => ['photo' => $product->photo]
+                'options' => ['photo' => $product->photo,'stock'=>$product->stock]
             ]
         );
     }

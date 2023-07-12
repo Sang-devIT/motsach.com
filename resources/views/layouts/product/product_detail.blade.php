@@ -90,7 +90,7 @@
 												<div class="tg-quantityholder">
 													<span>Số lượng: </span>
 													<!-- <em class="minus">-</em> -->
-													<input type="number" class="result" data-sl="{{ $item->stock }}" min="1" value="1" id="quantity1" data-id="{{ $item->id}}" name="quantity">
+													<input type="number" class="result" data-sl="{{ $item->stock }}" min="1" value="1" id="quantity1" data-id="{{ $item->id}}" name="quantity" max="{{ $item->stock }}">
 													<!-- <em class="plus">+</em> -->
 												</div>
 												<?php if($item->stock == 0 || ktraSLT($item->stock,$item->id) == $item->stock){?>
@@ -202,31 +202,32 @@
   integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
   crossorigin="anonymous"></script>
 <script>
-	$(document).ready(function(){
-		$('.btn-addcart').click(function (e) { 
-			e.preventDefault();
-			let sltk = $('#quantity1').data('sl');
-			let qty = $('#quantity1').val();
-			let id = $('#quantity1').data('id');
-			let _token = $("input[name='_token']").val();
-			if(qty > sltk){
-				alert("Số lượng mua quá lớn so với tồn kho của sản phẩm!!!!");
-				return false;
-			}
-			$.ajax({
-				url:"/cart/add",
-				method:"POST",
-				data:{id:id,qty:qty,_token:_token},
-				success: function(data){
-					window.location.href = '/cart';
-				},
-				error: function(xhr, ajaxOptions, thrownError) {
-					alert(xhr.status);
-					alert(thrownError);
-				}
-				});
-		});
+	// $(document).ready(function(){
+	// 	$('.btn-addcart').click(function (e) { 
+	// 		e.preventDefault();
+	// 		let sltk = $('#quantity1').data('sl');
+	// 		let qty = $('#quantity1').val();
+	// 		let id = $('#quantity1').data('id');
+	// 		let _token = $("input[name='_token']").val();
+	// 		// alert(qty);
+	// 		if(qty > sltk){
+	// 			alert("Số lượng mua quá lớn so với tồn kho của sản phẩm!!!!");
+	// 			return false;
+	// 		}
+	// 		$.ajax({
+	// 			url:"/cart/add",
+	// 			method:"POST",
+	// 			data:{id:id,qty:qty,_token:_token},
+	// 			success: function(data){
+	// 				window.location.href = '/cart';
+	// 			},
+	// 			error: function(xhr, ajaxOptions, thrownError) {
+	// 				alert(xhr.status);
+	// 				alert(thrownError);
+	// 			}
+	// 			});
+	// 	});
 
-	});
+	// });
 			</script>
 @endsection
