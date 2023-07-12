@@ -190,10 +190,10 @@
             <span class="nav-link-text ms-1">Quản lý đơn hàng</span>
           </a>
         </li>
-        <li class="nav-item  d-xl-none  mt-3">
+        <li class="nav-item  d-none  mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
-        <li class="nav-item  d-xl-none ">
+        <li class="nav-item  d-none ">
           <a class="nav-link  " href="../pages/profile.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -214,7 +214,7 @@
             <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
-        <li class="nav-item  d-xl-none ">
+        <li class="nav-item  d-none ">
           <a class="nav-link  " href="../pages/sign-in.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

@@ -76,20 +76,4 @@ Route::group(['middleware' => ['auth:user']],function(){
     Route::post('checkout_store',[OrderController::class, 'checkoutStore'])->name('order.checkout.store');
 });
 
-// public function handle(Request $request, Closure $next)
-// {
-//     if (Auth::check() && Auth::user()->level == 2) {
-//         return redirect('/');
-//     }
-//     return $next($request);
-// }
-
-// // Revoke all tokens...
-// $user->tokens()->delete();
-
-// // Revoke the token that was used to authenticate the current request...
-// $request->user()->currentAccessToken()->delete();
-
-// // Revoke a specific token...
-// $user->tokens()->where('id', $tokenId)->delete();
 
