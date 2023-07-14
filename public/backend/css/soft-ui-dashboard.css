@@ -26717,7 +26717,7 @@ margin: 0 5px 10px 5px;
 }
 .image-gallery1 img {
   width: 100%;
-}
+
 .box-item-import-pro{
   box-shadow: 0 0 5px #ccc;
   margin: 5px;
@@ -26737,15 +26737,3 @@ margin: 0 5px 10px 5px;
     font-size: 15px;
 }
 .title-name span{font-weight: 400;margin-right: 10px;}
-.timkiem{
-    max-width: 500px;
-    justify-content: space-between;
-}
-.timkiem input{
-    height: 50px;
-    width: calc(100% - 102px);
-}
-.timkiem button{
-    height: 50px;
-    padding: 0 13px;
-}
