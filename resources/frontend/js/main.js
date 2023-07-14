@@ -278,11 +278,11 @@ jQuery(document).on('ready', function() {
         if($(this).is(':checked')){
             var $html='<div class="form-control "><label class="input-label">Mật khẩu cũ</label><div><input type="password" required="" id="old_password" name="old_password" placeholder="Nhập mật khẩu cũ" class="Input-sc-17i9bto-0 bYlDgr" value=""></div></div>';
 
-            $html+='<div class="form-control "><label class="input-label">Mật khẩu mới</label><div><input type="password" required="" id="new_password" name="new_password" placeholder="Mật khẩu từ 6 đến 32 ký tự" class="Input-sc-17i9bto-0 bYlDgr" value=""></div></div>';
+            $html+='<div class="form-control "><label class="input-label">Mật khẩu mới</label><div><input type="password" required="" id="new_password" name="new_password" placeholder="Mật khẩu từ 8 ký tự" class="Input-sc-17i9bto-0 bYlDgr" value=""></div></div>';
 
 			$html+='<div class="form-control "><label class="input-label">Nhập lại mật khẩu mới</label><div><input type="password" required="" id="new_password_confirm" name="new_password_confirm" placeholder="Nhập lại mật khẩu mới" class="Input-sc-17i9bto-0 bYlDgr" value=""></div></div>';
 
-            $html+='<div class="form-control"><label class="input-label">&nbsp;</label><button type="submit"  class="btn-submit" >Cập nhật mật khẩu</button></div>';
+            $html+='<div class="form-control"><label class="input-label">&nbsp;</label><button type="submit"  class="btn-submit" >Cập nhật mật khẩu </button></div>';
 
             $('#1234qw').html($html);
         }else{

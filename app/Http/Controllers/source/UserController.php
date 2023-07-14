@@ -92,16 +92,18 @@ class UserController extends Controller
         return view('layouts.user.password');
     }
     public function changePassword(Request $request){
+       
+        // $this->validate($request,[
+        //     'password'=> 'required|min:8'
+        // ]);
 
-        $this->validate($request,[
-            
-            'password'=> 'required|min:8'
-        ]);
+        
        $old_pass = $request->old_password;
        $new_pass = $request->new_password;
        $new_pass_confirm = $request->new_password_confirm;
-       
+   
        $database_pass = Auth::user()->password;
+       
        if(Hash::check($old_pass,$database_pass)){
             if($new_pass==$new_pass_confirm){
                 $request->user()->fill([
