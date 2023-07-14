@@ -24,7 +24,7 @@ class OrderController extends Controller
     
     public function addToCart(Request $request)
     {
-        dd('a');
+        // dd('a');
         $qty = $request->input('qty');
         $id = $request->input('id');
         $product = TableProduct::find($id); 
