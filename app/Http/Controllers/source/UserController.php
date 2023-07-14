@@ -93,9 +93,9 @@ class UserController extends Controller
     }
     public function changePassword(Request $request){
        
-        // $this->validate($request,[
-        //     'password'=> 'required|min:8'
-        // ]);
+        $this->validate($request,[
+            'new_password'=> 'required|min:8'
+        ]);
 
         
        $old_pass = $request->old_password;
