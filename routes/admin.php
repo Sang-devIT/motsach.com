@@ -15,6 +15,7 @@ Route::group(['prefix' => '/'],function(){
             // }) ->name('admin.dashboard');
             Route::get('/',[Admin\IndexsController::class,'index'])->name('admin.dashboard');
             Route::post('/statistics-by-date',[Admin\IndexsController::class,'statisticsByDate'])->name('admin.statistics');
+            Route::post('/statistics-by-month',[Admin\IndexsController::class,'statisticsByMonth'])->name('admin.statistics');
             // Product
             Route::group(['prefix' => '/product'],function(){
                 Route::get('/',[Admin\ProductsController::class,'index'])->name('admin.product');
@@ -33,6 +34,7 @@ Route::group(['prefix' => '/'],function(){
                 Route::post('/update/{id}',[Admin\OrdersController::class,'update'])->name('admin.order.update');
                 Route::get('destroy/{id}',[Admin\OrdersController::class,'destroy'])->name('admin.order.destroy');
                 Route::get('/search',[Admin\OrdersController::class,'searchOrder'])->name('admin.order.search');
+                Route::get('/filter',[Admin\OrdersController::class,'filterOder'])->name('admin.order.filter');
             });
             // Category
             Route::group(['prefix' => '/category'],function(){

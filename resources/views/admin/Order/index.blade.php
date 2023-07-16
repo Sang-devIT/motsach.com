@@ -10,10 +10,14 @@ Order
         @if(session('flash_message'))
             <div class="close-flash_message" style="color: green;font-size: 14px;">{{ session('flash_message') }}</div>
         @endif
-        <form class="d-flex timkiem" method="GET" action="{{ route('admin.order.search') }}">
-            <input class="form-control me-2" name="search" type="text" placeholder="Tìm kiếm đơn hàng">
-            <button class="btn btn-info" type="submit">Tìm kiếm</button>
-        </form>
+        <div class="row">
+            <div class="col-lg-6">
+                <form class="d-flex timkiem" method="GET" action="{{ route('admin.order.search') }}">
+                    <input class="form-control me-2" name="search" type="text" placeholder="Tìm kiếm đơn hàng">
+                    <button class="btn btn-info" type="submit">Tìm kiếm</button>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         
