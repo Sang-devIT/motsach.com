@@ -111,7 +111,9 @@ Dashboard
                     <p class="mb-0">Lọc theo:
                       <select name="" id="" class="dashboard-filter form-control">
                         <option>--- Chọn theo ---</option>
-                        <option value="thang">Theo Tháng</option>
+                        <option value="thangtruoc">Tháng trước</option>
+                        <option value="tuan">Theo tuần</option>
+                        <option value="thang">Tháng này</option>
                         <option value="nam">Theo Năm</option>
                       </select>
                     </p>
@@ -248,14 +250,38 @@ Dashboard
           success: function (response) {
             chart.updateOptions({
               xaxis: {
-              categories: response.dateChon
+                categories: response.dateChon
               },
               series: [{
                         data: response.sumOrder
               },{
                         data: response.sumTotal
               },{
-                        data: response.sumImport
+                data: response.sumImport
+              }],
+            });
+          }
+        });
+      });
+      $('.dashboard-filter').change(function () { 
+        var filter = $(this).val();
+        var _token = $("input[name='_token']").val();
+        $.ajax({
+          url: "/admin/statistics-by-month",
+          method: "POST",
+          dataType: "JSON",
+          data: {filter:filter,_token:_token},
+          success: function (response) {
+            chart.updateOptions({
+              xaxis: {
+                categories: response.dateChon
+              },
+              series: [{
+                        data: response.sumOrder
+              },{
+                        data: response.sumTotal
+              },{
+                data: response.sumImport
               }],
             });
           }

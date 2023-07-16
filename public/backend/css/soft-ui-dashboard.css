@@ -26741,10 +26741,11 @@ margin: 0 5px 10px 5px;
     max-width: 500px;
     justify-content: space-between;
 }
-.timkiem input{
+.timkiem input,.timkiem select{
     height: 50px;
     width: calc(100% - 102px);
 }
+.timkiem-1 button{width: 90px;}
 .timkiem button{
     height: 50px;
     padding: 0 13px;

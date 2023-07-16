@@ -151,4 +151,99 @@ class IndexsController extends Controller
         ];
         echo $data = json_encode($chart_data);
     }
+    public function statisticsByMonth(Request $request){
+        $data = $request->all();
+        $today =  Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $lastWeek = Carbon::now('Asia/Ho_Chi_Minh')->subWeek()->toDateString();
+        $starMonth = Carbon::now('Asia/Ho_Chi_Minh')->startOfMonth()->toDateString();
+        $endMonth = Carbon::now('Asia/Ho_Chi_Minh')->endOfMonth()->toDateString();
+        $starMonth1 = Carbon::now('Asia/Ho_Chi_Minh')->subMonth()->startOfMonth()->toDateString();
+        $endMonth2 = Carbon::now('Asia/Ho_Chi_Minh')->subMonth()->endOfMonth()->toDateString();
+        $starYear = Carbon::now('Asia/Ho_Chi_Minh')->startOfYear()->toDateString();
+        $endYear = Carbon::now('Asia/Ho_Chi_Minh')->endOfYear()->toDateString();
+        if($data['filter']=='thang'){
+            //lay thoi gian tu ngay bat dau va ngay ket thuc
+            $period = CarbonPeriod::create($starMonth, $endMonth);
+            $dates = [];
+            foreach ($period as $date) {
+                $dates[] = $date->toDateString();
+            }
+        }elseif($data['filter']=='thangtruoc'){
+            //lay thoi gian tu ngay bat dau va ngay ket thuc
+            $period = CarbonPeriod::create($starMonth1, $endMonth2);
+            $dates = [];
+            foreach ($period as $date) {
+                $dates[] = $date->toDateString();
+            }
+        }elseif($data['filter']=='tuan'){
+            //lay thoi gian tu ngay bat dau va ngay ket thuc
+            $period = CarbonPeriod::create($lastWeek, $today);
+            $dates = [];
+            foreach ($period as $date) {
+                $dates[] = $date->toDateString();
+            }
+        }else{
+            //lay thoi gian tu ngay bat dau va ngay ket thuc
+            $period = CarbonPeriod::create($starYear, $endYear);
+            $dates = [];
+            foreach ($period as $date) {
+                $dates[] = $date->toDateString();
+            }
+        };
+        // Lấy danh sách ngày có dữ liệu từ cơ sở dữ liệu
+        $ngayCoDuLieuXuat = DB::table('table_product_imports')
+            ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as ngay_thang_nam'))
+            ->addSelect(DB::raw('SUM(total_money) as total'))
+            ->whereIn(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d")'), $dates)
+            ->groupBy('ngay_thang_nam')
+            ->pluck('total', 'ngay_thang_nam')
+            ->toArray();
+        $ngayCoDuLieuNhap = DB::table('table_orders')
+            ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as ngay_thang_nam'))
+            ->addSelect(DB::raw('SUM(total_money) as total'))
+            ->whereIn(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d")'), $dates)
+            ->groupBy('ngay_thang_nam')
+            ->pluck('total', 'ngay_thang_nam')
+            ->toArray();
+
+        // dd($ngayCoDuLieuNhap);
+        // Tạo mảng dữ liệu với giá trị 0 cho các ngày không có dữ liệu
+        $mangDuLieu = array_fill_keys($dates, 0);
+        $mangDuLieu1 = array_fill_keys($dates, 0);
+        // Gán giá trị dữ liệu cho các ngày có dữ liệu
+        foreach ($ngayCoDuLieuXuat as $ngay => $giaTri) {
+            $mangDuLieu[$ngay] = $giaTri;
+        }
+        foreach ($ngayCoDuLieuNhap as $ngay => $giaTri) {
+            $mangDuLieu1[$ngay] = $giaTri;
+        }
+        $sumOrder = array();
+        $sumImport = array();
+        $sumTotal = array();
+        $dateChon = array();
+        foreach ($mangDuLieu as $k => $v) {
+            $dateChon[] = $k;
+        }
+        foreach ($mangDuLieu as $k => $v) {
+            $sumOrder[] = $v;
+        }
+        foreach ($mangDuLieu1 as $k => $v) {
+            $sumImport[] = $v;
+        }
+        foreach ($mangDuLieu as $k1 => $v1) {
+            foreach ($mangDuLieu1 as $k => $v) {
+                if ($k == $k1) {
+                    $sumTotal[] = $v-$v1;
+                }
+            }
+        }
+        $chart_data = [
+            'sumOrder' => $sumOrder,
+            'sumImport' => $sumImport,
+            'sumTotal' => $sumTotal,
+            'dateChon' => $dateChon,
+        ];
+        echo $data = json_encode($chart_data);
+        // dd($lastWeek);
+    }
 }

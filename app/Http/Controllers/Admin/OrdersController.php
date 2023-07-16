@@ -56,12 +56,15 @@ class OrdersController extends Controller
     {
         if($request->search){
 
-            $searchpro = TableOrder::where('order_code','LIKE','%'.$request->search.'%')
+            $order = TableOrder::where('order_code','LIKE','%'.$request->search.'%')
             ->get();
-            return view('admin.order.search',compact('searchpro'));
+            return view('admin.Order.index',compact('order'));
         }else{
             toastr()->warning('không tìm thấy');
             return redirect()->back();
         }
+    }
+    public function filterOder(Request $request){
+        return $request;
     }
 }
